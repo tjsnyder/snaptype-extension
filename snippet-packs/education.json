@@ -1,0 +1,87 @@
+[
+  {
+    "shortcut": "/goodwork",
+    "content": "Great work on {assignment}, {name}! Your effort really shows, especially in the way you developed your main points. Keep building on this momentum — you're making excellent progress in {course}.",
+    "folder": "Education - Student Feedback"
+  },
+  {
+    "shortcut": "/improve",
+    "content": "Thank you for submitting {assignment}, {name}. I can see you put thought into this, and there are some solid ideas here. To strengthen your next submission, I'd recommend focusing on the following areas:\n\n1. \n2. \n3. \n\nPlease don't hesitate to visit during office hours if you'd like to talk through any of these points. I'm confident you can make strong improvements.",
+    "folder": "Education - Student Feedback"
+  },
+  {
+    "shortcut": "/participation",
+    "content": "Hi {name}, I wanted to share some feedback on your participation in {course}. Your engagement in class discussions has a real impact on the learning environment. I'd love to see you continue contributing your perspective — your insights add value to our conversations. Keep it up!",
+    "folder": "Education - Student Feedback"
+  },
+  {
+    "shortcut": "/progress",
+    "content": "Dear {name},\n\nHere is a brief update on your progress in {course} as of {date}.\n\nCurrent Grade: {grade}\nAssignments Completed: \nAreas of Strength: \nAreas for Growth: \n\nOverall, you are making steady progress. Please reach out if you have questions or would like to discuss strategies for continued improvement.\n\nBest regards",
+    "folder": "Education - Student Feedback"
+  },
+  {
+    "shortcut": "/gradeupdate",
+    "content": "Dear {name},\n\nI hope this message finds you well. I wanted to provide a quick update on your child's performance in {course}.\n\nCurrent Grade: {grade}\nRecent Assessment: {assignment}\n\nYour child has been putting in consistent effort and I want to make sure you're kept in the loop. Please feel free to reach out if you have any questions or would like to discuss this further.\n\nWarm regards",
+    "folder": "Education - Parent Communication"
+  },
+  {
+    "shortcut": "/behavior",
+    "content": "Dear {name},\n\nI'm reaching out regarding your child's behavior in {course}. I believe in addressing things early so we can work together to support your child's success.\n\nHere is what I've observed:\n\n\nI'd appreciate the opportunity to discuss this with you so we can develop a plan together. Please let me know a time that works for a brief conversation.\n\nThank you for your partnership in your child's education.\n\nBest regards",
+    "folder": "Education - Parent Communication"
+  },
+  {
+    "shortcut": "/conference",
+    "content": "Dear {name},\n\nI'd like to invite you to a parent-teacher conference to discuss your child's progress in {course}. These conversations are a valuable opportunity for us to connect and ensure your child is getting the support they need.\n\nProposed Date: {date}\nLocation: \nDuration: Approximately 20 minutes\n\nPlease let me know if this time works, or suggest an alternative that fits your schedule. I look forward to speaking with you.\n\nWarm regards",
+    "folder": "Education - Parent Communication"
+  },
+  {
+    "shortcut": "/absence",
+    "content": "Dear {name},\n\nI noticed your child was absent from {course} on {date}. I hope everything is alright. Please be aware that the following material was covered during the absence:\n\n\nAny missed assignments should be completed by: \n\nPlease don't hesitate to reach out if your child needs extra time or support catching up. We want to make sure they stay on track.\n\nBest regards",
+    "folder": "Education - Parent Communication"
+  },
+  {
+    "shortcut": "/instructions",
+    "content": "Assignment: {assignment}\nCourse: {course}\nDue Date: {date}\n\nObjective:\n\n\nInstructions:\n1. \n2. \n3. \n\nSubmission Format: \nGrading Criteria: Please refer to the rubric provided below.\n\nIf you have any questions, please ask before the due date. I'm happy to help clarify expectations.",
+    "folder": "Education - Classroom"
+  },
+  {
+    "shortcut": "/rubric",
+    "content": "Grading Rubric for {assignment}\n\nExcellent (A): Demonstrates thorough understanding, original thinking, and clear communication. All requirements are met or exceeded.\n\nProficient (B): Shows solid understanding with minor gaps. Requirements are met with competent execution.\n\nDeveloping (C): Demonstrates basic understanding but lacks depth or clarity in key areas. Some requirements may be partially met.\n\nBeginning (D/F): Shows limited understanding of the material. Significant requirements are missing or incomplete.\n\nPlease review this rubric before submitting your work. It's designed to help you understand exactly what's expected.",
+    "folder": "Education - Classroom"
+  },
+  {
+    "shortcut": "/latework",
+    "content": "Hi {name}, just a reminder about our late work policy for {course}. Assignments submitted after the due date will receive a deduction of one letter grade per day, up to three days late. After three days, late submissions will not be accepted without prior approval.\n\nIf you're facing circumstances that may affect your ability to submit on time, please reach out to me as soon as possible. I'd rather work with you on a plan than have you miss credit entirely.",
+    "folder": "Education - Classroom"
+  },
+  {
+    "shortcut": "/recletter",
+    "content": "To Whom It May Concern,\n\nI am pleased to write this letter of recommendation for {name}, who I have had the privilege of teaching in {course}. During our time together, {name} consistently demonstrated intellectual curiosity, a strong work ethic, and a genuine commitment to learning.\n\n",
+    "folder": "Education - Administration"
+  },
+  {
+    "shortcut": "/probation",
+    "content": "Dear {name},\n\nThis letter is to inform you that, as of {date}, you have been placed on academic probation. Your current cumulative GPA of {grade} falls below the minimum required for good academic standing.\n\nThis is not intended as a punishment but as an opportunity to refocus and get the support you need. The following resources are available to you:\n\n- Academic advising appointments\n- Tutoring center services\n- Study skills workshops\n\nPlease schedule a meeting with your academic advisor within the next two weeks to develop an improvement plan. We are here to help you succeed.\n\nSincerely",
+    "folder": "Education - Administration"
+  },
+  {
+    "shortcut": "/enrolled",
+    "content": "Dear {name},\n\nThis message confirms your enrollment in the following course:\n\nCourse: {course}\nStart Date: {date}\nInstructor: \nLocation: \n\nPlease make sure to review the syllabus and complete any pre-course requirements before the first session. If you have any questions about the course or need to make changes to your registration, please contact the registrar's office.\n\nWe look forward to seeing you in class!\n\nBest regards",
+    "folder": "Education - Administration"
+  },
+  {
+    "shortcut": "/coursedesc",
+    "content": "Course: {course}\n\nDescription:\n\n\nLearning Outcomes:\nBy the end of this course, students will be able to:\n1. \n2. \n3. \n\nPrerequisites: \nFormat: \nAssessment: \n\nThis course is designed to provide students with both foundational knowledge and practical skills they can apply beyond the classroom.",
+    "folder": "Education - Administration"
+  },
+  {
+    "shortcut": "/register",
+    "content": "Hi {name},\n\nThis is a friendly reminder that course registration for the upcoming semester opens on {date}. To ensure you get the classes you need, please take the following steps before registration opens:\n\n1. Review your degree audit for remaining requirements\n2. Explore the course catalog for available sections\n3. Prepare a list of preferred courses and backups\n4. Resolve any holds on your account\n\nIf you'd like to discuss your course selections, I'm available for an advising appointment. Don't wait until the last minute — popular courses fill up quickly!\n\nBest regards",
+    "folder": "Education - Advising"
+  },
+  {
+    "shortcut": "/degreecheck",
+    "content": "Hi {name},\n\nI've reviewed your current degree progress and wanted to share an update as of {date}.\n\nCredits Completed: \nCredits Remaining: \nExpected Graduation: \n\nOutstanding Requirements:\n- \n- \n- \n\nYou're making good progress toward your degree. Let's schedule a time to meet and map out your remaining semesters to make sure you stay on track. Please bring any questions you have about course options or scheduling.\n\nBest regards",
+    "folder": "Education - Advising"
+  }
+]
