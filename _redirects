@@ -1,0 +1,3 @@
+# Netlify redirects
+/chrome   https://chrome.google.com/webstore/detail/snaptype  301
+/blog     /blog/text-expander-chrome-2026.html                200

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SnapType — Type Less, Do More | Text Expander for Chrome</title>
+  <meta name="description" content="Save text snippets and expand them instantly with shortcuts. The fastest text expander for Chrome. Free to start.">
+  <meta name="keywords" content="text expander, chrome extension, snippets, productivity, typing shortcuts, canned responses">
+  <meta property="og:title" content="SnapType — Type Less, Do More">
+  <meta property="og:description" content="Save text snippets and expand them instantly. The fastest text expander for Chrome.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --purple: #6366f1;
+      --purple-dark: #4f46e5;
+      --purple-light: #eef2ff;
+      --dark: #1e1b4b;
+      --gray: #6b7280;
+      --light: #f9fafb;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    nav {
+      padding: 16px 0;
+      border-bottom: 1px solid #f3f4f6;
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+    nav .container { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-size: 20px; font-weight: 800; color: var(--dark); text-decoration: none; }
+    .nav-logo span { color: var(--purple); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--gray); }
+    .nav-links a:hover { color: var(--dark); }
+    .nav-cta {
+      background: var(--purple); color: white !important; padding: 8px 20px;
+      border-radius: 8px; font-weight: 600 !important; transition: background 0.15s;
+    }
+    .nav-cta:hover { background: var(--purple-dark); color: white !important; }
+
+    /* Hero */
+    .hero {
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--purple-light);
+      color: var(--purple);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 52px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 16px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero h1 span { color: var(--purple); }
+    .hero p {
+      font-size: 18px;
+      color: var(--gray);
+      max-width: 520px;
+      margin: 0 auto 32px;
+    }
+    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; border-radius: 10px; font-size: 15px;
+      font-weight: 600; text-decoration: none; transition: all 0.15s;
+      border: none; cursor: pointer; font-family: inherit;
+    }
+    .btn-primary { background: var(--purple); color: white; }
+    .btn-primary:hover { background: var(--purple-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(99,102,241,0.3); }
+    .btn-secondary { background: var(--light); color: var(--dark); border: 1.5px solid #e5e7eb; }
+    .btn-secondary:hover { background: #f3f4f6; }
+    .hero-note { font-size: 13px; color: var(--gray); margin-top: 12px; }
+
+    /* Demo */
+    .demo {
+      max-width: 680px;
+      margin: 40px auto 0;
+      background: var(--dark);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(30,27,75,0.15);
+    }
+    .demo-bar { display: flex; gap: 6px; padding: 12px 16px; background: rgba(255,255,255,0.05); }
+    .demo-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.15); }
+    .demo-content { padding: 24px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 14px; color: #e5e7eb; line-height: 1.8; }
+    .demo-line { margin-bottom: 4px; }
+    .demo-cursor { display: inline-block; width: 2px; height: 16px; background: var(--purple); animation: blink 1s infinite; vertical-align: text-bottom; }
+    .demo-shortcut { color: #a78bfa; font-weight: 600; }
+    .demo-expanded { color: #34d399; }
+    .demo-comment { color: #6b7280; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+    /* Features */
+    .features { padding: 80px 0; }
+    .section-label { text-align: center; font-size: 13px; font-weight: 700; color: var(--purple); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .section-title { text-align: center; font-size: 36px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 48px; }
+    .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .feature-card {
+      background: white; border: 1.5px solid #f3f4f6; border-radius: 12px;
+      padding: 28px; transition: all 0.2s;
+    }
+    .feature-card:hover { border-color: #e0e7ff; box-shadow: 0 4px 16px rgba(99,102,241,0.08); }
+    .feature-icon { font-size: 28px; margin-bottom: 12px; }
+    .feature-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .feature-card p { font-size: 14px; color: var(--gray); line-height: 1.5; }
+
+    /* Use Cases */
+    .use-cases { padding: 60px 0; background: var(--light); }
+    .use-case-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 800px; margin: 0 auto; }
+    .use-case {
+      background: white; border-radius: 10px; padding: 24px;
+      border: 1px solid #f3f4f6;
+    }
+    .use-case-tag { font-size: 12px; font-weight: 600; color: var(--purple); background: var(--purple-light); padding: 3px 10px; border-radius: 4px; display: inline-block; margin-bottom: 8px; }
+    .use-case h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .use-case p { font-size: 13px; color: var(--gray); }
+
+    /* Pricing */
+    .pricing { padding: 80px 0; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 700px; margin: 0 auto; }
+    .price-card {
+      background: white; border: 2px solid #f3f4f6; border-radius: 16px;
+      padding: 32px; text-align: center;
+    }
+    .price-card.featured { border-color: var(--purple); position: relative; }
+    .price-badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--purple); color: white; font-size: 11px; font-weight: 700;
+      padding: 4px 14px; border-radius: 12px;
+    }
+    .price-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+    .price-card .price { font-size: 40px; font-weight: 800; margin: 12px 0 4px; }
+    .price-card .price span { font-size: 16px; font-weight: 400; color: var(--gray); }
+    .price-card .price-note { font-size: 13px; color: var(--gray); margin-bottom: 20px; }
+    .price-features { list-style: none; text-align: left; margin-bottom: 24px; }
+    .price-features li { padding: 6px 0; font-size: 14px; color: #374151; }
+    .price-features li::before { content: '✓ '; color: var(--purple); font-weight: 700; }
+
+    /* Social Proof */
+    .social-proof { padding: 60px 0; background: var(--dark); color: white; text-align: center; }
+    .social-proof .section-title { color: white; }
+    .stats-row { display: flex; justify-content: center; gap: 64px; margin-bottom: 40px; }
+    .stat-item .stat-num { font-size: 36px; font-weight: 800; color: var(--purple); }
+    .stat-item .stat-label { font-size: 14px; color: #9ca3af; }
+
+    /* CTA */
+    .cta { padding: 80px 0; text-align: center; }
+    .cta h2 { font-size: 36px; font-weight: 800; margin-bottom: 12px; }
+    .cta p { font-size: 16px; color: var(--gray); margin-bottom: 24px; }
+
+    /* Footer */
+    footer { padding: 32px 0; border-top: 1px solid #f3f4f6; text-align: center; }
+    footer p { font-size: 13px; color: var(--gray); }
+    footer a { color: var(--purple); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 34px; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .use-case-grid { grid-template-columns: 1fr; }
+      .stats-row { flex-direction: column; gap: 24px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a href="#" class="nav-logo"><span>Snap</span>Type</a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#use-cases">Use Cases</a>
+        <a href="#install" class="nav-cta">Install Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">Free Chrome Extension</div>
+      <h1>Type less.<br><span>Do more.</span></h1>
+      <p>Save text snippets and expand them instantly with shortcuts. Stop typing the same things over and over.</p>
+      <div class="hero-actions">
+        <a href="#install" class="btn btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="21.17" y1="8" x2="12" y2="8"/><line x1="3.95" y1="6.06" x2="8.54" y2="14"/><line x1="10.88" y1="21.94" x2="15.46" y2="14"/></svg>
+          Add to Chrome — Free
+        </a>
+        <a href="#demo" class="btn btn-secondary">See how it works</a>
+      </div>
+      <p class="hero-note">Free forever. No account required. Pro upgrade optional.</p>
+
+      <div class="demo" id="demo">
+        <div class="demo-bar">
+          <div class="demo-dot"></div><div class="demo-dot"></div><div class="demo-dot"></div>
+        </div>
+        <div class="demo-content">
+          <div class="demo-line"><span class="demo-comment">// You type:</span></div>
+          <div class="demo-line"><span class="demo-shortcut">/hello</span> <span style="color:#6b7280">→ Tab</span></div>
+          <div class="demo-line">&nbsp;</div>
+          <div class="demo-line"><span class="demo-comment">// SnapType expands to:</span></div>
+          <div class="demo-line"><span class="demo-expanded">Hello! Thanks for reaching out.</span></div>
+          <div class="demo-line"><span class="demo-expanded">How can I help you today?</span><span class="demo-cursor"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-label">Features</div>
+      <h2 class="section-title">Everything you need to type faster</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Instant Expansion</h3>
+          <p>Type a shortcut, press Tab, and your full text appears. Works on every website.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📝</div>
+          <h3>Smart Variables</h3>
+          <p>Use {date}, {time}, {name}, {email} and more. Your snippets stay dynamic.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📁</div>
+          <h3>Organized Folders</h3>
+          <p>Group snippets by project, team, or topic. Find what you need instantly.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <h3>Quick Search</h3>
+          <p>Search across all snippets by shortcut, content, or folder name.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Usage Stats</h3>
+          <p>See how many expansions you've made and keystrokes you've saved.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🖱️</div>
+          <h3>Right-Click Save</h3>
+          <p>Select any text on a page, right-click, and save it as a snippet instantly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="use-cases" id="use-cases">
+    <div class="container">
+      <div class="section-label">Use Cases</div>
+      <h2 class="section-title">Built for people who type a lot</h2>
+      <div class="use-case-grid">
+        <div class="use-case">
+          <div class="use-case-tag">Customer Support</div>
+          <h3>Reply in seconds, not minutes</h3>
+          <p>Save common responses and resolve tickets faster than ever.</p>
+        </div>
+        <div class="use-case">
+          <div class="use-case-tag">Sales</div>
+          <h3>Personalized outreach at scale</h3>
+          <p>Templates with dynamic variables for names, companies, and dates.</p>
+        </div>
+        <div class="use-case">
+          <div class="use-case-tag">Developers</div>
+          <h3>Code snippets everywhere</h3>
+          <p>Expand boilerplate code, git commands, or documentation templates.</p>
+        </div>
+        <div class="use-case">
+          <div class="use-case-tag">Recruiting</div>
+          <h3>Outreach without the repetition</h3>
+          <p>Candidate emails, follow-ups, and scheduling messages on autopilot.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-label">Pricing</div>
+      <h2 class="section-title">Start free, upgrade when you need it</h2>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Free</h3>
+          <div class="price">$0<span>/mo</span></div>
+          <div class="price-note">Free forever</div>
+          <ul class="price-features">
+            <li>10 snippets</li>
+            <li>Text expansion on all sites</li>
+            <li>Built-in variables</li>
+            <li>Search & folders</li>
+            <li>Right-click to save</li>
+          </ul>
+          <a href="#install" class="btn btn-secondary" style="width:100%;justify-content:center;">Install Free</a>
+        </div>
+        <div class="price-card featured">
+          <div class="price-badge">MOST POPULAR</div>
+          <h3>Pro</h3>
+          <div class="price">$4.99<span>/mo</span></div>
+          <div class="price-note">Cancel anytime</div>
+          <ul class="price-features">
+            <li>Unlimited snippets</li>
+            <li>Custom variables</li>
+            <li>Import & export</li>
+            <li>Priority support</li>
+            <li>All future features</li>
+          </ul>
+          <a href="#install" class="btn btn-primary" style="width:100%;justify-content:center;">Get Pro</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="social-proof">
+    <div class="container">
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="stat-num" id="anim-users">0</div>
+          <div class="stat-label">Happy users</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" id="anim-expansions">0</div>
+          <div class="stat-label">Snippets expanded</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" id="anim-keystrokes">0</div>
+          <div class="stat-label">Keystrokes saved</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="install">
+    <div class="container">
+      <h2>Ready to stop repeating yourself?</h2>
+      <p>Install SnapType and start saving time in the next 30 seconds.</p>
+      <a href="#" class="btn btn-primary" id="cta-install">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="21.17" y1="8" x2="12" y2="8"/><line x1="3.95" y1="6.06" x2="8.54" y2="14"/><line x1="10.88" y1="21.94" x2="15.46" y2="14"/></svg>
+        Add to Chrome — Free
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 SnapType. Built with care. <a href="mailto:support@snaptype.app">Contact</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Animate stats on scroll
+    function animateCount(el, target, suffix = '') {
+      let current = 0;
+      const step = Math.max(1, Math.floor(target / 40));
+      const interval = setInterval(() => {
+        current += step;
+        if (current >= target) { current = target; clearInterval(interval); }
+        el.textContent = current.toLocaleString() + suffix;
+      }, 30);
+    }
+
+    let animated = false;
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !animated) {
+        animated = true;
+        animateCount(document.getElementById('anim-users'), 500, '+');
+        animateCount(document.getElementById('anim-expansions'), 12400, '+');
+        animateCount(document.getElementById('anim-keystrokes'), 284000, '+');
+      }
+    });
+    observer.observe(document.querySelector('.social-proof'));
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
