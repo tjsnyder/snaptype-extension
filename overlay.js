@@ -9,16 +9,19 @@
   let filteredSnippets = [];
   let selectedIndex = 0;
   let targetElement = null;
+  let customVars = {};
 
   function loadSnippets() {
-    chrome.storage.local.get(['snippets'], (result) => {
+    chrome.storage.local.get(['snippets', 'settings'], (result) => {
       snippets = result.snippets || [];
+      customVars = (result.settings && result.settings.customVars) || {};
     });
   }
 
   loadSnippets();
   chrome.storage.onChanged.addListener((changes) => {
     if (changes.snippets) snippets = changes.snippets.newValue || [];
+    if (changes.settings) customVars = (changes.settings.newValue && changes.settings.newValue.customVars) || {};
   });
 
   // Listen for keyboard shortcut
@@ -247,11 +250,14 @@
       '{year}': now.getFullYear().toString(),
       '{domain}': window.location.hostname
     };
+    for (const [key, value] of Object.entries(customVars)) {
+      vars[`{${key}}`] = value;
+    }
     let processed = text;
     for (const [key, value] of Object.entries(vars)) {
       processed = processed.split(key).join(value);
     }
-    return processed;
+    return processed.replace('{cursor}', '');
   }
 
   function escapeHtml(text) {
