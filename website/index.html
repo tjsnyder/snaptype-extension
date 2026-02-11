@@ -194,6 +194,8 @@
       .use-case-grid { grid-template-columns: 1fr; }
       .stats-row { flex-direction: column; gap: 24px; }
       .nav-links a:not(.nav-cta) { display: none; }
+      [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
+      [style*="display:flex"][style*="gap:48px"] { flex-direction: column !important; }
     }
   </style>
   <script type="application/ld+json">
@@ -230,8 +232,8 @@
       <div class="nav-links">
         <a href="#features">Features</a>
         <a href="#pricing">Pricing</a>
+        <a href="/snaptype-extension/templates.html">Templates</a>
         <a href="/snaptype-extension/compare.html">Compare</a>
-        <a href="/snaptype-extension/tools/email-generator.html">Free Tools</a>
         <a href="#install" class="nav-cta">Install Free</a>
       </div>
     </div>
@@ -254,14 +256,11 @@
       <div class="demo" id="demo">
         <div class="demo-bar">
           <div class="demo-dot"></div><div class="demo-dot"></div><div class="demo-dot"></div>
+          <span style="flex:1;text-align:center;font-size:12px;color:#6b7280;font-family:-apple-system,sans-serif;">Live Demo</span>
         </div>
-        <div class="demo-content">
-          <div class="demo-line"><span class="demo-comment">// You type:</span></div>
-          <div class="demo-line"><span class="demo-shortcut">/hello</span> <span style="color:#6b7280">→ Tab</span></div>
-          <div class="demo-line">&nbsp;</div>
-          <div class="demo-line"><span class="demo-comment">// SnapType expands to:</span></div>
-          <div class="demo-line"><span class="demo-expanded">Hello! Thanks for reaching out.</span></div>
-          <div class="demo-line"><span class="demo-expanded">How can I help you today?</span><span class="demo-cursor"></span></div>
+        <div class="demo-content" id="demo-content">
+          <div class="demo-line" id="demo-typing"></div>
+          <div class="demo-line" id="demo-expanded" style="display:none"></div>
         </div>
       </div>
     </div>
@@ -306,6 +305,67 @@
     </div>
   </section>
 
+  <!-- How It Works -->
+  <section style="padding:60px 0;background:var(--light);">
+    <div class="container">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">Up and running in 30 seconds</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:840px;margin:0 auto;text-align:center;">
+        <div>
+          <div style="width:56px;height:56px;background:var(--purple-light);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:24px;font-weight:800;color:var(--purple);">1</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:4px;">Install the extension</h3>
+          <p style="font-size:13px;color:var(--gray);">One click from the Chrome Web Store. No account needed.</p>
+        </div>
+        <div>
+          <div style="width:56px;height:56px;background:var(--purple-light);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:24px;font-weight:800;color:var(--purple);">2</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:4px;">Create your snippets</h3>
+          <p style="font-size:13px;color:var(--gray);">Set a shortcut like /hello and the text it expands to. Add variables for dynamic content.</p>
+        </div>
+        <div>
+          <div style="width:56px;height:56px;background:var(--purple-light);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:24px;font-weight:800;color:var(--purple);">3</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:4px;">Type less everywhere</h3>
+          <p style="font-size:13px;color:var(--gray);">Type your shortcut + Tab on any website. Your full text appears instantly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Command Palette Highlight -->
+  <section style="padding:60px 0;">
+    <div class="container" style="display:flex;align-items:center;gap:48px;max-width:900px;">
+      <div style="flex:1;">
+        <div class="section-label" style="text-align:left;">Power Feature</div>
+        <h2 style="font-size:28px;font-weight:800;margin-bottom:12px;">Command palette for your snippets</h2>
+        <p style="font-size:15px;color:var(--gray);margin-bottom:16px;">Press <kbd style="background:#f3f4f6;padding:3px 8px;border-radius:4px;font-size:13px;border:1px solid #e5e7eb;">Cmd+Shift+Space</kbd> anywhere to open the command palette. Search, select, and insert — without leaving your flow.</p>
+        <ul style="list-style:none;font-size:14px;color:#374151;">
+          <li style="padding:4px 0;">&#10003; Fuzzy search across all snippets</li>
+          <li style="padding:4px 0;">&#10003; Keyboard navigation (arrow keys + Enter)</li>
+          <li style="padding:4px 0;">&#10003; Works on every website</li>
+          <li style="padding:4px 0;">&#10003; Insert without remembering shortcuts</li>
+        </ul>
+      </div>
+      <div style="flex:1;background:var(--dark);border-radius:12px;padding:20px;box-shadow:0 12px 40px rgba(30,27,75,0.12);">
+        <div style="display:flex;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:8px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <span style="color:#d1d5db;font-size:14px;font-family:'SF Mono',monospace;">meeting</span>
+          <span style="margin-left:auto;font-size:10px;background:rgba(255,255,255,0.1);color:#9ca3af;padding:2px 6px;border-radius:3px;">esc</span>
+        </div>
+        <div style="padding:8px 12px;background:rgba(99,102,241,0.15);border-radius:6px;margin-bottom:4px;display:flex;align-items:center;gap:10px;">
+          <span style="background:#6366f1;color:white;padding:3px 8px;border-radius:4px;font-size:12px;font-weight:600;font-family:'SF Mono',monospace;">/meeting</span>
+          <span style="color:#e5e7eb;font-size:13px;">Would you be available for a quick call...</span>
+        </div>
+        <div style="padding:8px 12px;display:flex;align-items:center;gap:10px;">
+          <span style="background:rgba(99,102,241,0.15);color:#a78bfa;padding:3px 8px;border-radius:4px;font-size:12px;font-weight:600;font-family:'SF Mono',monospace;">/sig</span>
+          <span style="color:#9ca3af;font-size:13px;">Best regards, {name}...</span>
+        </div>
+        <div style="padding:8px 12px;display:flex;align-items:center;gap:10px;">
+          <span style="background:rgba(99,102,241,0.15);color:#a78bfa;padding:3px 8px;border-radius:4px;font-size:12px;font-weight:600;font-family:'SF Mono',monospace;">/thanks</span>
+          <span style="color:#9ca3af;font-size:13px;">Thank you so much! I really appreciate...</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="use-cases" id="use-cases">
     <div class="container">
       <div class="section-label">Use Cases</div>
@@ -330,6 +390,46 @@
           <div class="use-case-tag">Recruiting</div>
           <h3>Outreach without the repetition</h3>
           <p>Candidate emails, follow-ups, and scheduling messages on autopilot.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section style="padding:60px 0;">
+    <div class="container">
+      <div class="section-label">What People Say</div>
+      <h2 class="section-title">Loved by fast typers everywhere</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+        <div style="background:white;border:1.5px solid #f3f4f6;border-radius:12px;padding:24px;">
+          <div style="display:flex;gap:2px;margin-bottom:12px;">
+            <span style="color:#eab308;font-size:16px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          </div>
+          <p style="font-size:14px;color:#374151;margin-bottom:16px;">"I handle 80+ support tickets a day. SnapType cut my response time in half. The variable system means every reply still feels personal."</p>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:36px;height:36px;background:var(--purple-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--purple);font-size:14px;">JR</div>
+            <div><div style="font-size:13px;font-weight:600;">Jessica R.</div><div style="font-size:12px;color:var(--gray);">Support Lead</div></div>
+          </div>
+        </div>
+        <div style="background:white;border:1.5px solid #f3f4f6;border-radius:12px;padding:24px;">
+          <div style="display:flex;gap:2px;margin-bottom:12px;">
+            <span style="color:#eab308;font-size:16px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          </div>
+          <p style="font-size:14px;color:#374151;margin-bottom:16px;">"The command palette is a game-changer. I don't even need to remember my shortcuts anymore — just search and insert. Way better than TextExpander."</p>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:36px;height:36px;background:#d1fae5;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#166534;font-size:14px;">MK</div>
+            <div><div style="font-size:13px;font-weight:600;">Mike K.</div><div style="font-size:12px;color:var(--gray);">Sales Manager</div></div>
+          </div>
+        </div>
+        <div style="background:white;border:1.5px solid #f3f4f6;border-radius:12px;padding:24px;">
+          <div style="display:flex;gap:2px;margin-bottom:12px;">
+            <span style="color:#eab308;font-size:16px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          </div>
+          <p style="font-size:14px;color:#374151;margin-bottom:16px;">"Finally a text expander that just works in Chrome without a desktop app. Simple, fast, and the free tier is generous enough for my daily workflow."</p>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:36px;height:36px;background:#fef3c7;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#92400e;font-size:14px;">AL</div>
+            <div><div style="font-size:13px;font-weight:600;">Aisha L.</div><div style="font-size:12px;color:var(--gray);">Freelance Writer</div></div>
+          </div>
         </div>
       </div>
     </div>
@@ -429,7 +529,7 @@
 
   <footer>
     <div class="container">
-      <p>&copy; 2026 SnapType. <a href="/snaptype-extension/blog/">Blog</a> &middot; <a href="/snaptype-extension/compare.html">Compare</a> &middot; <a href="/snaptype-extension/tools/email-generator.html">Email Generator</a> &middot; <a href="/snaptype-extension/tools/subject-line-generator.html">Subject Lines</a> &middot; <a href="/snaptype-extension/privacy.html">Privacy</a></p>
+      <p>&copy; 2026 SnapType. <a href="/snaptype-extension/blog/">Blog</a> &middot; <a href="/snaptype-extension/templates.html">Templates</a> &middot; <a href="/snaptype-extension/compare.html">Compare</a> &middot; <a href="/snaptype-extension/tools/email-generator.html">Email Generator</a> &middot; <a href="/snaptype-extension/tools/subject-line-generator.html">Subject Lines</a> &middot; <a href="/snaptype-extension/tools/roi-calculator.html">ROI Calculator</a> &middot; <a href="/snaptype-extension/privacy.html">Privacy</a></p>
     </div>
   </footer>
 
@@ -455,6 +555,42 @@
       }
     });
     observer.observe(document.querySelector('.social-proof'));
+
+    // Animated typing demo
+    const demos = [
+      { shortcut: '/hello', expanded: 'Hello! Thanks for reaching out. How can I help you today?' },
+      { shortcut: '/meeting', expanded: 'Hi! Would you be available for a quick call on Monday? Let me know what time works.' },
+      { shortcut: '/sig', expanded: 'Best regards,\nTim Snyder\ntim@example.com' },
+      { shortcut: '/thanks', expanded: 'Thank you so much! I really appreciate your help with this.' }
+    ];
+    let demoIdx = 0;
+    function runDemo() {
+      const d = demos[demoIdx % demos.length];
+      demoIdx++;
+      const typingEl = document.getElementById('demo-typing');
+      const expandedEl = document.getElementById('demo-expanded');
+      typingEl.innerHTML = '';
+      expandedEl.style.display = 'none';
+      expandedEl.innerHTML = '';
+      let i = 0;
+      function typeChar() {
+        if (i < d.shortcut.length) {
+          typingEl.innerHTML = '<span class="demo-shortcut">' + d.shortcut.substring(0, i + 1) + '</span><span class="demo-cursor"></span>';
+          i++;
+          setTimeout(typeChar, 80 + Math.random() * 40);
+        } else {
+          typingEl.innerHTML = '<span class="demo-shortcut">' + d.shortcut + '</span> <span style="color:#6b7280">→ Tab</span>';
+          setTimeout(() => {
+            typingEl.innerHTML = '<span class="demo-comment">// ' + d.shortcut + ' expanded:</span>';
+            expandedEl.style.display = 'block';
+            expandedEl.innerHTML = '<span class="demo-expanded">' + d.expanded.replace(/\n/g, '<br>') + '</span><span class="demo-cursor"></span>';
+            setTimeout(runDemo, 3000);
+          }, 600);
+        }
+      }
+      typeChar();
+    }
+    setTimeout(runDemo, 800);
 
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
