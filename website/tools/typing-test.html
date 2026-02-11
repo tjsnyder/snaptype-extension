@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Typing Speed Test — How Fast Do You Type? | SnapType</title>
+  <meta name="description" content="Test your typing speed in seconds. See your WPM, accuracy, and how much time you could save with text expansion. Free online typing test — no signup required.">
+  <meta name="keywords" content="typing speed test, WPM test, typing test online, words per minute test, free typing test, typing speed checker">
+  <link rel="canonical" href="https://tjsnyder.github.io/snaptype-extension/tools/typing-test.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Free Typing Speed Test — How Fast Do You Type? | SnapType">
+  <meta property="og:description" content="Test your typing speed in seconds. See your WPM, accuracy, and how much time you could save with text expansion.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tjsnyder.github.io/snaptype-extension/tools/typing-test.html">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Typing Speed Test — How Fast Do You Type? | SnapType">
+  <meta name="twitter:description" content="Test your typing speed in seconds. See your WPM, accuracy, and how much time you could save with text expansion.">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Typing Speed Test",
+    "description": "Test your typing speed and accuracy. See your WPM, accuracy percentage, and discover how much time you could save with text expansion.",
+    "url": "https://tjsnyder.github.io/snaptype-extension/tools/typing-test.html",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "SnapType"
+    }
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --purple: #6366f1;
+      --purple-dark: #4f46e5;
+      --purple-light: #eef2ff;
+      --dark: #1e1b4b;
+      --gray: #6b7280;
+      --light: #f9fafb;
+      --white: #ffffff;
+      --green: #22c55e;
+      --red: #ef4444;
+      --yellow: #f59e0b;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      background: var(--light);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    nav {
+      padding: 16px 0;
+      border-bottom: 1px solid #f3f4f6;
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+    nav .container { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-size: 20px; font-weight: 800; color: var(--dark); text-decoration: none; }
+    .nav-logo span { color: var(--purple); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--gray); }
+    .nav-links a:hover { color: var(--dark); }
+    .nav-cta {
+      background: var(--purple); color: white !important; padding: 8px 20px;
+      border-radius: 8px; font-weight: 600 !important; transition: background 0.15s;
+    }
+    .nav-cta:hover { background: var(--purple-dark); color: white !important; }
+
+    /* Hero */
+    .hero { padding: 48px 0 32px; text-align: center; }
+    .hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.5px; }
+    .hero h1 em { color: var(--purple); font-style: normal; }
+    .hero p { font-size: 16px; color: var(--gray); max-width: 540px; margin: 0 auto; }
+
+    /* Mode Selector */
+    .mode-selector {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .mode-btn {
+      padding: 8px 20px;
+      border: 2px solid #e5e7eb;
+      border-radius: 9999px;
+      background: var(--white);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .mode-btn:hover {
+      border-color: #c7d2fe;
+      color: var(--purple);
+    }
+    .mode-btn.active {
+      background: var(--purple);
+      color: var(--white);
+      border-color: var(--purple);
+    }
+
+    /* Test Card */
+    .test-card {
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      padding: 32px;
+      margin-bottom: 32px;
+      position: relative;
+    }
+
+    /* Live Stats Bar */
+    .live-stats {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--purple-light);
+    }
+    .live-stat {
+      text-align: center;
+    }
+    .live-stat-value {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.1;
+      transition: color 0.3s;
+    }
+    .live-stat-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 2px;
+    }
+
+    /* Text Display */
+    .text-display {
+      font-size: 20px;
+      line-height: 1.8;
+      letter-spacing: 0.02em;
+      margin-bottom: 24px;
+      padding: 24px;
+      background: var(--light);
+      border-radius: 12px;
+      border: 2px solid transparent;
+      transition: border-color 0.3s;
+      min-height: 140px;
+      position: relative;
+      user-select: none;
+    }
+    .text-display.active {
+      border-color: var(--purple);
+    }
+    .text-display.error-flash {
+      border-color: var(--red);
+    }
+    .text-display .char {
+      transition: color 0.05s;
+      position: relative;
+    }
+    .text-display .char.correct {
+      color: var(--dark);
+    }
+    .text-display .char.incorrect {
+      color: var(--red);
+      background: #fef2f2;
+      border-radius: 2px;
+    }
+    .text-display .char.untyped {
+      color: #c9cdd4;
+    }
+    .text-display .char.current {
+      border-left: 2px solid var(--purple);
+      margin-left: -1px;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    /* Hidden Input */
+    .typing-input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+      width: 0;
+      height: 0;
+    }
+
+    /* Start Prompt */
+    .start-prompt {
+      text-align: center;
+      padding: 16px;
+      color: var(--gray);
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .start-prompt kbd {
+      display: inline-block;
+      padding: 2px 8px;
+      background: #e5e7eb;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid #d1d5db;
+    }
+
+    /* Progress Bar */
+    .progress-bar {
+      width: 100%;
+      height: 4px;
+      background: #e5e7eb;
+      border-radius: 2px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--purple), #818cf8);
+      border-radius: 2px;
+      transition: width 0.15s ease;
+      width: 0%;
+    }
+
+    /* Results Screen */
+    .results-screen {
+      display: none;
+    }
+    .results-screen.visible {
+      display: block;
+      animation: fadeUp 0.4s ease;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .results-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .results-header h2 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .wpm-big {
+      font-size: 72px;
+      font-weight: 800;
+      color: var(--purple);
+      line-height: 1;
+      margin: 16px 0 4px;
+    }
+    .wpm-label {
+      font-size: 14px;
+      color: var(--gray);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .rating-badge {
+      display: inline-block;
+      padding: 6px 20px;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-top: 12px;
+    }
+    .rating-beginner { background: #fef3c7; color: #92400e; }
+    .rating-average { background: #dbeafe; color: #1e40af; }
+    .rating-fast { background: #d1fae5; color: #065f46; }
+    .rating-pro { background: #ede9fe; color: #5b21b6; }
+    .rating-elite { background: linear-gradient(135deg, #1e1b4b, #312e81); color: #e0e7ff; }
+
+    /* Results Grid */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .stat-card {
+      background: var(--light);
+      border: 1.5px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .stat-card:hover {
+      border-color: #c7d2fe;
+      transform: translateY(-2px);
+    }
+    .stat-card.highlight {
+      background: linear-gradient(135deg, #1e1b4b, #312e81);
+      border-color: transparent;
+    }
+    .stat-card.highlight .stat-label { color: rgba(255,255,255,0.7); }
+    .stat-card.highlight .stat-value { color: var(--white); }
+    .stat-card.highlight .stat-sub { color: rgba(255,255,255,0.5); }
+
+    .stat-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+    .stat-value {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.1;
+    }
+    .stat-sub {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 4px;
+    }
+
+    /* SnapType Savings Card */
+    .snaptype-savings {
+      background: var(--purple-light);
+      border: 2px solid #c7d2fe;
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      margin: 20px 0;
+    }
+    .snaptype-savings-icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+    .snaptype-savings h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+    .snaptype-savings .savings-value {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--purple);
+      line-height: 1.2;
+    }
+    .snaptype-savings .savings-detail {
+      font-size: 13px;
+      color: var(--gray);
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    /* Share Buttons */
+    .share-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .share-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .share-twitter { background: #1da1f2; color: white; }
+    .share-copy { background: var(--dark); color: white; }
+    .share-copy.copied { background: var(--green); }
+
+    /* Action Buttons */
+    .action-row {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 24px 0 0;
+      flex-wrap: wrap;
+    }
+    .action-btn {
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.15s;
+    }
+    .action-btn.primary {
+      background: var(--purple);
+      color: white;
+    }
+    .action-btn.primary:hover {
+      background: var(--purple-dark);
+      transform: translateY(-1px);
+    }
+    .action-btn.secondary {
+      background: var(--white);
+      color: var(--dark);
+      border-color: #e5e7eb;
+    }
+    .action-btn.secondary:hover {
+      border-color: #c7d2fe;
+      color: var(--purple);
+    }
+
+    .restart-hint {
+      text-align: center;
+      margin-top: 12px;
+      font-size: 12px;
+      color: #9ca3af;
+    }
+    .restart-hint kbd {
+      display: inline-block;
+      padding: 1px 6px;
+      background: #e5e7eb;
+      border-radius: 3px;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 600;
+      border: 1px solid #d1d5db;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, #1e1b4b, #312e81);
+      border-radius: 16px;
+      padding: 48px 32px;
+      text-align: center;
+      margin-bottom: 48px;
+      color: var(--white);
+    }
+    .cta-section h2 {
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .cta-section p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 24px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--white);
+      color: var(--purple-dark);
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+    .cta-features {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .cta-features span {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* How it Works */
+    .info-section {
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+    .info-section h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .info-section p {
+      color: var(--gray);
+      font-size: 14px;
+      margin-bottom: 12px;
+      line-height: 1.7;
+    }
+    .info-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0;
+    }
+    .info-section li {
+      padding: 8px 0 8px 24px;
+      position: relative;
+      font-size: 14px;
+      color: #374151;
+      line-height: 1.6;
+    }
+    .info-section li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--purple);
+    }
+
+    /* Footer */
+    footer {
+      padding: 32px 0;
+      border-top: 1px solid #f3f4f6;
+      text-align: center;
+      background: var(--white);
+    }
+    footer p { font-size: 13px; color: var(--gray); }
+    footer a { color: var(--purple); text-decoration: none; }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .results-grid { grid-template-columns: 1fr 1fr; }
+      .hero h1 { font-size: 26px; }
+      .wpm-big { font-size: 56px; }
+      .text-display { font-size: 17px; padding: 18px; }
+      .live-stats { gap: 20px; }
+      .live-stat-value { font-size: 22px; }
+      .stat-value { font-size: 22px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .cta-features { flex-direction: column; gap: 8px; }
+    }
+    @media (max-width: 480px) {
+      .results-grid { grid-template-columns: 1fr; }
+      .live-stats { gap: 14px; }
+      .mode-selector { gap: 6px; }
+      .mode-btn { padding: 6px 14px; font-size: 12px; }
+      .share-row { flex-direction: column; align-items: center; }
+      .action-row { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="/snaptype-extension/" class="nav-logo"><span>Snap</span>Type</a>
+      <div class="nav-links">
+        <a href="/snaptype-extension/blog/">Blog</a>
+        <a href="/snaptype-extension/tools/email-generator.html">Tools</a>
+        <a href="/snaptype-extension/templates.html">Templates</a>
+        <a href="/snaptype-extension/" class="nav-cta">Install Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="hero">
+      <h1>How Fast Do You <em>Type?</em></h1>
+      <p>Take a quick typing speed test. See your WPM, accuracy, and how much time you could save every day.</p>
+    </div>
+
+    <!-- Mode Selector -->
+    <div class="mode-selector">
+      <button class="mode-btn active" data-mode="phrases" onclick="setMode('phrases')">Common Phrases</button>
+      <button class="mode-btn" data-mode="technical" onclick="setMode('technical')">Technical</button>
+      <button class="mode-btn" data-mode="random" onclick="setMode('random')">Random Words</button>
+    </div>
+
+    <!-- Test Area -->
+    <div class="test-card" id="test-card">
+
+      <!-- Live Stats -->
+      <div class="live-stats" id="live-stats">
+        <div class="live-stat">
+          <div class="live-stat-value" id="live-wpm">0</div>
+          <div class="live-stat-label">WPM</div>
+        </div>
+        <div class="live-stat">
+          <div class="live-stat-value" id="live-accuracy">100</div>
+          <div class="live-stat-label">Accuracy %</div>
+        </div>
+        <div class="live-stat">
+          <div class="live-stat-value" id="live-time">0:00</div>
+          <div class="live-stat-label">Time</div>
+        </div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="progress-bar">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+
+      <!-- Text Display -->
+      <div class="text-display" id="text-display" tabindex="0"></div>
+
+      <!-- Hidden Input -->
+      <input type="text" class="typing-input" id="typing-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+
+      <!-- Start Prompt -->
+      <div class="start-prompt" id="start-prompt">
+        Click the text above and start typing to begin the test
+      </div>
+
+      <!-- Results Screen -->
+      <div class="results-screen" id="results-screen">
+        <div class="results-header">
+          <h2>Test Complete!</h2>
+          <div class="wpm-big" id="result-wpm">0</div>
+          <div class="wpm-label">words per minute</div>
+          <div id="rating-badge"></div>
+        </div>
+
+        <div class="results-grid">
+          <div class="stat-card">
+            <div class="stat-label">Accuracy</div>
+            <div class="stat-value" id="result-accuracy">0%</div>
+            <div class="stat-sub">characters correct</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Time</div>
+            <div class="stat-value" id="result-time">0:00</div>
+            <div class="stat-sub">to complete</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Characters</div>
+            <div class="stat-value" id="result-chars">0</div>
+            <div class="stat-sub">typed total</div>
+          </div>
+        </div>
+
+        <!-- SnapType Savings -->
+        <div class="snaptype-savings">
+          <div class="snaptype-savings-icon">&#9889;</div>
+          <h3>Time You'd Save with SnapType</h3>
+          <div class="savings-value" id="snaptype-savings-value">--</div>
+          <div class="savings-detail" id="snaptype-savings-detail">--</div>
+        </div>
+
+        <!-- Share -->
+        <div class="share-row">
+          <button class="share-btn share-twitter" onclick="shareTwitter()">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            Share on X
+          </button>
+          <button class="share-btn share-copy" id="copy-btn" onclick="copyResult()">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            Copy Result
+          </button>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-row">
+          <button class="action-btn primary" onclick="restartTest()">Try Again</button>
+          <button class="action-btn secondary" onclick="newText()">Try Different Text</button>
+        </div>
+        <div class="restart-hint">Press <kbd>Enter</kbd> or <kbd>Tab</kbd> to restart</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <h2>Skip the Typing Entirely</h2>
+      <p>Install SnapType and expand shortcuts instantly. Type <code>/thanks</code> and get your full thank-you email in a flash.</p>
+      <a href="/snaptype-extension/" class="cta-btn">Install SnapType Free</a>
+      <div class="cta-features">
+        <span>Free forever plan</span>
+        <span>Works on every website</span>
+        <span>Set up in seconds</span>
+      </div>
+    </div>
+
+    <!-- Info Section -->
+    <div class="info-section">
+      <h2>About This Typing Test</h2>
+      <p>This typing speed test measures how fast and accurately you type. Your results are calculated in real time as you type each character.</p>
+      <ul>
+        <li><strong>WPM (Words Per Minute)</strong> is calculated using the standard definition: one "word" equals 5 characters. Only correctly typed characters count toward your WPM.</li>
+        <li><strong>Accuracy</strong> is the percentage of characters you typed correctly out of all characters you attempted.</li>
+        <li><strong>Three modes</strong> let you practice with everyday business phrases, technical content, or random word sequences.</li>
+        <li><strong>SnapType savings estimate</strong> is based on typing 30 emails per day at your measured speed. With text expansion, a 150-character message requires only a short trigger instead of full typing.</li>
+      </ul>
+      <p>The average person types between 38 and 44 words per minute. Professional typists typically reach 65 to 75 WPM, and the fastest typists exceed 120 WPM.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 SnapType. <a href="/snaptype-extension/">Home</a> &middot; <a href="/snaptype-extension/compare.html">Compare</a> &middot; <a href="/snaptype-extension/templates.html">Templates</a> &middot; <a href="/snaptype-extension/blog/">Blog</a> &middot; <a href="/snaptype-extension/privacy.html">Privacy</a> &middot; <a href="/snaptype-extension/tools/roi-calculator.html">ROI Calculator</a> &middot; <a href="/snaptype-extension/tools/email-generator.html">Email Generator</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // ==========================================
+    // TEXT SAMPLES
+    // ==========================================
+    const texts = {
+      phrases: [
+        "Thank you for reaching out. I wanted to follow up on our conversation from last week. Please let me know if you have any questions about the proposal, and I would be happy to schedule a call to discuss the details further.",
+        "I hope this message finds you well. I am writing to confirm our meeting scheduled for Thursday at two in the afternoon. Please bring the quarterly report and any relevant documents. Looking forward to a productive discussion.",
+        "Just a quick update on the project status. We completed the initial phase ahead of schedule and are now moving into testing. The team has been doing excellent work, and I am confident we will meet the deadline without any issues.",
+        "Thank you for your patience while we reviewed your application. I am pleased to inform you that everything looks great, and we are ready to move forward with the next steps. Please reply at your earliest convenience to confirm.",
+        "Good morning, team. As a reminder, the deadline for submitting your expense reports is this Friday. Please make sure all receipts are attached and the correct project codes are listed. Reach out to accounting if you need assistance.",
+        "I appreciate you taking the time to share your feedback. Your input is incredibly valuable and will help us improve our service. We have already started implementing some of the changes you suggested, and we look forward to hearing more.",
+        "Please find the attached document for your review. I have highlighted the sections that require your approval. If everything looks good, please sign and return by end of business Wednesday. Let me know if you have any concerns."
+      ],
+      technical: [
+        "The function accepts an array of objects and returns a filtered list based on the callback predicate. Make sure to handle edge cases like empty arrays and null values before iterating through the collection.",
+        "We need to refactor the authentication middleware to support both JSON web tokens and session-based cookies. The current implementation only checks the authorization header, which breaks mobile client requests.",
+        "The database migration script should create an index on the user email column and add a foreign key constraint linking orders to customer accounts. Run the migration in a transaction to ensure atomicity on failure.",
+        "Deploy the updated container image to the staging cluster first. Monitor the pod health checks and memory usage for at least thirty minutes before promoting to production. Roll back immediately if error rates exceed two percent.",
+        "The API endpoint returns paginated results with a default limit of twenty items per page. Include the total count in the response headers and support cursor-based pagination for large datasets with millions of records.",
+        "Implement a retry mechanism with exponential backoff for failed network requests. Start with a one-second delay, double it on each attempt, and cap at thirty seconds. Add jitter to prevent thundering herd problems in distributed systems.",
+        "The CSS grid layout uses a twelve-column system with responsive breakpoints at seven hundred and sixty-eight pixels and one thousand and twenty-four pixels. Each component should gracefully adapt between mobile, tablet, and desktop views."
+      ],
+      random: []
+    };
+
+    // Random word pool for generating random word sequences
+    const wordPool = [
+      "the","be","to","of","and","a","in","that","have","it","for","not","on","with","he","as",
+      "you","do","at","this","but","his","by","from","they","we","say","her","she","or","an",
+      "will","my","one","all","would","there","their","what","so","up","out","if","about","who",
+      "get","which","go","me","when","make","can","like","time","no","just","him","know","take",
+      "people","into","year","your","good","some","could","them","see","other","than","then",
+      "now","look","only","come","its","over","think","also","back","after","use","two","how",
+      "our","work","first","well","way","even","new","want","because","any","these","give","day",
+      "most","us","great","between","need","large","often","hand","high","place","small","found",
+      "never","still","every","system","each","world","point","under","last","long","right","part",
+      "before","through","much","should","begin","where","learn","open","move","around","help",
+      "number","change","light","close","read","keep","might","start","always","letter","city",
+      "while","state","house","below","answer","school","below","hard","left","watch","own","turn",
+      "build","next","carry","above","walk","draw","plan","run","cross","write","line","same",
+      "here","few","group","food","kind","play","stand","name","real","life","head","face","grow",
+      "both","once","paper","earth","story","cover","near","soon","enough","music","river","idea",
+      "tree","quick","stop","second","late","best","side","door","body","mark","table","land",
+      "able","color","list","catch","set","bring","class","field","simple","young","early","lead",
+      "care","sure","power","fire","clear","cold","rest","hold","strong","drive","deep","fast",
+      "store","today","watch","north","south","east","west","rule","team","space","blue","green",
+      "dark","past","note","reach","shape","voice","rain","free","base","type","sort","push"
+    ];
+
+    // Generate random word text
+    function generateRandomWords(count) {
+      const words = [];
+      for (let i = 0; i < count; i++) {
+        words.push(wordPool[Math.floor(Math.random() * wordPool.length)]);
+      }
+      return words.join(' ');
+    }
+
+    // ==========================================
+    // STATE
+    // ==========================================
+    let currentMode = 'phrases';
+    let currentText = '';
+    let charIndex = 0;
+    let errors = 0;
+    let totalTyped = 0;
+    let correctTyped = 0;
+    let startTime = null;
+    let timerInterval = null;
+    let isRunning = false;
+    let isComplete = false;
+    let lastUsedIndex = {};
+
+    // ==========================================
+    // DOM ELEMENTS
+    // ==========================================
+    const textDisplay = document.getElementById('text-display');
+    const typingInput = document.getElementById('typing-input');
+    const startPrompt = document.getElementById('start-prompt');
+    const resultsScreen = document.getElementById('results-screen');
+    const progressFill = document.getElementById('progress-fill');
+    const liveWpm = document.getElementById('live-wpm');
+    const liveAccuracy = document.getElementById('live-accuracy');
+    const liveTime = document.getElementById('live-time');
+    const liveStats = document.getElementById('live-stats');
+
+    // ==========================================
+    // MODE SWITCHING
+    // ==========================================
+    function setMode(mode) {
+      currentMode = mode;
+      document.querySelectorAll('.mode-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.mode === mode);
+      });
+      newText();
+    }
+
+    // ==========================================
+    // TEXT LOADING
+    // ==========================================
+    function getNextText() {
+      if (currentMode === 'random') {
+        return generateRandomWords(40 + Math.floor(Math.random() * 20));
+      }
+      const pool = texts[currentMode];
+      let idx;
+      do {
+        idx = Math.floor(Math.random() * pool.length);
+      } while (idx === lastUsedIndex[currentMode] && pool.length > 1);
+      lastUsedIndex[currentMode] = idx;
+      return pool[idx];
+    }
+
+    function renderText() {
+      textDisplay.innerHTML = '';
+      for (let i = 0; i < currentText.length; i++) {
+        const span = document.createElement('span');
+        span.className = 'char untyped';
+        if (i === 0) span.classList.add('current');
+        span.textContent = currentText[i];
+        textDisplay.appendChild(span);
+      }
+    }
+
+    // ==========================================
+    // CORE TYPING LOGIC
+    // ==========================================
+    function focusInput() {
+      typingInput.focus();
+    }
+
+    textDisplay.addEventListener('click', focusInput);
+    textDisplay.addEventListener('focus', focusInput);
+
+    typingInput.addEventListener('input', function(e) {
+      if (isComplete) return;
+
+      const inputVal = this.value;
+      if (inputVal.length === 0) return;
+
+      // Process each new character
+      const typed = inputVal;
+      this.value = '';
+
+      for (let c = 0; c < typed.length; c++) {
+        if (charIndex >= currentText.length) break;
+        processChar(typed[c]);
+      }
+    });
+
+    typingInput.addEventListener('keydown', function(e) {
+      // Handle backspace
+      if (e.key === 'Backspace') {
+        e.preventDefault();
+        if (charIndex > 0 && !isComplete) {
+          charIndex--;
+          totalTyped = Math.max(0, totalTyped - 1);
+          const chars = textDisplay.querySelectorAll('.char');
+          // Remove current cursor
+          chars.forEach(ch => ch.classList.remove('current'));
+          // Reset the character we are going back to
+          chars[charIndex].className = 'char untyped current';
+          // Recalculate correct typed (recount from scratch for accuracy)
+          correctTyped = 0;
+          for (let i = 0; i < charIndex; i++) {
+            if (chars[i].classList.contains('correct')) correctTyped++;
+          }
+          updateLiveStats();
+          updateProgress();
+        }
+        return;
+      }
+
+      // After test complete: Enter or Tab to restart
+      if (isComplete && (e.key === 'Enter' || e.key === 'Tab')) {
+        e.preventDefault();
+        restartTest();
+        return;
+      }
+
+      // Prevent tab from leaving
+      if (e.key === 'Tab' && !isComplete) {
+        e.preventDefault();
+      }
+    });
+
+    function processChar(typedChar) {
+      if (charIndex >= currentText.length) return;
+
+      // Start timer on first character
+      if (!isRunning) {
+        isRunning = true;
+        startTime = Date.now();
+        timerInterval = setInterval(updateTimer, 100);
+        startPrompt.style.display = 'none';
+        textDisplay.classList.add('active');
+      }
+
+      const chars = textDisplay.querySelectorAll('.char');
+      const expected = currentText[charIndex];
+      totalTyped++;
+
+      // Remove current cursor
+      chars[charIndex].classList.remove('current');
+
+      if (typedChar === expected) {
+        chars[charIndex].className = 'char correct';
+        correctTyped++;
+      } else {
+        chars[charIndex].className = 'char incorrect';
+        errors++;
+        // Brief red flash on text display
+        textDisplay.classList.add('error-flash');
+        setTimeout(() => textDisplay.classList.remove('error-flash'), 150);
+      }
+
+      charIndex++;
+
+      // Set next cursor
+      if (charIndex < currentText.length) {
+        chars[charIndex].classList.add('current');
+      }
+
+      updateLiveStats();
+      updateProgress();
+
+      // Check completion
+      if (charIndex >= currentText.length) {
+        completeTest();
+      }
+    }
+
+    // ==========================================
+    // LIVE STATS
+    // ==========================================
+    function updateLiveStats() {
+      if (!startTime) return;
+      const elapsed = (Date.now() - startTime) / 1000;
+      if (elapsed < 0.5) return;
+
+      // WPM: (correct chars / 5) / minutes
+      const minutes = elapsed / 60;
+      const wpm = Math.round((correctTyped / 5) / minutes);
+      liveWpm.textContent = Math.max(0, wpm);
+
+      // Accuracy
+      const accuracy = totalTyped > 0 ? Math.round((correctTyped / totalTyped) * 100) : 100;
+      liveAccuracy.textContent = accuracy;
+
+      // Color coding for accuracy
+      if (accuracy >= 97) {
+        liveAccuracy.style.color = 'var(--green)';
+      } else if (accuracy >= 90) {
+        liveAccuracy.style.color = 'var(--yellow)';
+      } else {
+        liveAccuracy.style.color = 'var(--red)';
+      }
+    }
+
+    function updateTimer() {
+      if (!startTime) return;
+      const elapsed = Math.floor((Date.now() - startTime) / 1000);
+      const mins = Math.floor(elapsed / 60);
+      const secs = elapsed % 60;
+      liveTime.textContent = mins + ':' + String(secs).padStart(2, '0');
+      updateLiveStats();
+    }
+
+    function updateProgress() {
+      const pct = (charIndex / currentText.length) * 100;
+      progressFill.style.width = pct + '%';
+    }
+
+    // ==========================================
+    // TEST COMPLETION
+    // ==========================================
+    function completeTest() {
+      isComplete = true;
+      isRunning = false;
+      clearInterval(timerInterval);
+      textDisplay.classList.remove('active');
+
+      const elapsed = (Date.now() - startTime) / 1000;
+      const minutes = elapsed / 60;
+      const wpm = Math.round((correctTyped / 5) / minutes);
+      const accuracy = totalTyped > 0 ? Math.round((correctTyped / totalTyped) * 100) : 100;
+
+      // Results
+      document.getElementById('result-wpm').textContent = wpm;
+      document.getElementById('result-accuracy').textContent = accuracy + '%';
+
+      const mins = Math.floor(elapsed / 60);
+      const secs = Math.round(elapsed % 60);
+      document.getElementById('result-time').textContent = mins + ':' + String(secs).padStart(2, '0');
+      document.getElementById('result-chars').textContent = totalTyped;
+
+      // Rating
+      const ratingEl = document.getElementById('rating-badge');
+      let ratingText, ratingClass;
+      if (wpm < 30) { ratingText = 'Beginner'; ratingClass = 'rating-beginner'; }
+      else if (wpm < 50) { ratingText = 'Average'; ratingClass = 'rating-average'; }
+      else if (wpm < 70) { ratingText = 'Fast'; ratingClass = 'rating-fast'; }
+      else if (wpm < 90) { ratingText = 'Pro'; ratingClass = 'rating-pro'; }
+      else { ratingText = 'Elite'; ratingClass = 'rating-elite'; }
+      ratingEl.innerHTML = '<span class="rating-badge ' + ratingClass + '">' + ratingText + '</span>';
+
+      // SnapType savings calculation
+      // Assume 30 emails/day, avg 150 chars each = 4500 chars/day = 900 words/day
+      // At user's WPM, time to type all those: 900 / wpm minutes
+      // With SnapType (trigger ~7 chars per 150-char message): saves ~95% of typing
+      const emailsPerDay = 30;
+      const avgCharsPerEmail = 150;
+      const totalWordsPerDay = (emailsPerDay * avgCharsPerEmail) / 5;
+      const typingTimeMinutes = totalWordsPerDay / Math.max(wpm, 1);
+      const savedMinutes = typingTimeMinutes * 0.93;
+      const savedPerWeek = savedMinutes * 5;
+      const savedPerMonth = savedMinutes * 22;
+      const savedPerYear = savedPerMonth * 12;
+
+      let savingsDisplay, savingsDetail;
+      if (savedPerMonth >= 60) {
+        const hours = (savedPerMonth / 60).toFixed(1);
+        savingsDisplay = hours + ' hours/month';
+      } else {
+        savingsDisplay = Math.round(savedMinutes) + ' min/day';
+      }
+      savingsDetail = 'Based on 30 emails/day at ' + wpm + ' WPM. That is ' + Math.round(savedPerYear / 60) + ' hours saved per year — just from text expansion.';
+
+      document.getElementById('snaptype-savings-value').textContent = savingsDisplay;
+      document.getElementById('snaptype-savings-detail').textContent = savingsDetail;
+
+      // Hide test UI, show results
+      textDisplay.style.display = 'none';
+      startPrompt.style.display = 'none';
+      document.querySelector('.progress-bar').style.display = 'none';
+      liveStats.style.display = 'none';
+      resultsScreen.classList.add('visible');
+
+      // Keep focus for keyboard shortcuts
+      typingInput.focus();
+    }
+
+    // ==========================================
+    // RATING DESCRIPTIONS
+    // ==========================================
+    function getRatingEmoji(wpm) {
+      if (wpm < 30) return '';
+      if (wpm < 50) return '';
+      if (wpm < 70) return '';
+      if (wpm < 90) return '';
+      return '';
+    }
+
+    // ==========================================
+    // SHARING
+    // ==========================================
+    function shareTwitter() {
+      const wpm = document.getElementById('result-wpm').textContent;
+      const accuracy = document.getElementById('result-accuracy').textContent;
+      const text = 'I just scored ' + wpm + ' WPM with ' + accuracy + ' accuracy on the SnapType typing test! How fast do you type?';
+      const url = 'https://tjsnyder.github.io/snaptype-extension/tools/typing-test.html';
+      window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url), '_blank', 'width=550,height=420');
+    }
+
+    function copyResult() {
+      const wpm = document.getElementById('result-wpm').textContent;
+      const accuracy = document.getElementById('result-accuracy').textContent;
+      const time = document.getElementById('result-time').textContent;
+      const text = 'My typing speed: ' + wpm + ' WPM | Accuracy: ' + accuracy + ' | Time: ' + time + '\nTest yours: https://tjsnyder.github.io/snaptype-extension/tools/typing-test.html';
+
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.classList.add('copied');
+        btn.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Copied!';
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy Result';
+        }, 2000);
+      });
+    }
+
+    // ==========================================
+    // RESTART / NEW TEXT
+    // ==========================================
+    function resetState() {
+      charIndex = 0;
+      errors = 0;
+      totalTyped = 0;
+      correctTyped = 0;
+      startTime = null;
+      isRunning = false;
+      isComplete = false;
+      clearInterval(timerInterval);
+
+      // Reset UI
+      liveWpm.textContent = '0';
+      liveAccuracy.textContent = '100';
+      liveAccuracy.style.color = '';
+      liveTime.textContent = '0:00';
+      progressFill.style.width = '0%';
+
+      textDisplay.style.display = '';
+      textDisplay.classList.remove('active', 'error-flash');
+      document.querySelector('.progress-bar').style.display = '';
+      liveStats.style.display = '';
+      resultsScreen.classList.remove('visible');
+      startPrompt.style.display = '';
+
+      typingInput.value = '';
+    }
+
+    function restartTest() {
+      resetState();
+      renderText();
+      focusInput();
+    }
+
+    function newText() {
+      resetState();
+      currentText = getNextText();
+      renderText();
+      focusInput();
+    }
+
+    // ==========================================
+    // GLOBAL KEYBOARD LISTENER
+    // ==========================================
+    document.addEventListener('keydown', function(e) {
+      if (isComplete && (e.key === 'Enter' || e.key === 'Tab')) {
+        e.preventDefault();
+        restartTest();
+      }
+    });
+
+    // ==========================================
+    // INITIALIZE
+    // ==========================================
+    currentText = getNextText();
+    renderText();
+
+    // Auto-focus when user starts typing anywhere
+    document.addEventListener('keydown', function(e) {
+      if (isComplete) return;
+      if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        focusInput();
+      }
+    });
+  </script>
+</body>
+</html>
