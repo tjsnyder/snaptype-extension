@@ -778,6 +778,40 @@
       {
         id: 40, shortcut: "/dev-commit", category: "Developer", tone: "Professional",
         content: "{type}({scope}): {short_description}\n\n{detailed_description}\n\n- {change_1}\n- {change_2}\n\nBreaking changes: {none_or_description}\nRelated issues: #{issue_number}\n\nTesting:\n- {test_description}"
+      },
+
+      // --- Healthcare (8) ---
+      {
+        id: 41, shortcut: "/apptconfirm", category: "Healthcare", tone: "Professional",
+        content: "Dear [Patient Name],\n\nThis message is to confirm your upcoming appointment.\n\nProvider: [Provider Name]\nDate: {date}\nTime: [Time]\nLocation: [Office Location]\n\nPlease arrive 15 minutes early and bring a valid photo ID and your current insurance card. If you need to cancel or reschedule, please contact us at least 24 hours in advance.\n\nThank you,\n[Practice Name]"
+      },
+      {
+        id: 42, shortcut: "/apptremind", category: "Healthcare", tone: "Friendly",
+        content: "Hi [Patient Name],\n\nThis is a friendly reminder that you have an appointment scheduled with [Provider Name] on {date} at [Time]. Please remember to bring your insurance card and a list of any current medications.\n\nIf you need to reschedule, please call us at [Phone Number] at your earliest convenience.\n\nWe look forward to seeing you!\n[Practice Name]"
+      },
+      {
+        id: 43, shortcut: "/newpatient", category: "Healthcare", tone: "Friendly",
+        content: "Dear [Patient Name],\n\nWelcome to [Practice Name]! We are excited to have you as a new patient.\n\nBefore your first visit on {date}, please complete the following:\n1. Fill out the new patient registration forms (attached or available at [Patient Portal Link])\n2. Gather your insurance card and photo ID\n3. Prepare a list of current medications and dosages\n4. Note any allergies or prior surgeries\n\nPlease arrive 20 minutes early to complete check-in. If you have any questions, call us at [Phone Number].\n\nWe look forward to caring for you!\n[Practice Name]"
+      },
+      {
+        id: 44, shortcut: "/referral", category: "Healthcare", tone: "Professional",
+        content: "Dear [Receiving Provider Name],\n\nI am writing to refer [Patient Name] to your care for [Reason for Referral].\n\nThe patient has been under my care for [Duration] and would benefit from your specialized evaluation. Relevant clinical documentation is enclosed with the patient's written authorization.\n\nPlease do not hesitate to contact our office if you require any additional information.\n\nSincerely,\n[Referring Provider Name]\n[Practice Name]\n[Phone Number]"
+      },
+      {
+        id: 45, shortcut: "/labresults", category: "Healthcare", tone: "Professional",
+        content: "Dear [Patient Name],\n\nYour lab results from your visit on {date} are now available for review through our secure patient portal at [Patient Portal Link].\n\nTo access your results:\n1. Log in to the patient portal\n2. Navigate to \"Test Results\"\n3. Select the most recent entry\n\nIf you have questions about your results, please call our office at [Phone Number] to schedule a follow-up consultation.\n\nThank you,\n[Provider Name]\n[Practice Name]"
+      },
+      {
+        id: 46, shortcut: "/billing", category: "Healthcare", tone: "Professional",
+        content: "Dear [Patient Name],\n\nThank you for contacting us about your billing inquiry.\n\nAccount Number: [Account Number]\nDate of Service: {date}\nAmount: [Amount]\n\nHere is what I can share regarding your statement:\n[Billing Explanation]\n\nIf you would like to set up a payment plan or have additional questions, please call our billing department at [Billing Phone] Monday through Friday, 8 AM to 5 PM.\n\nThank you,\n[Practice Name] Billing Department"
+      },
+      {
+        id: 47, shortcut: "/followup", category: "Healthcare", tone: "Friendly",
+        content: "Hi [Patient Name],\n\nWe hope you are feeling well following your recent visit on {date}. This is a friendly check-in to see how you are doing.\n\nPlease remember to:\n- Continue taking prescribed medications as directed\n- Follow the care instructions provided at your visit\n- Contact us immediately if you experience [Warning Symptoms]\n\nYour next follow-up appointment is recommended in [Timeframe]. Would you like us to schedule that for you?\n\nWishing you a speedy recovery!\n[Practice Name]"
+      },
+      {
+        id: 48, shortcut: "/hipaa", category: "Healthcare", tone: "Professional",
+        content: "CONFIDENTIALITY NOTICE: This message and any attachments are intended solely for the individual or entity to whom they are addressed. This communication may contain protected health information (PHI) governed by the Health Insurance Portability and Accountability Act (HIPAA). If you are not the intended recipient, you are hereby notified that any disclosure, copying, distribution, or action taken in reliance on the contents of this message is strictly prohibited. Please notify the sender immediately and delete this message."
       }
     ];
 
@@ -789,7 +823,8 @@
       { key: "Recruiting", label: "Recruiting" },
       { key: "E-commerce", label: "E-commerce" },
       { key: "Project Management", label: "Project Management" },
-      { key: "Developer", label: "Developer" }
+      { key: "Developer", label: "Developer" },
+      { key: "Healthcare", label: "Healthcare" }
     ];
 
     const tones = [
@@ -1029,7 +1064,8 @@
       "recruiting": "Recruiting",
       "ecommerce": "E-commerce",
       "pm": "Project Management",
-      "developer": "Developer"
+      "developer": "Developer",
+      "healthcare": "Healthcare"
     };
     const reverseHashMap = {};
     Object.keys(hashMap).forEach(k => { reverseHashMap[hashMap[k]] = k; });
