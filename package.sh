@@ -15,9 +15,11 @@ mkdir -p "$DIST_DIR"
 cp manifest.json "$DIST_DIR/"
 cp background.js "$DIST_DIR/"
 cp content.js "$DIST_DIR/"
+cp overlay.js "$DIST_DIR/"
 cp license.js "$DIST_DIR/"
 cp -r popup "$DIST_DIR/"
 cp -r options "$DIST_DIR/"
+cp -r onboarding "$DIST_DIR/"
 cp -r icons "$DIST_DIR/"
 
 # Remove any dev files from dist

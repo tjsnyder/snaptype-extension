@@ -1,6 +1,11 @@
 const FREE_SNIPPET_LIMIT = 10;
 
-chrome.runtime.onInstalled.addListener(() => {
+chrome.runtime.onInstalled.addListener((details) => {
+  // Open onboarding on first install
+  if (details.reason === 'install') {
+    chrome.tabs.create({ url: chrome.runtime.getURL('onboarding/welcome.html') });
+  }
+
   chrome.storage.local.get(['snippets', 'settings', 'stats'], (result) => {
     if (!result.snippets) {
       chrome.storage.local.set({

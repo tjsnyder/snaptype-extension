@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to SnapType</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #f9fafb;
+      color: #1e1b4b;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .onboarding {
+      max-width: 560px;
+      width: 100%;
+      padding: 20px;
+    }
+    .step { display: none; }
+    .step.active { display: block; }
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 48px 40px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+    .step-indicator {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #e5e7eb;
+      transition: all 0.3s;
+    }
+    .dot.active { background: #6366f1; width: 24px; border-radius: 4px; }
+    .icon { font-size: 48px; margin-bottom: 16px; }
+    h2 { font-size: 24px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.5px; }
+    p { font-size: 15px; color: #6b7280; line-height: 1.6; margin-bottom: 24px; }
+    .demo-box {
+      background: #1e1b4b;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+      text-align: left;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 14px;
+      color: #e5e7eb;
+      line-height: 1.8;
+    }
+    .demo-box .shortcut { color: #a78bfa; font-weight: 600; }
+    .demo-box .arrow { color: #6b7280; }
+    .demo-box .result { color: #34d399; }
+    .demo-box .key {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      padding: 1px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      color: #d1d5db;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .try-it {
+      background: #f3f4f6;
+      border-radius: 10px;
+      padding: 16px;
+      margin: 20px 0;
+    }
+    .try-it label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #6b7280;
+      display: block;
+      margin-bottom: 8px;
+      text-align: left;
+    }
+    .try-it textarea {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+      resize: none;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .try-it textarea:focus { border-color: #6366f1; }
+    .setup-form {
+      text-align: left;
+      margin: 20px 0;
+    }
+    .setup-form .field {
+      margin-bottom: 14px;
+    }
+    .setup-form label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #374151;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .setup-form input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1.5px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+    }
+    .setup-form input:focus { border-color: #6366f1; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 32px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s;
+    }
+    .btn-primary { background: #6366f1; color: white; }
+    .btn-primary:hover { background: #4f46e5; }
+    .btn-ghost { background: transparent; color: #6b7280; }
+    .btn-ghost:hover { color: #374151; }
+    .btn-row { display: flex; gap: 12px; justify-content: center; }
+    .features-mini {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 20px 0;
+      text-align: left;
+    }
+    .feature-mini {
+      background: #f9fafb;
+      border-radius: 8px;
+      padding: 14px;
+      border: 1px solid #f3f4f6;
+    }
+    .feature-mini .fm-icon { font-size: 20px; margin-bottom: 6px; }
+    .feature-mini h4 { font-size: 13px; font-weight: 700; margin-bottom: 2px; }
+    .feature-mini p { font-size: 12px; color: #9ca3af; margin: 0; }
+  </style>
+</head>
+<body>
+  <div class="onboarding">
+
+    <!-- Step 1: Welcome -->
+    <div class="step active" data-step="1">
+      <div class="card">
+        <div class="step-indicator">
+          <div class="dot active"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        <div class="icon">⚡</div>
+        <h2>Welcome to SnapType</h2>
+        <p>You're about to save hours of typing every week. Let's get you set up in 30 seconds.</p>
+        <div class="features-mini">
+          <div class="feature-mini">
+            <div class="fm-icon">⌨️</div>
+            <h4>Type shortcuts</h4>
+            <p>Like /hello or /sig</p>
+          </div>
+          <div class="feature-mini">
+            <div class="fm-icon">⚡</div>
+            <h4>Press Tab</h4>
+            <p>Text expands instantly</p>
+          </div>
+          <div class="feature-mini">
+            <div class="fm-icon">📝</div>
+            <h4>Smart variables</h4>
+            <p>{date}, {name}, {email}</p>
+          </div>
+          <div class="feature-mini">
+            <div class="fm-icon">🌐</div>
+            <h4>Works everywhere</h4>
+            <p>Any website, any field</p>
+          </div>
+        </div>
+        <button class="btn btn-primary" onclick="goStep(2)">Let's go →</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Quick Setup -->
+    <div class="step" data-step="2">
+      <div class="card">
+        <div class="step-indicator">
+          <div class="dot"></div>
+          <div class="dot active"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        <div class="icon">👤</div>
+        <h2>Quick setup</h2>
+        <p>Add your info so variables like {name} and {email} work automatically in your snippets.</p>
+        <div class="setup-form">
+          <div class="field">
+            <label>Your name</label>
+            <input type="text" id="setup-name" placeholder="Jane Smith">
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <input type="email" id="setup-email" placeholder="jane@company.com">
+          </div>
+          <div class="field">
+            <label>Company (optional)</label>
+            <input type="text" id="setup-company" placeholder="Acme Inc">
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-ghost" onclick="goStep(3)">Skip</button>
+          <button class="btn btn-primary" onclick="saveSetup()">Save & continue →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3: Try It -->
+    <div class="step" data-step="3">
+      <div class="card">
+        <div class="step-indicator">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot active"></div>
+          <div class="dot"></div>
+        </div>
+        <div class="icon">🎯</div>
+        <h2>Try it out</h2>
+        <p>Type <strong>/hello</strong> in the box below, then press <strong>Tab</strong>.</p>
+        <div class="demo-box">
+          <div><span class="shortcut">/hello</span> <span class="arrow">→</span> <span class="key">Tab</span></div>
+          <div style="margin-top:4px"><span class="result">Hello! Thanks for reaching out. How can I help you today?</span></div>
+        </div>
+        <div class="try-it">
+          <label>Try typing /hello then pressing Tab:</label>
+          <textarea id="try-area" rows="3" placeholder="Start typing here..."></textarea>
+        </div>
+        <button class="btn btn-primary" onclick="goStep(4)">Got it! →</button>
+      </div>
+    </div>
+
+    <!-- Step 4: Done -->
+    <div class="step" data-step="4">
+      <div class="card">
+        <div class="step-indicator">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot active"></div>
+        </div>
+        <div class="icon">🎉</div>
+        <h2>You're all set!</h2>
+        <p>SnapType is running. You have 3 starter snippets ready to use. Click the SnapType icon in your toolbar to manage your snippets.</p>
+        <div class="demo-box">
+          <div><span class="shortcut">/hello</span> <span class="arrow">→</span> <span class="result">Greeting message</span></div>
+          <div><span class="shortcut">/thanks</span> <span class="arrow">→</span> <span class="result">Thank you message</span></div>
+          <div><span class="shortcut">/sig</span> <span class="arrow">→</span> <span class="result">Your signature</span></div>
+        </div>
+        <p style="font-size:13px;">Pro tip: Right-click any selected text to save it as a snippet.</p>
+        <button class="btn btn-primary" onclick="finish()">Start using SnapType</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function goStep(n) {
+      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+      document.querySelector(`[data-step="${n}"]`).classList.add('active');
+    }
+
+    async function saveSetup() {
+      const name = document.getElementById('setup-name').value.trim();
+      const email = document.getElementById('setup-email').value.trim();
+      const company = document.getElementById('setup-company').value.trim();
+
+      const result = await chrome.storage.local.get(['settings']);
+      const settings = result.settings || {};
+      settings.customVars = settings.customVars || {};
+      if (name) settings.customVars.name = name;
+      if (email) settings.customVars.email = email;
+      if (company) settings.customVars.company = company;
+      await chrome.storage.local.set({ settings });
+
+      goStep(3);
+    }
+
+    function finish() {
+      window.close();
+    }
+  </script>
+</body>
+</html>
