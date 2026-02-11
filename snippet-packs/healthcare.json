@@ -1,0 +1,97 @@
+[
+  {
+    "shortcut": "/apptconfirm",
+    "content": "Dear [Patient Name],\n\nThis message is to confirm your upcoming appointment.\n\nProvider: [Provider Name]\nDate: {date}\nTime: [Time]\nLocation: [Office Location]\n\nPlease arrive 15 minutes early and bring a valid photo ID and your current insurance card. If you need to cancel or reschedule, please contact us at least 24 hours in advance.\n\nThank you,\n[Practice Name]",
+    "folder": "Healthcare - Scheduling"
+  },
+  {
+    "shortcut": "/apptremind",
+    "content": "Hi [Patient Name],\n\nThis is a friendly reminder that you have an appointment scheduled with [Provider Name] on {date} at [Time]. Please remember to bring your insurance card and a list of any current medications.\n\nIf you need to reschedule, please call us at [Phone Number] at your earliest convenience.\n\nWe look forward to seeing you!\n[Practice Name]",
+    "folder": "Healthcare - Scheduling"
+  },
+  {
+    "shortcut": "/cancel",
+    "content": "Dear [Patient Name],\n\nWe have received your request to cancel your appointment on {date} at [Time] with [Provider Name]. Your appointment has been successfully cancelled.\n\nIf you would like to schedule a new appointment, please contact our office at [Phone Number] or reply to this message.\n\nThank you,\n[Practice Name]",
+    "folder": "Healthcare - Scheduling"
+  },
+  {
+    "shortcut": "/reschedule",
+    "content": "Dear [Patient Name],\n\nYour appointment with [Provider Name] has been rescheduled.\n\nNew Date: {date}\nNew Time: [Time]\nLocation: [Office Location]\n\nPlease let us know if this new time does not work for you and we will find an alternative. Remember to arrive 15 minutes early.\n\nThank you,\n[Practice Name]",
+    "folder": "Healthcare - Scheduling"
+  },
+  {
+    "shortcut": "/insurance",
+    "content": "Dear [Patient Name],\n\nWe are in the process of verifying your insurance coverage for your upcoming visit. To complete this process, we need the following information:\n\n1. Insurance provider name\n2. Member/subscriber ID\n3. Group number\n4. Name of the primary policyholder\n5. A copy of the front and back of your insurance card\n\nPlease submit this information at your earliest convenience so we can confirm your coverage before your appointment on {date}.\n\nThank you,\n[Practice Name]",
+    "folder": "Healthcare - Insurance & Billing"
+  },
+  {
+    "shortcut": "/referral",
+    "content": "Dear [Receiving Provider Name],\n\nI am writing to refer [Patient Name] to your care for [Reason for Referral].\n\nThe patient has been under my care for [Duration] and would benefit from your specialized evaluation. Relevant clinical documentation is enclosed with the patient's written authorization.\n\nPlease do not hesitate to contact our office if you require any additional information.\n\nSincerely,\n[Referring Provider Name]\n[Practice Name]\n[Phone Number]",
+    "folder": "Healthcare - Clinical"
+  },
+  {
+    "shortcut": "/intake",
+    "content": "Dear [Patient Name],\n\nThank you for scheduling your appointment with [Practice Name]. To ensure your visit goes smoothly, please complete the following before your appointment on {date}:\n\n1. Patient intake forms (attached or available at [Patient Portal Link])\n2. Bring a valid photo ID\n3. Bring your current insurance card\n4. Prepare a list of current medications and dosages\n5. Bring any relevant medical records or recent test results\n\nIf you have questions about the intake process, please call us at [Phone Number].\n\nWe look forward to caring for you!\n[Practice Name]",
+    "folder": "Healthcare - Patient Onboarding"
+  },
+  {
+    "shortcut": "/labresults",
+    "content": "Dear [Patient Name],\n\nYour recent lab results from your visit on [Date of Service] are now available. For the security of your health information, results can be viewed through our patient portal at [Patient Portal Link].\n\nIf you have questions about your results or need to schedule a follow-up appointment, please contact our office at [Phone Number].\n\nPlease note: This message does not contain specific medical information for your privacy and security.\n\nThank you,\n[Provider Name]\n[Practice Name]",
+    "folder": "Healthcare - Clinical"
+  },
+  {
+    "shortcut": "/refill",
+    "content": "Dear [Patient Name],\n\nWe have received your prescription refill request. Here is the current status:\n\nMedication: [Medication Name]\nStatus: [Approved / Requires Office Visit / Denied]\n\nIf approved, your prescription has been sent to [Pharmacy Name] and should be available for pickup within 24-48 hours.\n\nIf an office visit is required, please contact us at [Phone Number] to schedule an appointment so your provider can review your medication.\n\nThank you,\n[Practice Name]",
+    "folder": "Healthcare - Clinical"
+  },
+  {
+    "shortcut": "/newpatient",
+    "content": "Dear [Patient Name],\n\nWelcome to [Practice Name]! We are pleased that you have chosen us for your healthcare needs.\n\nYour first appointment is scheduled for {date} at [Time] with [Provider Name]. Here is what to expect:\n\n1. Please arrive 20 minutes early to complete any remaining paperwork\n2. Bring a valid photo ID and insurance card\n3. Bring a list of current medications, allergies, and relevant medical history\n4. Complete new patient forms in advance via our patient portal at [Patient Portal Link]\n\nIf you have any questions before your visit, please call us at [Phone Number].\n\nWe look forward to meeting you!\n[Practice Name]",
+    "folder": "Healthcare - Patient Onboarding"
+  },
+  {
+    "shortcut": "/aftersummary",
+    "content": "Dear [Patient Name],\n\nThank you for your visit on {date} with [Provider Name]. Below is a summary of your visit:\n\nReason for Visit: [Reason]\nKey Findings/Discussion: [Summary]\nPlan: [Treatment Plan]\nFollow-Up: [Follow-Up Instructions]\n\nMedications: [Any New or Changed Medications]\n\nIf you have questions about your visit or treatment plan, please contact our office at [Phone Number]. For urgent concerns, please call [Urgent Contact Number] or go to your nearest emergency department.\n\nThank you,\n[Provider Name]\n[Practice Name]",
+    "folder": "Healthcare - Clinical"
+  },
+  {
+    "shortcut": "/billing",
+    "content": "Dear [Patient Name],\n\nThank you for contacting us regarding your billing inquiry.\n\nAccount Number: [Account Number]\nDate of Service: [Date of Service]\nAmount: [Amount]\n\nWe have reviewed your account and [provide explanation]. If you would like to set up a payment plan or have additional questions, please contact our billing department at [Billing Phone Number] during business hours (Monday-Friday, 8:00 AM - 5:00 PM).\n\nYou can also view your statements and make payments through our patient portal at [Patient Portal Link].\n\nThank you,\n[Practice Name] Billing Department",
+    "folder": "Healthcare - Insurance & Billing"
+  },
+  {
+    "shortcut": "/hipaa",
+    "content": "CONFIDENTIALITY NOTICE: This communication and any attachments may contain confidential and privileged health information subject to protection under HIPAA (Health Insurance Portability and Accountability Act). This information is intended only for the use of the individual or entity to whom it is addressed. If you are not the intended recipient, you are hereby notified that any review, dissemination, distribution, or copying of this communication is strictly prohibited. If you have received this message in error, please notify the sender immediately and delete or destroy all copies of the original message.",
+    "folder": "Healthcare - Compliance"
+  },
+  {
+    "shortcut": "/ooo",
+    "content": "Thank you for your message. [Provider Name] is currently out of the office and will return on {date}.\n\nFor non-urgent matters, your message will be addressed upon their return.\n\nFor urgent medical needs during this time, please contact:\n- Covering Provider: [Covering Provider Name] at [Phone Number]\n- After-Hours Nurse Line: [Nurse Line Number]\n- For emergencies, please call 911 or go to your nearest emergency department.\n\nThank you for your patience,\n[Practice Name]",
+    "folder": "Healthcare - Office Administration"
+  },
+  {
+    "shortcut": "/preop",
+    "content": "Dear [Patient Name],\n\nYour [Procedure Name] is scheduled for {date} at [Time] at [Location].\n\nPre-Procedure Instructions:\n1. Do not eat or drink anything after midnight the night before your procedure unless otherwise instructed\n2. Arrange for a responsible adult to drive you home after the procedure\n3. Wear comfortable, loose-fitting clothing\n4. Leave jewelry and valuables at home\n5. Continue taking prescribed medications with a small sip of water unless directed otherwise by your provider\n6. [Additional Instructions]\n\nPlease arrive at [Arrival Time] for check-in. Bring your photo ID, insurance card, and a list of current medications.\n\nIf you have questions or need to reschedule, please call [Phone Number] immediately.\n\nThank you,\n[Provider Name]\n[Practice Name]",
+    "folder": "Healthcare - Clinical"
+  },
+  {
+    "shortcut": "/followup",
+    "content": "Dear [Patient Name],\n\nThis is a reminder to schedule your follow-up appointment with [Provider Name]. Based on your visit on [Last Visit Date], a follow-up was recommended in [Timeframe].\n\nPlease contact our office at [Phone Number] or visit our patient portal at [Patient Portal Link] to schedule your appointment at your earliest convenience.\n\nRegular follow-up care is an important part of your treatment plan. If you have any questions or concerns in the meantime, do not hesitate to reach out.\n\nThank you,\n[Practice Name]",
+    "folder": "Healthcare - Follow-Up"
+  },
+  {
+    "shortcut": "/noshow",
+    "content": "Dear [Patient Name],\n\nWe noticed that you were unable to make your scheduled appointment on {date} at [Time] with [Provider Name]. We understand that unexpected events can occur.\n\nPlease note that our office policy requires 24-hour notice for cancellations. Repeated missed appointments may result in a no-show fee.\n\nWe encourage you to reschedule as soon as possible so we can continue to support your health. Please contact us at [Phone Number] to find a new time that works for you.\n\nThank you,\n[Practice Name]",
+    "folder": "Healthcare - Scheduling"
+  },
+  {
+    "shortcut": "/records",
+    "content": "Dear [Patient Name],\n\nWe have received your request for medical records. Please note the following:\n\n1. A signed Authorization for Release of Medical Records form is required. You can obtain this form at our office or through our patient portal at [Patient Portal Link].\n2. Please allow [Number] business days for processing.\n3. Records can be delivered via [secure portal / mail / fax] per your preference.\n4. There may be a fee associated with copying and processing records as permitted by state law.\n\nIf you have questions about the records release process, please contact us at [Phone Number].\n\nThank you,\n[Practice Name]",
+    "folder": "Healthcare - Office Administration"
+  },
+  {
+    "shortcut": "/telehealth",
+    "content": "Dear [Patient Name],\n\nYour telehealth appointment with [Provider Name] is confirmed for {date} at [Time].\n\nTo prepare for your visit:\n1. Ensure you have a stable internet connection\n2. Use a private, quiet space for your appointment\n3. Log in to the patient portal at [Patient Portal Link] 10 minutes before your appointment\n4. Test your camera and microphone beforehand\n5. Have your medication list and any questions ready\n\nIf you experience technical difficulties, please call [Phone Number] for assistance.\n\nThank you,\n[Practice Name]",
+    "folder": "Healthcare - Scheduling"
+  }
+]

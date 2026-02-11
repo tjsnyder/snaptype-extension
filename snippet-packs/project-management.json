@@ -1,0 +1,97 @@
+[
+  {
+    "shortcut": "/status",
+    "content": "Project Status Update - {date}\n\nOverall Status: On Track / At Risk / Off Track\n\nCompleted This Week:\n- \n- \n\nIn Progress:\n- \n- \n\nPlanned for Next Week:\n- \n- \n\nBlockers/Risks:\n- \n\nPlease reach out if you have any questions or concerns.",
+    "folder": "PM - Status Updates"
+  },
+  {
+    "shortcut": "/update",
+    "content": "Hi team,\n\nQuick update on our progress as of {date}:\n\nKey accomplishments:\n- \n- \n\nUpcoming priorities:\n- \n- \n\nAction items:\n- {name}: \n- {name}: \n\nLet me know if anything needs clarification.",
+    "folder": "PM - Status Updates"
+  },
+  {
+    "shortcut": "/agenda",
+    "content": "Meeting Agenda - {date}\n\nAttendees: \nDuration: 30 min\n\n1. Review action items from last meeting (5 min)\n2. Progress updates (10 min)\n3. Discussion topics (10 min)\n   - \n   - \n4. New action items and next steps (5 min)\n\nPlease review the agenda and add any items before the meeting. See you there!",
+    "folder": "PM - Meetings"
+  },
+  {
+    "shortcut": "/standup",
+    "content": "Daily Standup - {date}\n\nYesterday:\n- \n- \n\nToday:\n- \n- \n\nBlockers:\n- None / \n\nPlease post your updates in the thread by 9:30 AM.",
+    "folder": "PM - Meetings"
+  },
+  {
+    "shortcut": "/assign",
+    "content": "Hi {name},\n\nI'd like to assign the following task to you:\n\nTask: \nPriority: High / Medium / Low\nDeadline: \nContext: \n\nAcceptance criteria:\n- \n- \n\nPlease confirm you can take this on and let me know if you have any questions or need additional context.",
+    "folder": "PM - Task Management"
+  },
+  {
+    "shortcut": "/delegate",
+    "content": "Hi {name},\n\nI'm delegating ownership of the following to you:\n\nArea/Task: \nEffective: {date}\nCurrent status: \n\nKey contacts:\n- \n\nRelevant docs: \n\nI'll be available for questions during the transition. Let's set up a 15-minute handoff call to walk through the details.",
+    "folder": "PM - Task Management"
+  },
+  {
+    "shortcut": "/sprint",
+    "content": "Sprint Update - {date}\n\nSprint Goal: \nSprint Duration: \nDays Remaining: \n\nProgress:\n- Completed: X of Y stories (Z points)\n- In Progress: \n- Not Started: \n\nBurndown: On pace / Behind / Ahead\n\nRisks to Sprint Goal:\n- \n\nCarryover Items:\n- \n\nPlease flag any concerns before our next standup.",
+    "folder": "PM - Sprint & Milestones"
+  },
+  {
+    "shortcut": "/milestone",
+    "content": "Milestone Update\n\nMilestone: \nTarget Date: \nStatus: On Track / At Risk / Delayed\n\nCompleted deliverables:\n- \n\nRemaining deliverables:\n- \n\nDependencies:\n- \n\nNext checkpoint: {date}\n\nPlease review and flag any concerns by end of day.",
+    "folder": "PM - Sprint & Milestones"
+  },
+  {
+    "shortcut": "/blocker",
+    "content": "BLOCKER ALERT\n\nBlocked Item: \nBlocked Since: {date}\nImpact: \nAffected Team Members: {name}\n\nDescription:\n\n\nWhat We Need to Unblock:\n- \n\nProposed Resolution:\n- \n\nEscalation needed: Yes / No\n\nPlease prioritize this — it is currently blocking progress on our timeline.",
+    "folder": "PM - Risks & Issues"
+  },
+  {
+    "shortcut": "/risk",
+    "content": "Risk Identified\n\nRisk: \nLikelihood: High / Medium / Low\nImpact: High / Medium / Low\nAffected Area: \n\nDescription:\n\n\nMitigation Plan:\n- \n\nContingency Plan:\n- \n\nOwner: {name}\nReview Date: {date}\n\nPlease review and provide input on the mitigation approach.",
+    "folder": "PM - Risks & Issues"
+  },
+  {
+    "shortcut": "/stakeholder",
+    "content": "Hi {name},\n\nHere is your project update for the week of {date}.\n\nExecutive Summary:\n\n\nKey Metrics:\n- Budget: On track / Over / Under\n- Timeline: On schedule / Delayed by X days\n- Scope: No changes / Change request pending\n\nHighlights:\n- \n\nItems Requiring Your Attention:\n- \n\nNext update scheduled for: \n\nHappy to set up time to discuss any of these items in more detail.",
+    "folder": "PM - Stakeholder Communication"
+  },
+  {
+    "shortcut": "/progress",
+    "content": "Hi {name},\n\nProgress report as of {date}:\n\nPhase: \nOverall Completion: X%\n\nWhat's been delivered:\n- \n- \n\nWhat's coming next:\n- \n- \n\nTimeline impact: None / +X days\nBudget impact: None / +$X\n\nLet me know if you'd like to discuss any of this further.",
+    "folder": "PM - Stakeholder Communication"
+  },
+  {
+    "shortcut": "/deadline",
+    "content": "Hi {name},\n\nFriendly reminder that the following is due soon:\n\nDeliverable: \nDeadline: {date}\nDays Remaining: \n\nOutstanding items:\n- \n\nPlease let me know your current status and if you anticipate any issues meeting the deadline. If you need additional support, I'm happy to help reprioritize.",
+    "folder": "PM - Reminders"
+  },
+  {
+    "shortcut": "/reminder",
+    "content": "Hi team,\n\nA few reminders for this week:\n\n1. \n2. \n3. \n\nUpcoming deadlines:\n- {date}: \n- {date}: \n\nPlease make sure these are on your radar. Reach out if you need to adjust any timelines.",
+    "folder": "PM - Reminders"
+  },
+  {
+    "shortcut": "/retro",
+    "content": "Retrospective - {date}\n\nSprint/Project: \n\nWhat went well:\n- \n- \n\nWhat could be improved:\n- \n- \n\nAction items:\n- {name}: \n- {name}: \n\nKey takeaways:\n- \n\nThank you all for your honest feedback. Let's carry these improvements into our next cycle.",
+    "folder": "PM - Meetings"
+  },
+  {
+    "shortcut": "/kickoff",
+    "content": "Project Kickoff - {date}\n\nProject Name: \nProject Lead: {name}\nSponsor: \nTarget Launch: \n\nObjectives:\n1. \n2. \n3. \n\nScope:\n- In scope: \n- Out of scope: \n\nTeam & Roles:\n- {name}: \n- {name}: \n\nKey Milestones:\n- \n- \n\nCommunication Plan:\n- Status updates: Weekly on \n- Standups: Daily at \n- Stakeholder reviews: Bi-weekly on \n\nNext Steps:\n1. \n2. \n\nLooking forward to working with everyone on this!",
+    "folder": "PM - Project Lifecycle"
+  },
+  {
+    "shortcut": "/change",
+    "content": "Change Request\n\nRequested By: {name}\nDate: {date}\nPriority: High / Medium / Low\n\nChange Description:\n\n\nReason for Change:\n\n\nImpact Assessment:\n- Timeline: \n- Budget: \n- Scope: \n- Resources: \n\nAlternatives Considered:\n- \n\nRecommendation:\n\n\nApproval needed from: \nDecision deadline: \n\nPlease review and provide your decision by the deadline above.",
+    "folder": "PM - Project Lifecycle"
+  },
+  {
+    "shortcut": "/handoff",
+    "content": "Project Handoff Summary\n\nProject: \nHandoff Date: {date}\nFrom: {name}\nTo: {name}\n\nProject Status: \nOpen Items:\n- \n- \n\nKey Documents:\n- \n\nPending Decisions:\n- \n\nImportant Contacts:\n- \n\nUpcoming Deadlines:\n- {date}: \n\nPlease review and schedule a walkthrough at your earliest convenience.",
+    "folder": "PM - Project Lifecycle"
+  },
+  {
+    "shortcut": "/wrapup",
+    "content": "Project Closeout Summary - {date}\n\nProject: \nDuration: \nFinal Status: Complete / Partial\n\nObjectives Met:\n- \n- \n\nKey Deliverables:\n- \n\nFinal Metrics:\n- Budget: Planned $X vs Actual $X\n- Timeline: Planned vs Actual\n- Scope: Delivered as planned / Modified\n\nLessons Learned:\n- \n- \n\nOutstanding Items / Follow-ups:\n- \n\nThank you to the entire team for your hard work on this project!",
+    "folder": "PM - Project Lifecycle"
+  }
+]
