@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Free Text Templates for Business — Browse & Copy | SnapType</title>
-  <meta name="description" content="Browse free text templates, email templates, canned responses, and text snippets for customer support, sales, recruiting, e-commerce, healthcare, real estate, and development. Copy any template instantly or use it in SnapType.">
+  <meta name="description" content="Browse free text templates, email templates, canned responses, and text snippets for customer support, sales, recruiting, e-commerce, healthcare, real estate, legal, education, and development. Copy any template instantly or use it in SnapType.">
   <meta name="keywords" content="text templates, email templates, canned responses, text snippets, business templates, customer support templates, sales templates, recruiting templates, real estate templates, healthcare templates">
   <meta property="og:title" content="Free Text Templates for Business — Browse & Copy | SnapType">
   <meta property="og:description" content="Browse and copy free text templates for customer support, sales, recruiting, e-commerce, and more. Use them standalone or with SnapType.">
@@ -838,6 +838,58 @@
       {
         id: 54, shortcut: "/re-market", category: "Real Estate", tone: "Professional",
         content: "Hi {name}, here's a quick snapshot of the local real estate market:\n\nMedian sale price: {median_price}\nAverage days on market: {avg_days}\nInventory trend: {trend}\n\nWhether you're thinking about buying, selling, or just staying informed, I'm happy to dive deeper into what these numbers mean for you. Feel free to reach out anytime."
+      },
+
+      // --- Legal (6) ---
+      {
+        id: 55, shortcut: "/legal-nda", category: "Legal", tone: "Professional",
+        content: "Dear {name},\n\nThis is a reminder that the Non-Disclosure Agreement between {company} and [Counterparty Name], executed on [Execution Date], remains in full force and effect. All obligations regarding the protection and non-disclosure of Confidential Information continue to apply.\n\nPlease ensure that all personnel with access to confidential materials are aware of their obligations under this agreement.\n\nRegards,\n[Sender Name]\n[Sender Title]"
+      },
+      {
+        id: 56, shortcut: "/legal-engage", category: "Legal", tone: "Professional",
+        content: "Dear {name},\n\nThank you for selecting {company} to represent you in the matter of [Matter Description]. This letter confirms the terms of our engagement.\n\nScope of representation: [Scope Description]\nResponsible attorney: [Attorney Name]\nBilling rate: [Rate]\nRetainer amount: [Retainer Amount]\n\nPlease review the enclosed engagement agreement and return a signed copy at your earliest convenience. Do not hesitate to contact us with any questions.\n\nSincerely,\n[Attorney Name]\n[Firm Name]"
+      },
+      {
+        id: 57, shortcut: "/legal-caseupdate", category: "Legal", tone: "Professional",
+        content: "Dear {name},\n\nI am writing to provide you with an update on the matter of [Case/Matter Name] (Reference: [Case Number]).\n\nCurrent status: [Status Summary]\nRecent developments: [Recent Developments]\nNext steps: [Next Steps]\nUpcoming deadlines: [Deadlines]\n\nPlease feel free to contact our office if you have any questions or require additional information.\n\nBest regards,\n[Attorney Name]\n[Firm Name]"
+      },
+      {
+        id: 58, shortcut: "/legal-hold", category: "Legal", tone: "Professional",
+        content: "LEGAL HOLD NOTICE\n\nTo: {name}\nFrom: [Legal Department]\nDate: {date}\nRe: Preservation of Documents and Data — [Matter Description]\n\nYou are hereby directed to preserve all documents, electronically stored information, and tangible items that may be relevant to [Matter Description]. This includes emails, files, reports, notes, and any other records in any format.\n\nDo not delete, modify, or dispose of any potentially relevant materials. If you have questions about what must be preserved, contact [Legal Contact] at {email} immediately.\n\nThis obligation remains in effect until you receive written notice that the legal hold has been released."
+      },
+      {
+        id: 59, shortcut: "/legal-breach", category: "Legal", tone: "Professional",
+        content: "NOTICE: Data Breach Notification\n\nDear {name},\n\nWe are writing to inform you of a security incident that may have involved your personal information.\n\nWhat happened: [Incident Description]\nDate discovered: {date}\nInformation involved: [Types of Data]\n\nWhat we are doing: [Remediation Steps]\nWhat you can do: [Recommended Actions]\n\nWe take the security of your information seriously and sincerely apologize for any concern this may cause. For questions or further assistance, please contact [Contact Name] at {email} or [Phone Number].\n\nSincerely,\n[Authorized Representative]\n{company}"
+      },
+      {
+        id: 60, shortcut: "/legal-disclaimer", category: "Legal", tone: "Professional",
+        content: "CONFIDENTIALITY NOTICE: This communication, including any attachments, is intended solely for the use of the addressee and may contain information that is privileged, confidential, or exempt from disclosure under applicable law. If you are not the intended recipient, you are hereby notified that any dissemination, distribution, or copying of this communication is strictly prohibited. If you have received this message in error, please notify the sender immediately and delete all copies."
+      },
+
+      // --- Education (6) ---
+      {
+        id: 61, shortcut: "/edu-goodwork", category: "Education", tone: "Friendly",
+        content: "Great work on {assignment}, {name}! Your effort really shows, especially in the way you developed your main points. Keep building on this momentum — you're making excellent progress in {course}."
+      },
+      {
+        id: 62, shortcut: "/edu-improve", category: "Education", tone: "Professional",
+        content: "Thank you for submitting {assignment}, {name}. I can see you put thought into this, and there are some solid ideas here. To strengthen your next submission, I'd recommend focusing on the following areas:\n\n1. \n2. \n3. \n\nPlease don't hesitate to visit during office hours if you'd like to talk through any of these points. I'm confident you can make strong improvements."
+      },
+      {
+        id: 63, shortcut: "/edu-gradeupdate", category: "Education", tone: "Professional",
+        content: "Dear {name},\n\nI hope this message finds you well. I wanted to provide a quick update on your child's performance in {course}.\n\nCurrent Grade: {grade}\nRecent Assessment: {assignment}\n\nYour child has been putting in consistent effort and I want to make sure you're kept in the loop. Please feel free to reach out if you have any questions or would like to discuss this further.\n\nWarm regards"
+      },
+      {
+        id: 64, shortcut: "/edu-conference", category: "Education", tone: "Professional",
+        content: "Dear {name},\n\nI'd like to invite you to a parent-teacher conference to discuss your child's progress in {course}. These conversations are a valuable opportunity for us to connect and ensure your child is getting the support they need.\n\nProposed Date: {date}\nDuration: Approximately 20 minutes\n\nPlease let me know if this time works, or suggest an alternative that fits your schedule. I look forward to speaking with you.\n\nWarm regards"
+      },
+      {
+        id: 65, shortcut: "/edu-instructions", category: "Education", tone: "Professional",
+        content: "Assignment: {assignment}\nCourse: {course}\nDue Date: {date}\n\nObjective:\n\n\nInstructions:\n1. \n2. \n3. \n\nSubmission Format: \nGrading Criteria: Please refer to the rubric provided below.\n\nIf you have any questions, please ask before the due date. I'm happy to help clarify expectations."
+      },
+      {
+        id: 66, shortcut: "/edu-recletter", category: "Education", tone: "Professional",
+        content: "To Whom It May Concern,\n\nI am pleased to write this letter of recommendation for {name}, who I have had the privilege of teaching in {course}. During our time together, {name} consistently demonstrated intellectual curiosity, a strong work ethic, and a genuine commitment to learning.\n\n"
       }
     ];
 
@@ -851,7 +903,9 @@
       { key: "Project Management", label: "Project Management" },
       { key: "Developer", label: "Developer" },
       { key: "Healthcare", label: "Healthcare" },
-      { key: "Real Estate", label: "Real Estate" }
+      { key: "Real Estate", label: "Real Estate" },
+      { key: "Legal", label: "Legal" },
+      { key: "Education", label: "Education" }
     ];
 
     const tones = [
@@ -1093,7 +1147,9 @@
       "pm": "Project Management",
       "developer": "Developer",
       "healthcare": "Healthcare",
-      "realestate": "Real Estate"
+      "realestate": "Real Estate",
+      "legal": "Legal",
+      "education": "Education"
     };
     const reverseHashMap = {};
     Object.keys(hashMap).forEach(k => { reverseHashMap[hashMap[k]] = k; });
@@ -1133,7 +1189,7 @@
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": "Free Text Template Library",
-    "description": "Browse free text templates for customer support, sales, recruiting, e-commerce, healthcare, real estate, project management, and development.",
+    "description": "Browse free text templates for customer support, sales, recruiting, e-commerce, healthcare, real estate, legal, education, project management, and development.",
     "url": "https://snaptype.app/templates.html",
     "isPartOf": {
       "@type": "WebSite",
