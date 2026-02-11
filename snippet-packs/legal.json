@@ -1,0 +1,87 @@
+[
+  {
+    "shortcut": "/nda",
+    "content": "Dear {name},\n\nThis is a reminder that the Non-Disclosure Agreement between {company} and [Counterparty Name], executed on [Execution Date], remains in full force and effect. All obligations regarding the protection and non-disclosure of Confidential Information continue to apply.\n\nPlease ensure that all personnel with access to confidential materials are aware of their obligations under this agreement. Should you have any questions regarding the scope or terms of the NDA, do not hesitate to contact our office.\n\nRegards,\n[Sender Name]\n[Sender Title]",
+    "folder": "Legal - Contracts"
+  },
+  {
+    "shortcut": "/contractrenew",
+    "content": "Dear {name},\n\nThis notice is to inform you that the agreement titled [Agreement Title] between {company} and [Counterparty Name], dated [Original Effective Date], is scheduled to expire on [Expiration Date].\n\nPlease review the current terms and advise whether you wish to proceed with renewal, negotiate amended terms, or allow the agreement to lapse. Kindly respond no later than [Response Deadline] to ensure continuity of the arrangement.\n\nIf you have any questions regarding the renewal process, please contact {email}.\n\nRegards,\n[Sender Name]\n[Sender Title]",
+    "folder": "Legal - Contracts"
+  },
+  {
+    "shortcut": "/amendment",
+    "content": "Dear {name},\n\nPlease be advised that an amendment to [Agreement Title] between {company} and [Counterparty Name] has been proposed. The amendment pertains to the following provisions:\n\n[Description of Amended Terms]\n\nThe proposed effective date of this amendment is [Amendment Effective Date]. Please review the attached amendment document and provide your written acknowledgment or any requested revisions by [Response Deadline].\n\nAll terms not expressly modified by this amendment shall remain in full force and effect.\n\nRegards,\n[Sender Name]\n[Sender Title]",
+    "folder": "Legal - Contracts"
+  },
+  {
+    "shortcut": "/terminate",
+    "content": "Dear {name},\n\nThis letter serves as formal notice of termination of [Agreement Title] between {company} and [Counterparty Name], effective [Termination Date], in accordance with [Section/Clause Reference] of the agreement.\n\nAll obligations that survive termination, including but not limited to confidentiality, indemnification, and intellectual property provisions, shall remain in effect as specified in the agreement.\n\nPlease confirm receipt of this notice. Should you wish to discuss the terms of termination or any transition matters, contact our office at {email}.\n\nRegards,\n[Sender Name]\n[Sender Title]",
+    "folder": "Legal - Contracts"
+  },
+  {
+    "shortcut": "/policyack",
+    "content": "Dear {name},\n\nAs part of {company}'s ongoing commitment to regulatory compliance, please review and acknowledge the following policy: [Policy Name].\n\nThis policy has been updated as of {date} and applies to all personnel within [Department/Division]. Your acknowledgment confirms that you have read, understood, and agree to comply with its terms.\n\nPlease complete your acknowledgment by [Acknowledgment Deadline]. Failure to do so may result in restricted access to applicable systems and resources.\n\nIf you have questions regarding this policy, please contact the Compliance Department at {email}.\n\nRegards,\n[Compliance Officer Name]",
+    "folder": "Legal - Compliance"
+  },
+  {
+    "shortcut": "/compremind",
+    "content": "Dear {name},\n\nThis is a reminder that all employees of {company} are required to complete [Compliance Training/Requirement] by [Deadline]. This obligation arises under [Applicable Regulation or Internal Policy].\n\nNon-compliance may result in disciplinary action and may expose the organization to regulatory risk. If you have already completed this requirement, please disregard this notice.\n\nFor questions or assistance, contact the Compliance Department at {email}.\n\nRegards,\n[Compliance Officer Name]",
+    "folder": "Legal - Compliance"
+  },
+  {
+    "shortcut": "/audit",
+    "content": "Dear {name},\n\nPlease be advised that {company} will be conducting a [Type of Audit] audit of [Department/Process] commencing on [Audit Start Date]. The audit is expected to conclude by [Audit End Date].\n\nYou may be required to provide documentation, access to records, or participate in interviews during this period. Please ensure that all relevant materials are organized and available. A detailed request list will follow under separate cover.\n\nYour cooperation is essential to the timely completion of this process. Please direct any questions to {email}.\n\nRegards,\n[Audit Lead Name]\n[Audit Lead Title]",
+    "folder": "Legal - Compliance"
+  },
+  {
+    "shortcut": "/breach",
+    "content": "Dear {name},\n\nWe are writing to inform you that {company} recently identified a data security incident that may have involved your personal information. The incident was discovered on [Discovery Date] and involved [Brief Description of Incident].\n\nThe categories of information potentially affected include: [Types of Data Involved].\n\nWe have taken the following steps in response:\n- [Remedial Action 1]\n- [Remedial Action 2]\n- Notification to [Applicable Regulatory Authority] as required under [Applicable Law/Regulation]\n\nWe recommend that you [Recommended Consumer Actions]. For further information or assistance, please contact [Contact Name] at {email} or [Phone Number].\n\nRegards,\n[Data Protection Officer Name]\n[Title]",
+    "folder": "Legal - Compliance"
+  },
+  {
+    "shortcut": "/engage",
+    "content": "Dear {name},\n\nThank you for selecting {company} to represent you in connection with [Matter Description]. This letter confirms the terms of our engagement.\n\nScope of Representation: [Scope Description]\nResponsible Attorney: [Attorney Name]\nBilling Rate: [Rate/Fee Structure]\nRetainer: [Retainer Amount, if applicable]\nJurisdiction: [Jurisdiction]\n\nOur representation is limited to the matter described above and does not extend to any other legal issues unless separately agreed upon in writing. Please review the enclosed engagement agreement, sign, and return a copy to our office at your earliest convenience.\n\nWe look forward to working with you.\n\nRegards,\n[Attorney Name]\n[Firm Name]",
+    "folder": "Legal - Client Communication"
+  },
+  {
+    "shortcut": "/caseupdate",
+    "content": "Dear {name},\n\nI am writing to provide you with an update on [Case Name/Matter Description], Case No. [Case Number].\n\nCurrent Status: [Status Summary]\nRecent Developments: [Description of Recent Activity]\nNext Steps: [Upcoming Actions or Deadlines]\nNext Key Date: [Date and Description]\n\nPlease do not hesitate to contact me at {email} if you have any questions or wish to discuss this matter further.\n\nRegards,\n[Attorney Name]\n[Firm Name]",
+    "folder": "Legal - Client Communication"
+  },
+  {
+    "shortcut": "/docrequest",
+    "content": "Dear {name},\n\nIn connection with [Case Name/Matter Description], Case No. [Case Number], we require the following documents and information to advance your matter:\n\n1. [Document/Information Request 1]\n2. [Document/Information Request 2]\n3. [Document/Information Request 3]\n\nPlease provide the above materials by [Deadline]. Documents may be delivered securely via [Delivery Method]. If you are unable to locate any of the requested items, please let us know so we can discuss alternatives.\n\nTimely receipt of these materials is important to meeting upcoming deadlines in your case.\n\nRegards,\n[Attorney Name]\n[Firm Name]",
+    "folder": "Legal - Client Communication"
+  },
+  {
+    "shortcut": "/billsummary",
+    "content": "Dear {name},\n\nPlease find below a summary of legal fees and costs for [Matter Description], Case No. [Case Number], for the billing period ending {date}.\n\nProfessional Fees: [Amount]\nCosts and Disbursements: [Amount]\nTotal Current Charges: [Total Amount]\nPrevious Balance: [Amount]\nPayments Received: [Amount]\nBalance Due: [Balance Amount]\n\nPayment is due within [Payment Terms] of the date of this statement. Please remit payment to [Payment Instructions]. If you have any questions regarding this statement, contact our billing department at {email}.\n\nRegards,\n[Attorney Name]\n[Firm Name]",
+    "folder": "Legal - Client Communication"
+  },
+  {
+    "shortcut": "/emaildisc",
+    "content": "CONFIDENTIALITY NOTICE: This email and any attachments are for the exclusive and confidential use of the intended recipient. If you are not the intended recipient, please do not read, distribute, or take action based on this message. If you have received this communication in error, please notify the sender immediately by reply email and permanently delete this message and any attachments. Unauthorized use, disclosure, or copying of this communication or any part thereof is strictly prohibited and may be unlawful.",
+    "folder": "Legal - Disclaimers"
+  },
+  {
+    "shortcut": "/confnotice",
+    "content": "PRIVILEGED AND CONFIDENTIAL\nATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n\nThis document and the information contained herein are protected by the attorney-client privilege, the work product doctrine, and/or other applicable privileges. This material is confidential and intended solely for the use of the designated recipient(s). Any unauthorized review, use, disclosure, or distribution is prohibited. If you have received this document in error, please notify the sender immediately and destroy all copies.",
+    "folder": "Legal - Disclaimers"
+  },
+  {
+    "shortcut": "/legalhold",
+    "content": "LEGAL HOLD NOTICE\n\nDear {name},\n\nThis notice requires you to preserve all documents and electronically stored information potentially relevant to [Matter Description/Litigation Name].\n\nEffective immediately, you must retain all records, including but not limited to emails, text messages, instant messages, documents, spreadsheets, presentations, voicemails, photographs, videos, and any other data in any format that relates to [Subject Matter of Hold].\n\nDo not delete, discard, modify, or overwrite any such materials, regardless of any existing retention schedules or policies. This obligation applies to all media, including personal devices used for company business.\n\nIf you have questions about the scope of this hold, contact [Legal Contact Name] at {email} immediately.\n\nThis hold remains in effect until you receive written notice of its release from the Legal Department.\n\nRegards,\n[General Counsel / Legal Department Head]\n{company}",
+    "folder": "Legal - Disclaimers"
+  },
+  {
+    "shortcut": "/legalreview",
+    "content": "LEGAL REVIEW REQUEST\n\nRequester: {name}\nDate Submitted: {date}\nDepartment: [Requesting Department]\nPriority: [High / Medium / Low]\nDeadline for Review: [Review Deadline]\n\nSubject Matter: [Brief Description]\nType of Review: [Contract Review / Regulatory Analysis / Policy Review / Litigation Risk / Other]\nCounterparty (if applicable): [Counterparty Name]\n\nSummary of Request:\n[Detailed description of what requires legal review and any relevant background information]\n\nAttached Documents: [List of Attachments]\n\nPlease direct questions to {name} at {email}.",
+    "folder": "Legal - Internal"
+  },
+  {
+    "shortcut": "/riskassess",
+    "content": "RISK ASSESSMENT MEMORANDUM\n\nPrepared by: {name}\nDate: {date}\nRe: [Subject Matter / Proposed Action]\n\nBackground:\n[Summary of the matter, transaction, or proposed action under review]\n\nIdentified Risks:\n1. [Risk Category]: [Description of Risk]\n2. [Risk Category]: [Description of Risk]\n3. [Risk Category]: [Description of Risk]\n\nApplicable Laws and Regulations: [Relevant Statutes, Regulations, or Standards]\nJurisdiction: [Jurisdiction]\nLikelihood of Occurrence: [High / Medium / Low]\nPotential Impact: [High / Medium / Low]\n\nRecommendations:\n[Proposed mitigation measures or recommended course of action]\n\nPlease review and advise. Direct questions to {name} at {email}.",
+    "folder": "Legal - Internal"
+  }
+]
