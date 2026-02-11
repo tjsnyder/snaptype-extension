@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Expander ROI Calculator — How Much Time Can You Save? | SnapType</title>
+  <meta name="description" content="Calculate how much time and money a text expander saves you. Free ROI calculator for professionals who type repetitive messages.">
+  <meta name="keywords" content="text expander ROI calculator, time saved typing, text expander savings, typing productivity calculator, text expansion ROI">
+  <link rel="canonical" href="https://tjsnyder.github.io/snaptype-extension/tools/roi-calculator.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Text Expander ROI Calculator — How Much Time Can You Save? | SnapType">
+  <meta property="og:description" content="Calculate how much time and money a text expander saves you. Free ROI calculator for professionals who type repetitive messages.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tjsnyder.github.io/snaptype-extension/tools/roi-calculator.html">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Text Expander ROI Calculator — How Much Time Can You Save? | SnapType">
+  <meta name="twitter:description" content="Calculate how much time and money a text expander saves you. Free ROI calculator for professionals who type repetitive messages.">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Text Expander ROI Calculator",
+    "description": "Calculate how much time and money a text expander saves you. Free ROI calculator for professionals who type repetitive messages.",
+    "url": "https://tjsnyder.github.io/snaptype-extension/tools/roi-calculator.html",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "SnapType"
+    }
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --purple: #6366f1;
+      --purple-dark: #4f46e5;
+      --purple-light: #eef2ff;
+      --dark: #1e1b4b;
+      --gray: #6b7280;
+      --light: #f9fafb;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      background: var(--light);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    nav {
+      padding: 16px 0;
+      border-bottom: 1px solid #f3f4f6;
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+    nav .container { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-size: 20px; font-weight: 800; color: var(--dark); text-decoration: none; }
+    .nav-logo span { color: var(--purple); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--gray); }
+    .nav-links a:hover { color: var(--dark); }
+    .nav-cta {
+      background: var(--purple); color: white !important; padding: 8px 20px;
+      border-radius: 8px; font-weight: 600 !important; transition: background 0.15s;
+    }
+    .nav-cta:hover { background: var(--purple-dark); color: white !important; }
+
+    /* Hero */
+    .hero { padding: 48px 0 32px; text-align: center; }
+    .hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.5px; }
+    .hero h1 em { color: var(--purple); font-style: normal; }
+    .hero p { font-size: 16px; color: var(--gray); max-width: 540px; margin: 0 auto; }
+
+    /* Calculator Card */
+    .calculator {
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+    .calc-section-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--purple-light);
+    }
+
+    /* Slider Groups */
+    .slider-group { margin-bottom: 24px; }
+    .slider-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .slider-label span {
+      font-size: 13px;
+      font-weight: 600;
+      color: #374151;
+    }
+    .slider-value {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--purple);
+      background: var(--purple-light);
+      padding: 2px 10px;
+      border-radius: 6px;
+      min-width: 48px;
+      text-align: center;
+    }
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: #e5e7eb;
+      outline: none;
+      cursor: pointer;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--purple);
+      cursor: pointer;
+      border: 3px solid var(--white);
+      box-shadow: 0 1px 4px rgba(99,102,241,0.4);
+      transition: transform 0.1s;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+    input[type="range"]::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--purple);
+      cursor: pointer;
+      border: 3px solid var(--white);
+      box-shadow: 0 1px 4px rgba(99,102,241,0.4);
+    }
+
+    /* Number Input */
+    .input-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .input-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 4px;
+    }
+    .input-group input[type="number"] {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s;
+      background: var(--white);
+    }
+    .input-group input[type="number"]:focus {
+      border-color: var(--purple);
+    }
+
+    /* Results Grid */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .stat-card {
+      background: var(--light);
+      border: 1.5px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .stat-card:hover {
+      border-color: #c7d2fe;
+      transform: translateY(-2px);
+    }
+    .stat-card.highlight {
+      background: linear-gradient(135deg, #1e1b4b, #312e81);
+      border-color: transparent;
+    }
+    .stat-card.highlight .stat-label { color: rgba(255,255,255,0.7); }
+    .stat-card.highlight .stat-value { color: var(--white); }
+    .stat-card.highlight .stat-sub { color: rgba(255,255,255,0.5); }
+
+    .stat-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+    .stat-value {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.1;
+      transition: opacity 0.15s;
+    }
+    .stat-value.updating {
+      opacity: 0.4;
+    }
+    .stat-sub {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 4px;
+    }
+
+    .stat-card.money .stat-value { color: #059669; }
+    .stat-card.money.highlight .stat-value { color: #34d399; }
+
+    /* Divider */
+    .results-divider {
+      border: none;
+      border-top: 2px solid var(--purple-light);
+      margin: 24px 0 20px;
+    }
+    .results-section-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--purple);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 14px;
+    }
+
+    /* Keystrokes banner */
+    .keystrokes-banner {
+      background: var(--purple-light);
+      border-radius: 10px;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .keystrokes-banner .kb-icon { font-size: 22px; }
+    .keystrokes-banner .kb-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    .keystrokes-banner .kb-number {
+      font-weight: 800;
+      color: var(--purple);
+    }
+
+    /* How We Calculate Section */
+    .methodology {
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+    .methodology h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .methodology p {
+      color: var(--gray);
+      font-size: 14px;
+      margin-bottom: 12px;
+      line-height: 1.7;
+    }
+    .methodology ul {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0;
+    }
+    .methodology li {
+      padding: 8px 0 8px 24px;
+      position: relative;
+      font-size: 14px;
+      color: #374151;
+      line-height: 1.6;
+    }
+    .methodology li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--purple);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, #1e1b4b, #312e81);
+      border-radius: 16px;
+      padding: 48px 32px;
+      text-align: center;
+      margin-bottom: 48px;
+      color: var(--white);
+    }
+    .cta-section h2 {
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .cta-section p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 24px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--white);
+      color: var(--purple-dark);
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+    .cta-features {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .cta-features span {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* Footer */
+    footer {
+      padding: 32px 0;
+      border-top: 1px solid #f3f4f6;
+      text-align: center;
+      background: var(--white);
+    }
+    footer p { font-size: 13px; color: var(--gray); }
+    footer a { color: var(--purple); text-decoration: none; }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .results-grid { grid-template-columns: 1fr 1fr; }
+      .input-row { grid-template-columns: 1fr; }
+      .cta-features { flex-direction: column; gap: 8px; }
+      .hero h1 { font-size: 26px; }
+      .stat-value { font-size: 22px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+    }
+    @media (max-width: 480px) {
+      .results-grid { grid-template-columns: 1fr; }
+      .keystrokes-banner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="/snaptype-extension/" class="nav-logo"><span>Snap</span>Type</a>
+      <div class="nav-links">
+        <a href="/snaptype-extension/blog/">Blog</a>
+        <a href="/snaptype-extension/tools/email-generator.html">Tools</a>
+        <a href="/snaptype-extension/templates.html">Templates</a>
+        <a href="/snaptype-extension/" class="nav-cta">Install Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="hero">
+      <h1>Text Expander <em>ROI Calculator</em></h1>
+      <p>Find out exactly how much time and money you can save by automating your repetitive typing with a text expander.</p>
+    </div>
+
+    <div class="calculator">
+      <div class="calc-section-title">Your Typing Habits</div>
+
+      <!-- Slider: Messages per day -->
+      <div class="slider-group">
+        <div class="slider-label">
+          <span>How many repetitive messages do you type per day?</span>
+          <span class="slider-value" id="messages-val">25</span>
+        </div>
+        <input type="range" id="messages" min="5" max="100" value="25" step="1">
+      </div>
+
+      <!-- Slider: Characters per message -->
+      <div class="slider-group">
+        <div class="slider-label">
+          <span>Average characters per message</span>
+          <span class="slider-value" id="chars-val">150</span>
+        </div>
+        <input type="range" id="chars" min="50" max="500" value="150" step="10">
+      </div>
+
+      <!-- Slider: Typing speed -->
+      <div class="slider-group">
+        <div class="slider-label">
+          <span>Your typing speed (WPM)</span>
+          <span class="slider-value" id="wpm-val">60</span>
+        </div>
+        <input type="range" id="wpm" min="30" max="120" value="60" step="5">
+      </div>
+
+      <!-- Number inputs: Hourly rate & Working days -->
+      <div class="input-row">
+        <div class="input-group">
+          <label for="rate">Your hourly rate ($)</label>
+          <input type="number" id="rate" value="35" min="1" max="1000" step="1">
+        </div>
+        <div class="input-group">
+          <label for="days">Working days per month</label>
+          <input type="number" id="days" value="22" min="1" max="31" step="1">
+        </div>
+      </div>
+
+      <!-- Results: Time -->
+      <hr class="results-divider">
+      <div class="results-section-label">Time Savings</div>
+      <div class="results-grid">
+        <div class="stat-card">
+          <div class="stat-label">Typing Time / Day</div>
+          <div class="stat-value" id="time-day">--</div>
+          <div class="stat-sub">minutes spent manually</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Saved / Day</div>
+          <div class="stat-value" id="saved-day">--</div>
+          <div class="stat-sub">with SnapType (90% faster)</div>
+        </div>
+        <div class="stat-card highlight">
+          <div class="stat-label">Saved / Month</div>
+          <div class="stat-value" id="saved-month">--</div>
+          <div class="stat-sub">hours reclaimed</div>
+        </div>
+      </div>
+
+      <div class="results-grid" style="margin-top: 16px;">
+        <div class="stat-card highlight" style="grid-column: 1 / -1;">
+          <div class="stat-label">Time Saved Per Year</div>
+          <div class="stat-value" id="saved-year" style="font-size: 36px;">--</div>
+          <div class="stat-sub">That could be entire work weeks back in your calendar</div>
+        </div>
+      </div>
+
+      <!-- Results: Money -->
+      <hr class="results-divider">
+      <div class="results-section-label">Money Savings</div>
+      <div class="results-grid">
+        <div class="stat-card money">
+          <div class="stat-label">Saved / Month</div>
+          <div class="stat-value" id="money-month">--</div>
+          <div class="stat-sub">per month in recovered time</div>
+        </div>
+        <div class="stat-card money highlight">
+          <div class="stat-label">Saved / Year</div>
+          <div class="stat-value" id="money-year">--</div>
+          <div class="stat-sub">annual savings</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">ROI vs. Free Tool</div>
+          <div class="stat-value" id="roi-val" style="color: var(--purple);">--</div>
+          <div class="stat-sub">SnapType is free to start</div>
+        </div>
+      </div>
+
+      <!-- Keystrokes -->
+      <div class="keystrokes-banner">
+        <span class="kb-icon">&#9000;</span>
+        <span class="kb-text">You would save <span class="kb-number" id="keystrokes">--</span> keystrokes every month</span>
+      </div>
+    </div>
+
+    <!-- Methodology -->
+    <div class="methodology">
+      <h2>How We Calculate Your Savings</h2>
+      <p>Our ROI calculator uses a straightforward formula based on your actual typing patterns:</p>
+      <ul>
+        <li><strong>Total characters per day</strong> = messages per day x average characters per message</li>
+        <li><strong>Words per day</strong> = total characters / 5 (standard word length)</li>
+        <li><strong>Time spent typing</strong> = words per day / your typing speed (WPM)</li>
+        <li><strong>Time saved</strong> = typing time x 90% (text expanders eliminate the need to type repetitive content, reducing input to a short trigger)</li>
+        <li><strong>Money saved</strong> = time saved x your hourly rate</li>
+      </ul>
+      <p>The 90% time reduction is a conservative estimate. With SnapType, you type a short shortcut (e.g., <code>/thanks</code>) and your full message expands instantly. Instead of typing 150+ characters, you type 7. That is over 95% fewer keystrokes in practice.</p>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+      <h2>Start Saving Time Today</h2>
+      <p>SnapType is free to install. Set up your first shortcut in under 60 seconds and start reclaiming your time.</p>
+      <a href="/snaptype-extension/" class="cta-btn">Install SnapType Free</a>
+      <div class="cta-features">
+        <span>Free forever plan</span>
+        <span>Works on every website</span>
+        <span>Set up in seconds</span>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 SnapType. <a href="/snaptype-extension/">Home</a> &middot; <a href="/snaptype-extension/compare.html">Compare</a> &middot; <a href="/snaptype-extension/templates.html">Templates</a> &middot; <a href="/snaptype-extension/blog/">Blog</a> &middot; <a href="/snaptype-extension/privacy.html">Privacy</a> &middot; <a href="/snaptype-extension/tools/email-generator.html">Email Generator</a> &middot; <a href="/snaptype-extension/tools/subject-line-generator.html">Subject Lines</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Elements
+    const messagesSlider = document.getElementById('messages');
+    const charsSlider = document.getElementById('chars');
+    const wpmSlider = document.getElementById('wpm');
+    const rateInput = document.getElementById('rate');
+    const daysInput = document.getElementById('days');
+
+    const messagesVal = document.getElementById('messages-val');
+    const charsVal = document.getElementById('chars-val');
+    const wpmVal = document.getElementById('wpm-val');
+
+    // Result elements
+    const timeDayEl = document.getElementById('time-day');
+    const savedDayEl = document.getElementById('saved-day');
+    const savedMonthEl = document.getElementById('saved-month');
+    const savedYearEl = document.getElementById('saved-year');
+    const moneyMonthEl = document.getElementById('money-month');
+    const moneyYearEl = document.getElementById('money-year');
+    const roiEl = document.getElementById('roi-val');
+    const keystrokesEl = document.getElementById('keystrokes');
+
+    // All stat value elements for animation
+    const allStatValues = document.querySelectorAll('.stat-value');
+
+    function formatNumber(n) {
+      if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M';
+      if (n >= 1000) return n.toLocaleString('en-US');
+      return n.toString();
+    }
+
+    function animateValue(el) {
+      el.classList.add('updating');
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          el.classList.remove('updating');
+        });
+      });
+    }
+
+    function calculate() {
+      const messages = parseInt(messagesSlider.value);
+      const chars = parseInt(charsSlider.value);
+      const wpm = parseInt(wpmSlider.value);
+      const rate = parseFloat(rateInput.value) || 0;
+      const days = parseInt(daysInput.value) || 0;
+
+      // Update slider display values
+      messagesVal.textContent = messages;
+      charsVal.textContent = chars;
+      wpmVal.textContent = wpm;
+
+      // Calculations
+      const totalCharsPerDay = messages * chars;
+      const wordsPerDay = totalCharsPerDay / 5; // standard: 5 chars per word
+      const typingMinutesPerDay = wordsPerDay / wpm;
+      const savedMinutesPerDay = typingMinutesPerDay * 0.9;
+      const savedMinutesPerMonth = savedMinutesPerDay * days;
+      const savedHoursPerMonth = savedMinutesPerMonth / 60;
+      const savedMinutesPerYear = savedMinutesPerMonth * 12;
+      const savedHoursPerYear = savedMinutesPerYear / 60;
+
+      const moneySavedPerMonth = savedHoursPerMonth * rate;
+      const moneySavedPerYear = moneySavedPerMonth * 12;
+
+      const keystrokesSavedPerMonth = totalCharsPerDay * 0.9 * days;
+
+      // Format time
+      const timeDayFormatted = typingMinutesPerDay.toFixed(1) + ' min';
+      const savedDayFormatted = savedMinutesPerDay.toFixed(1) + ' min';
+
+      let savedMonthFormatted;
+      if (savedHoursPerMonth >= 1) {
+        savedMonthFormatted = savedHoursPerMonth.toFixed(1) + ' hrs';
+      } else {
+        savedMonthFormatted = savedMinutesPerMonth.toFixed(0) + ' min';
+      }
+
+      let savedYearFormatted;
+      if (savedHoursPerYear >= 1) {
+        savedYearFormatted = savedHoursPerYear.toFixed(1) + ' hrs';
+      } else {
+        savedYearFormatted = savedMinutesPerYear.toFixed(0) + ' min';
+      }
+
+      // Format money
+      const moneyMonthFormatted = '$' + Math.round(moneySavedPerMonth).toLocaleString('en-US');
+      const moneyYearFormatted = '$' + Math.round(moneySavedPerYear).toLocaleString('en-US');
+
+      // Update DOM with animation
+      allStatValues.forEach(animateValue);
+
+      timeDayEl.textContent = timeDayFormatted;
+      savedDayEl.textContent = savedDayFormatted;
+      savedMonthEl.textContent = savedMonthFormatted;
+      savedYearEl.textContent = savedYearFormatted;
+      moneyMonthEl.textContent = moneyMonthFormatted;
+      moneyYearEl.textContent = moneyYearFormatted;
+      roiEl.textContent = '\u221E'; // infinity symbol — tool is free
+      keystrokesEl.textContent = formatNumber(Math.round(keystrokesSavedPerMonth));
+    }
+
+    // Bind events
+    messagesSlider.addEventListener('input', calculate);
+    charsSlider.addEventListener('input', calculate);
+    wpmSlider.addEventListener('input', calculate);
+    rateInput.addEventListener('input', calculate);
+    daysInput.addEventListener('input', calculate);
+
+    // Initial calculation
+    calculate();
+  </script>
+</body>
+</html>
