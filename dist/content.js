@@ -2,19 +2,24 @@
   let snippets = [];
   let buffer = '';
   let settings = { triggerKey: 'Tab', expansionEnabled: true };
+  let customVars = {};
 
-  function loadSnippets() {
+  function loadData() {
     chrome.storage.local.get(['snippets', 'settings'], (result) => {
       snippets = result.snippets || [];
       settings = result.settings || settings;
+      customVars = (result.settings && result.settings.customVars) || {};
     });
   }
 
-  loadSnippets();
+  loadData();
 
   chrome.storage.onChanged.addListener((changes) => {
     if (changes.snippets) snippets = changes.snippets.newValue || [];
-    if (changes.settings) settings = changes.settings.newValue || settings;
+    if (changes.settings) {
+      settings = changes.settings.newValue || settings;
+      customVars = (changes.settings.newValue && changes.settings.newValue.customVars) || {};
+    }
   });
 
   function processVariables(text) {
@@ -29,14 +34,9 @@
       '{domain}': window.location.hostname
     };
 
-    chrome.storage.local.get(['settings'], (result) => {
-      const s = result.settings || {};
-      if (s.customVars) {
-        for (const [key, value] of Object.entries(s.customVars)) {
-          vars[`{${key}}`] = value;
-        }
-      }
-    });
+    for (const [key, value] of Object.entries(customVars)) {
+      vars[`{${key}}`] = value;
+    }
 
     let processed = text;
     for (const [key, value] of Object.entries(vars)) {
@@ -46,24 +46,41 @@
   }
 
   function expandSnippet(el, snippet, shortcutLength) {
-    const expandedContent = processVariables(snippet.content);
+    let expandedContent = processVariables(snippet.content);
+    const cursorOffset = expandedContent.indexOf('{cursor}');
+    expandedContent = expandedContent.replace('{cursor}', '');
 
     if (el.isContentEditable) {
       const selection = window.getSelection();
       if (!selection.rangeCount) return;
-      const range = selection.getRangeAt(0);
 
       for (let i = 0; i < shortcutLength; i++) {
         document.execCommand('delete', false);
       }
 
-      const lines = expandedContent.split('\n');
-      lines.forEach((line, idx) => {
-        document.execCommand('insertText', false, line);
-        if (idx < lines.length - 1) {
-          document.execCommand('insertLineBreak', false);
-        }
-      });
+      if (cursorOffset !== -1) {
+        const before = expandedContent.substring(0, cursorOffset);
+        const after = expandedContent.substring(cursorOffset);
+        const beforeLines = before.split('\n');
+        beforeLines.forEach((line, idx) => {
+          document.execCommand('insertText', false, line);
+          if (idx < beforeLines.length - 1) document.execCommand('insertLineBreak', false);
+        });
+        const marker = selection.getRangeAt(0).cloneRange();
+        const afterLines = after.split('\n');
+        afterLines.forEach((line, idx) => {
+          document.execCommand('insertText', false, line);
+          if (idx < afterLines.length - 1) document.execCommand('insertLineBreak', false);
+        });
+        selection.removeAllRanges();
+        selection.addRange(marker);
+      } else {
+        const lines = expandedContent.split('\n');
+        lines.forEach((line, idx) => {
+          document.execCommand('insertText', false, line);
+          if (idx < lines.length - 1) document.execCommand('insertLineBreak', false);
+        });
+      }
     } else if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
       const start = el.selectionStart - shortcutLength;
       const end = el.selectionStart;
@@ -71,7 +88,7 @@
       const after = el.value.substring(end);
       el.value = before + expandedContent + after;
 
-      const newPos = start + expandedContent.length;
+      const newPos = cursorOffset !== -1 ? start + cursorOffset : start + expandedContent.length;
       el.selectionStart = newPos;
       el.selectionEnd = newPos;
 

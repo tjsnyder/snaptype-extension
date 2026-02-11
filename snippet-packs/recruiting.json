@@ -1,0 +1,162 @@
+[
+  {
+    "id": "rec_001",
+    "shortcut": "/rec-source",
+    "content": "Hi {name},\n\nI came across your profile and was really impressed by your work in {role} — especially your experience with [specific skill/project]. I'm a recruiter at {company}, and we're building out a team that I think you'd be a great fit for.\n\nWould you be open to a quick, no-pressure chat to learn more? Happy to work around your schedule.\n\nBest,\n{cursor}",
+    "folder": "Recruiting",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "rec_002",
+    "shortcut": "/rec-linkedin",
+    "content": "Hi {name} — I know recruiters flood your inbox, so I'll keep this short. I'm hiring for a {role} role at {company} that aligns closely with your background. The team is [brief team context], and the compensation range is [range].\n\nIf you're even slightly curious, I'd love to share more details. No strings attached.\n\n{cursor}",
+    "folder": "Recruiting",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "rec_003",
+    "shortcut": "/rec-cold-email",
+    "content": "Subject: {role} at {company} — thought of you\n\nHi {name},\n\nI found your profile through [source] and wanted to reach out directly. We're looking for a {role} to join our team at {company}, and your background in [area of expertise] stood out.\n\nA few quick highlights:\n- [Key selling point about the role]\n- [Compensation/equity highlight]\n- [Culture or growth detail]\n\nWould you have 15 minutes this week for an intro call? Here's my calendar link: [link]\n\nLooking forward to hearing from you.\n\n{cursor}",
+    "folder": "Recruiting",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "rec_004",
+    "shortcut": "/rec-passive",
+    "content": "Hi {name},\n\nI know you might not be actively looking right now, and that's completely fine. I'm reaching out because your background in [area] is exactly what we're looking for on our {role} team at {company}.\n\nEven if the timing isn't right, I'd love to connect and keep you in the loop for future opportunities. Sometimes the best moves happen when you're not expecting them.\n\nWould you be open to a casual conversation?\n\n{cursor}",
+    "folder": "Recruiting",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "rec_005",
+    "shortcut": "/rec-schedule",
+    "content": "Hi {name},\n\nThanks for your interest in the {role} position at {company}! I'd love to set up an interview.\n\nHere are a few available times:\n- {date} at [time]\n- {date} at [time]\n- {date} at [time]\n\nThe interview will be approximately [duration] with [interviewer name and title]. It will cover [brief description of focus areas].\n\nPlease let me know which time works best, or feel free to suggest an alternative. I'll send a calendar invite with all the details once we've confirmed.\n\n{cursor}",
+    "folder": "Recruiting",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "rec_006",
+    "shortcut": "/rec-confirm",
+    "content": "Hi {name},\n\nJust confirming your interview for the {role} position:\n\n- Date: {date}\n- Time: [time] [timezone]\n- Format: [Video call / In-person / Phone]\n- Interviewer(s): [names and titles]\n- Link/Location: [details]\n\nTo help you prepare:\n- The interview will focus on [topics]\n- Please have [any required materials] ready\n- Plan for approximately [duration]\n\nIf anything comes up and you need to reschedule, just let me know — no worries at all. Good luck!\n\n{cursor}",
+    "folder": "Recruiting",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "rec_007",
+    "shortcut": "/rec-remind",
+    "content": "Hi {name},\n\nFriendly reminder that your interview for the {role} position is coming up tomorrow, {date} at [time] [timezone].\n\nHere's your meeting link: [link]\n\nYou'll be speaking with [interviewer name]. If you have any last-minute questions, feel free to reach out.\n\nLooking forward to it!\n\n{cursor}",
+    "folder": "Recruiting",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "rec_008",
+    "shortcut": "/rec-post-interview",
+    "content": "Hi {name},\n\nThank you for taking the time to interview with us today for the {role} position. It was a pleasure getting to learn more about your experience, especially [specific topic discussed].\n\nOur team will be reviewing feedback over the next [timeframe], and I'll be in touch with an update by {date}. In the meantime, if you have any questions, don't hesitate to reach out.\n\nThanks again for your time!\n\n{cursor}",
+    "folder": "Recruiting",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "rec_009",
+    "shortcut": "/rec-next-round",
+    "content": "Hi {name},\n\nGreat news — the team really enjoyed speaking with you, and we'd love to invite you to the next stage of our interview process for the {role} position.\n\nThis round will involve [description of next round — e.g., a technical assessment, panel interview, case study]. It typically takes about [duration].\n\nAre any of these times available for you?\n- {date} at [time]\n- {date} at [time]\n- {date} at [time]\n\nLet me know what works, and I'll get everything set up.\n\n{cursor}",
+    "folder": "Recruiting",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "rec_010",
+    "shortcut": "/rec-offer",
+    "content": "Hi {name},\n\nI'm thrilled to let you know that we'd like to extend an offer for the {role} position at {company}! The team was genuinely impressed throughout the process, and we believe you'd make a fantastic addition.\n\nHere's a summary of the offer:\n- Title: {role}\n- Base Salary: [amount]\n- Start Date: {date}\n- [Equity/Bonus/Other]: [details]\n- Benefits: [highlights]\n\nI've attached the formal offer letter with full details. The offer is valid until {date}.\n\nI'd love to hop on a quick call to walk through everything and answer any questions you may have. Would [time] on {date} work?\n\nCongratulations, and welcome to the team!\n\n{cursor}",
+    "folder": "Recruiting",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "rec_011",
+    "shortcut": "/rec-offer-followup",
+    "content": "Hi {name},\n\nI wanted to check in and see if you've had a chance to review the offer for the {role} position. I know it's a big decision, and I want to make sure you have everything you need.\n\nIf you have any questions about compensation, benefits, team structure, or anything else, I'm happy to set up a call or connect you with the hiring manager.\n\nNo rush — just want to make sure you feel supported as you think things through.\n\n{cursor}",
+    "folder": "Recruiting",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "rec_012",
+    "shortcut": "/rec-reject",
+    "content": "Hi {name},\n\nThank you so much for taking the time to interview for the {role} position at {company}. We genuinely enjoyed getting to know you and learning about your experience.\n\nAfter careful consideration, we've decided to move forward with another candidate whose background more closely aligns with the specific needs of this role. This was not an easy decision — you clearly have a lot to offer.\n\nI'd love to keep your information on file for future opportunities that may be a better fit. Would that be okay with you?\n\nWishing you all the best in your search, and please don't hesitate to reach out if our paths cross again.\n\n{cursor}",
+    "folder": "Recruiting",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "rec_013",
+    "shortcut": "/rec-reject-screen",
+    "content": "Hi {name},\n\nThank you for your interest in the {role} position at {company} and for taking the time to speak with me.\n\nAfter reviewing your background against the current requirements for this role, we've decided not to move forward at this time. We're looking for someone with more depth in [specific area], but your experience in [positive note] was impressive.\n\nI'll keep you in mind if something that's a stronger match opens up. I wish you the best in your job search.\n\n{cursor}",
+    "folder": "Recruiting",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "rec_014",
+    "shortcut": "/rec-onboard",
+    "content": "Hi {name},\n\nWelcome to {company}! We're so excited to have you join us as our new {role} starting {date}.\n\nHere's what to expect for your first day:\n- Start time: [time] [timezone]\n- Location/Login: [office address or remote setup instructions]\n- Point of contact: [name and contact info]\n- What to bring: [ID, laptop, etc.]\n\nBefore your start date, please complete the following:\n- [ ] Sign and return your offer letter and employment documents\n- [ ] Complete the onboarding form: [link]\n- [ ] Set up your accounts: [instructions]\n\nYour manager, [manager name], and the rest of the team can't wait to meet you. If you have any questions before day one, I'm just a message away.\n\n{cursor}",
+    "folder": "Recruiting",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "rec_015",
+    "shortcut": "/rec-onboard-checkin",
+    "content": "Hi {name},\n\nHope your first [week/two weeks] at {company} has been going well! I wanted to check in and see how you're settling in.\n\nA few things I'd love to hear about:\n- How has the onboarding experience been so far?\n- Do you have everything you need to do your best work?\n- Is there anything I can help with or any feedback on the process?\n\nYour success matters to us, so don't hesitate to share anything — big or small.\n\n{cursor}",
+    "folder": "Recruiting",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "rec_016",
+    "shortcut": "/rec-refcheck",
+    "content": "Hi {name},\n\nI hope this message finds you well. I'm reaching out because [candidate name] has listed you as a professional reference for a {role} position at {company}.\n\nWould you be available for a brief 10-15 minute call this week? I'd love to hear about your experience working with them.\n\nHere are a few times that work on my end:\n- {date} at [time]\n- {date} at [time]\n\nOf course, all responses will be kept confidential. Please let me know what works best for you.\n\nThank you!\n\n{cursor}",
+    "folder": "Recruiting",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "rec_017",
+    "shortcut": "/rec-refcheck-q",
+    "content": "Reference Check — {role} Position\nCandidate: [candidate name]\nReference: {name}\nDate: {date}\n\n1. How do you know [candidate name], and how long did you work together?\n2. What was their role, and what were their primary responsibilities?\n3. What would you say are their greatest strengths?\n4. Can you share an area where they could improve or grow?\n5. How did they handle pressure, deadlines, or conflict?\n6. Would you work with them again if given the opportunity?\n7. Is there anything else you think we should know?\n\nNotes:\n{cursor}",
+    "folder": "Recruiting",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "rec_018",
+    "shortcut": "/rec-job-post",
+    "content": "# {role}\n\n**{company}** | [Location / Remote] | [Full-time / Contract]\n\n## About the Role\n\nWe're looking for a {role} to join our [team/department] and help us [mission or key objective]. You'll work closely with [collaborators] to [primary impact area].\n\n## What You'll Do\n\n- [Key responsibility 1]\n- [Key responsibility 2]\n- [Key responsibility 3]\n- [Key responsibility 4]\n\n## What We're Looking For\n\n- [Required skill/experience 1]\n- [Required skill/experience 2]\n- [Required skill/experience 3]\n- [Nice-to-have 1]\n\n## Why Join Us\n\n- [Benefit 1 — e.g., compensation, equity]\n- [Benefit 2 — e.g., growth opportunity]\n- [Benefit 3 — e.g., culture, flexibility]\n\n## How to Apply\n\n[Application instructions or link]\n\n{company} is an equal opportunity employer. We celebrate diversity and are committed to creating an inclusive environment for all employees.\n\n{cursor}",
+    "folder": "Recruiting",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "rec_019",
+    "shortcut": "/rec-intake",
+    "content": "## Hiring Intake — {role}\n\nDate: {date}\nHiring Manager: {name}\nRecruiter: [your name]\n\n### Role Overview\n- Title: {role}\n- Team/Department: \n- Reports to: \n- Start date target: \n- Headcount: \n\n### Requirements\n- Must-have skills: \n- Nice-to-have skills: \n- Years of experience: \n- Education requirements: \n\n### Compensation\n- Salary range: \n- Equity/Bonus: \n- Level/Band: \n\n### Interview Process\n- Stage 1: [Recruiter screen — 30 min]\n- Stage 2: [Hiring manager interview — 45 min]\n- Stage 3: [Technical/skills assessment — 60 min]\n- Stage 4: [Team fit / Final round — 45 min]\n\n### Sourcing Strategy\n- Target companies: \n- Job boards: \n- Referral bonus: \n\n### Notes\n{cursor}",
+    "folder": "Recruiting",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "rec_020",
+    "shortcut": "/rec-withdraw",
+    "content": "Hi {name},\n\nThank you for letting me know about your decision. While we're disappointed we won't have the chance to work together right now, I completely understand and respect your choice.\n\nYou were a strong candidate throughout the process, and if your circumstances change in the future, we'd welcome the opportunity to reconnect. Our door is always open.\n\nWishing you all the best in your next chapter!\n\n{cursor}",
+    "folder": "Recruiting",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  }
+]

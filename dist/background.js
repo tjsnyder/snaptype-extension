@@ -33,6 +33,22 @@ chrome.runtime.onInstalled.addListener((details) => {
             folder: 'Default',
             usageCount: 0,
             createdAt: Date.now()
+          },
+          {
+            id: generateId(),
+            shortcut: '/reply',
+            content: 'Hi {cursor},\n\nThanks for your message. \n\nBest,\n{name}',
+            folder: 'Default',
+            usageCount: 0,
+            createdAt: Date.now()
+          },
+          {
+            id: generateId(),
+            shortcut: '/meeting',
+            content: 'Hi {cursor},\n\nWould you be available for a quick call on {day}? Let me know what time works for you.\n\nBest,\n{name}',
+            folder: 'Default',
+            usageCount: 0,
+            createdAt: Date.now()
           }
         ]
       });
@@ -113,6 +129,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         stats.totalExpansions++;
         stats.keystrokesSaved += (snippets[idx].content.length - snippets[idx].shortcut.length);
         chrome.storage.local.set({ snippets, stats });
+        updateBadge(stats.totalExpansions);
       }
     });
   }
@@ -121,3 +138,17 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 function generateId() {
   return Date.now().toString(36) + Math.random().toString(36).substr(2, 9);
 }
+
+function updateBadge(count) {
+  if (count > 0) {
+    const text = count >= 1000 ? Math.floor(count / 1000) + 'k' : count.toString();
+    chrome.action.setBadgeText({ text });
+    chrome.action.setBadgeBackgroundColor({ color: '#6366f1' });
+  }
+}
+
+// Restore badge on startup
+chrome.storage.local.get(['stats'], (result) => {
+  const stats = result.stats || {};
+  if (stats.totalExpansions) updateBadge(stats.totalExpansions);
+});
