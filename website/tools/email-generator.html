@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Email Template Generator — Professional Emails in Seconds | SnapType</title>
+  <meta name="description" content="Generate professional email templates instantly. Choose a scenario, customize details, and copy your email. Free tool by SnapType.">
+  <meta name="keywords" content="email template generator, professional email template, email generator free, business email template">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, sans-serif; color: #1e1b4b; line-height: 1.6; background: #f9fafb; }
+    nav { padding: 16px 0; border-bottom: 1px solid #f3f4f6; background: white; position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 1080px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-size: 20px; font-weight: 800; color: #1e1b4b; text-decoration: none; }
+    .nav-logo span { color: #6366f1; }
+    .nav-links { display: flex; gap: 16px; align-items: center; }
+    .nav-links a { font-size: 14px; color: #6b7280; text-decoration: none; font-weight: 500; }
+    .nav-cta { background: #6366f1; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600 !important; }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    .hero { padding: 48px 0 32px; text-align: center; }
+    .hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; }
+    .hero p { font-size: 16px; color: #6b7280; }
+
+    .generator { background: white; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); padding: 32px; margin-bottom: 32px; }
+    .gen-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .gen-full { margin-bottom: 16px; }
+    label { display: block; font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 4px; }
+    select, input, textarea {
+      width: 100%; padding: 10px 14px; border: 1.5px solid #e5e7eb; border-radius: 8px;
+      font-size: 14px; font-family: inherit; outline: none; transition: border-color 0.15s;
+      background: white;
+    }
+    select:focus, input:focus, textarea:focus { border-color: #6366f1; }
+    textarea { resize: vertical; min-height: 60px; }
+    .hint { font-size: 11px; color: #9ca3af; margin-top: 2px; }
+
+    .btn-generate {
+      display: block; width: 100%; padding: 14px; background: #6366f1; color: white;
+      border: none; border-radius: 10px; font-size: 15px; font-weight: 700;
+      cursor: pointer; font-family: inherit; transition: background 0.15s;
+      margin-top: 20px;
+    }
+    .btn-generate:hover { background: #4f46e5; }
+
+    .output-section { display: none; margin-top: 24px; }
+    .output-label { font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+    .output-box {
+      background: #f9fafb; border: 1.5px solid #e5e7eb; border-radius: 10px;
+      padding: 16px; font-size: 14px; line-height: 1.7; color: #374151;
+      white-space: pre-wrap; min-height: 120px;
+    }
+    .btn-copy {
+      padding: 5px 14px; background: #eef2ff; color: #4338ca; border: none;
+      border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer;
+      font-family: inherit;
+    }
+    .btn-copy.copied { background: #d1fae5; color: #166534; }
+
+    .promo-banner {
+      background: linear-gradient(135deg, #1e1b4b, #312e81); color: white;
+      border-radius: 12px; padding: 24px; text-align: center; margin-top: 24px;
+    }
+    .promo-banner h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .promo-banner p { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 12px; }
+    .promo-banner a {
+      display: inline-block; background: white; color: #4f46e5; padding: 8px 20px;
+      border-radius: 8px; font-weight: 700; font-size: 13px; text-decoration: none;
+    }
+
+    .seo-content { padding: 48px 0; }
+    .seo-content h2 { font-size: 24px; font-weight: 700; margin-bottom: 16px; }
+    .seo-content p { color: #6b7280; margin-bottom: 12px; }
+
+    footer { padding: 32px 0; border-top: 1px solid #f3f4f6; text-align: center; font-size: 13px; color: #9ca3af; }
+    footer a { color: #6366f1; text-decoration: none; }
+
+    @media (max-width: 600px) { .gen-row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="/snaptype-extension/" class="nav-logo"><span>Snap</span>Type</a>
+      <div class="nav-links">
+        <a href="/snaptype-extension/blog/">Blog</a>
+        <a href="/snaptype-extension/" class="nav-cta">Install Extension</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="hero">
+      <h1>Free Email Template Generator</h1>
+      <p>Generate professional emails in seconds. Choose a type, fill in the details, done.</p>
+    </div>
+
+    <div class="generator">
+      <div class="gen-row">
+        <div>
+          <label for="email-type">Email type</label>
+          <select id="email-type">
+            <option value="">Choose a template...</option>
+            <optgroup label="Business">
+              <option value="intro">Introduction / First contact</option>
+              <option value="followup">Follow-up</option>
+              <option value="meeting">Meeting request</option>
+              <option value="thankyou">Thank you</option>
+              <option value="apology">Apology</option>
+            </optgroup>
+            <optgroup label="Sales">
+              <option value="cold">Cold outreach</option>
+              <option value="demo">Demo request</option>
+              <option value="proposal">Proposal follow-up</option>
+            </optgroup>
+            <optgroup label="Support">
+              <option value="acknowledge">Acknowledge issue</option>
+              <option value="resolution">Issue resolved</option>
+              <option value="feedback_request">Request feedback</option>
+            </optgroup>
+            <optgroup label="Networking">
+              <option value="connect">Request to connect</option>
+              <option value="referral">Referral request</option>
+              <option value="congratulations">Congratulations</option>
+            </optgroup>
+          </select>
+        </div>
+        <div>
+          <label for="tone">Tone</label>
+          <select id="tone">
+            <option value="professional">Professional</option>
+            <option value="friendly">Friendly</option>
+            <option value="formal">Formal</option>
+            <option value="casual">Casual</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="gen-row">
+        <div>
+          <label for="sender-name">Your name</label>
+          <input type="text" id="sender-name" placeholder="Jane Smith">
+        </div>
+        <div>
+          <label for="recipient-name">Recipient's name</label>
+          <input type="text" id="recipient-name" placeholder="John">
+        </div>
+      </div>
+
+      <div class="gen-row">
+        <div>
+          <label for="company">Their company</label>
+          <input type="text" id="company" placeholder="Acme Inc">
+        </div>
+        <div>
+          <label for="context">Key context</label>
+          <input type="text" id="context" placeholder="e.g., discussed at conference, saw their LinkedIn post">
+        </div>
+      </div>
+
+      <div class="gen-full">
+        <label for="details">Additional details (optional)</label>
+        <textarea id="details" rows="2" placeholder="Any specific points you want to mention..."></textarea>
+      </div>
+
+      <button class="btn-generate" id="btn-generate">Generate Email</button>
+
+      <div class="output-section" id="output-section">
+        <div class="output-label">
+          <span>Your email</span>
+          <button class="btn-copy" id="btn-copy">Copy to clipboard</button>
+        </div>
+        <div class="output-box" id="output-text"></div>
+
+        <div class="promo-banner">
+          <h3>Save this as a reusable template</h3>
+          <p>With SnapType, type a shortcut like /intro and this entire email appears instantly. Works on Gmail, Outlook, LinkedIn, and every website.</p>
+          <a href="/snaptype-extension/">Install SnapType Free →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="seo-content">
+      <h2>How to write professional emails faster</h2>
+      <p>Writing professional emails doesn't have to be time-consuming. With the right structure and templates, you can communicate clearly and effectively in a fraction of the time.</p>
+      <p>This free generator helps you create emails for common business scenarios — from cold outreach to support responses. Simply choose the type of email, fill in a few details, and get a polished result you can customize and send.</p>
+      <p>For even faster results, try <a href="/snaptype-extension/" style="color:#6366f1;">SnapType</a> — our free Chrome extension that lets you save any email template as a shortcut. Type the shortcut, press Tab, and your full email appears instantly.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 SnapType. <a href="/snaptype-extension/">Home</a> &middot; <a href="/snaptype-extension/blog/">Blog</a> &middot; <a href="/snaptype-extension/tools/email-generator.html">Email Generator</a> &middot; <a href="/snaptype-extension/privacy.html">Privacy</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const TEMPLATES = {
+      intro: {
+        professional: "Hi {recipient},\n\nI hope this message finds you well. My name is {sender}, and I'm reaching out because {context}.\n\n{details}\n\nI'd love to connect and explore how we might work together. Would you be open to a brief call this week?\n\nBest regards,\n{sender}",
+        friendly: "Hi {recipient}!\n\nI'm {sender} — {context}. I've been following {company}'s work and really admire what you're building.\n\n{details}\n\nWould love to chat if you're up for it. No pressure at all!\n\nCheers,\n{sender}",
+        formal: "Dear {recipient},\n\nI am writing to introduce myself. My name is {sender}, and I am reaching out in regard to {context}.\n\n{details}\n\nI would welcome the opportunity to discuss this matter further at your convenience.\n\nSincerely,\n{sender}",
+        casual: "Hey {recipient}!\n\n{sender} here. {context} — and I thought I'd reach out.\n\n{details}\n\nLet me know if you'd be up for a quick chat sometime!\n\n{sender}"
+      },
+      followup: {
+        professional: "Hi {recipient},\n\nI wanted to follow up on my previous message. I understand you're busy, and I appreciate your time.\n\n{details}\n\nWould any time this week work for a brief conversation?\n\nBest,\n{sender}",
+        friendly: "Hey {recipient}!\n\nJust bumping this to the top of your inbox. {details}\n\nNo rush — whenever works for you!\n\nBest,\n{sender}",
+        formal: "Dear {recipient},\n\nI am writing to follow up on my previous correspondence. {details}\n\nI remain available at your convenience to discuss further.\n\nSincerely,\n{sender}",
+        casual: "Hey {recipient}! Just circling back on my last note. {details}\n\nLet me know what you think!\n\n{sender}"
+      },
+      meeting: {
+        professional: "Hi {recipient},\n\nI'd love to schedule a brief meeting to discuss {context}. Would any of the following times work for you?\n\n- [Option 1]\n- [Option 2]\n- [Option 3]\n\n{details}\n\nThe meeting should take about 30 minutes. Looking forward to it.\n\nBest,\n{sender}",
+        friendly: "Hi {recipient}!\n\nWould you be up for a quick chat about {context}? I think it would be really valuable.\n\n{details}\n\nI'm flexible on timing — just let me know what works!\n\nCheers,\n{sender}",
+        formal: "Dear {recipient},\n\nI would like to request a meeting to discuss {context}. {details}\n\nPlease let me know your availability, and I will arrange a time accordingly.\n\nSincerely,\n{sender}",
+        casual: "Hey {recipient}! Want to grab a quick call about {context}? {details}\n\nI'm pretty flexible — pick a time that works!\n\n{sender}"
+      },
+      thankyou: {
+        professional: "Hi {recipient},\n\nThank you for taking the time to {context}. I really appreciate it.\n\n{details}\n\nLooking forward to staying in touch.\n\nBest regards,\n{sender}",
+        friendly: "Hi {recipient}!\n\nJust wanted to say a big thank you for {context}. It really meant a lot!\n\n{details}\n\nThanks again — you're the best!\n\nCheers,\n{sender}",
+        formal: "Dear {recipient},\n\nI am writing to express my sincere gratitude for {context}. {details}\n\nYour generosity and support are deeply appreciated.\n\nWith kind regards,\n{sender}",
+        casual: "Hey {recipient}! Thanks so much for {context}! {details}\n\nReally appreciate it!\n\n{sender}"
+      },
+      apology: {
+        professional: "Hi {recipient},\n\nI want to sincerely apologize for {context}. I understand this may have caused inconvenience, and I take full responsibility.\n\n{details}\n\nI'm committed to making this right. Please let me know how I can help.\n\nBest regards,\n{sender}",
+        friendly: "Hi {recipient},\n\nI owe you an apology for {context}. I'm really sorry about that.\n\n{details}\n\nI want to make it up to you. Let me know how I can help.\n\nSorry again,\n{sender}",
+        formal: "Dear {recipient},\n\nPlease accept my sincere apologies regarding {context}. {details}\n\nI assure you that steps are being taken to prevent this from occurring again.\n\nSincerely,\n{sender}",
+        casual: "Hey {recipient}, I'm sorry about {context}. My bad. {details}\n\nLet me know how I can fix this!\n\n{sender}"
+      },
+      cold: {
+        professional: "Hi {recipient},\n\nI came across {company} and was impressed by what you're building. {context}.\n\n{details}\n\nWould you be open to a quick 15-minute call to see if there's a fit?\n\nBest,\n{sender}",
+        friendly: "Hi {recipient}!\n\nI've been following {company}'s journey — really cool work. {context}.\n\n{details}\n\nWould love to chat if you're interested!\n\nCheers,\n{sender}",
+        formal: "Dear {recipient},\n\nI am writing to inquire about a potential business relationship. {context}.\n\n{details}\n\nI would appreciate the opportunity to discuss this further at your convenience.\n\nSincerely,\n{sender}",
+        casual: "Hey {recipient}! {context}. Thought I'd reach out since {company} seems like a great fit.\n\n{details}\n\nWant to hop on a quick call?\n\n{sender}"
+      },
+      demo: {
+        professional: "Hi {recipient},\n\nThank you for your interest! I'd love to schedule a personalized demo for {company}.\n\n{context}. {details}\n\nHere's a link to book a time: [calendar link]\n\nThe demo runs about 30 minutes. Looking forward to showing you what we can do.\n\nBest,\n{sender}",
+        friendly: "Hey {recipient}!\n\nAwesome — let's get you a demo set up! {context}.\n\n{details}\n\nGrab a time here: [calendar link]\n\nCan't wait to show you around!\n\n{sender}",
+        formal: "Dear {recipient},\n\nThank you for your inquiry regarding a product demonstration. {context}. {details}\n\nPlease select a convenient time from our scheduling system: [calendar link]\n\nSincerely,\n{sender}",
+        casual: "Hey {recipient}! Let's get you set up with a demo. {context}.\n\n{details}\n\nPick a time here: [calendar link]\n\n{sender}"
+      },
+      proposal: {
+        professional: "Hi {recipient},\n\nFollowing up on our conversation — I've put together a proposal for {company}.\n\n{context}. {details}\n\nKey highlights:\n- [Benefit 1]\n- [Benefit 2]\n- [Benefit 3]\n\nWould next week work for a follow-up call to discuss?\n\nBest,\n{sender}",
+        friendly: "Hi {recipient}!\n\nAs promised, here's the proposal we discussed. {context}.\n\n{details}\n\nLet me know what you think — happy to jump on a call to walk through anything!\n\nCheers,\n{sender}",
+        formal: "Dear {recipient},\n\nPlease find attached the proposal as discussed. {context}. {details}\n\nI look forward to your review and am available to discuss at your earliest convenience.\n\nSincerely,\n{sender}",
+        casual: "Hey {recipient}! Here's that proposal we talked about. {context}.\n\n{details}\n\nLet me know your thoughts!\n\n{sender}"
+      },
+      acknowledge: {
+        professional: "Hi {recipient},\n\nThank you for reaching out about this issue. I understand {context}, and I want to assure you we're looking into it right away.\n\n{details}\n\nI'll update you as soon as I have more information. Thank you for your patience.\n\nBest,\n{sender}",
+        friendly: "Hi {recipient}!\n\nThanks for letting us know about this. I can see how {context} would be frustrating.\n\n{details}\n\nI'm on it and will get back to you soon!\n\nBest,\n{sender}",
+        formal: "Dear {recipient},\n\nThank you for bringing this matter to our attention. We acknowledge {context}. {details}\n\nWe are investigating and will provide an update shortly.\n\nSincerely,\n{sender}",
+        casual: "Hey {recipient}! Got it — sorry about {context}. {details}\n\nLooking into it now. I'll get back to you ASAP!\n\n{sender}"
+      },
+      resolution: {
+        professional: "Hi {recipient},\n\nI'm happy to let you know that {context} has been resolved.\n\n{details}\n\nIf you experience any further issues, please don't hesitate to reach out. Thank you for your patience.\n\nBest,\n{sender}",
+        friendly: "Hi {recipient}!\n\nGood news — {context} is all fixed! {details}\n\nLet me know if there's anything else I can help with.\n\nCheers,\n{sender}",
+        formal: "Dear {recipient},\n\nI am pleased to inform you that the issue regarding {context} has been resolved. {details}\n\nPlease do not hesitate to contact us should you require further assistance.\n\nSincerely,\n{sender}",
+        casual: "Hey {recipient}! All fixed! {context}. {details}\n\nHoller if anything else comes up!\n\n{sender}"
+      },
+      feedback_request: {
+        professional: "Hi {recipient},\n\nNow that {context}, I'd love to hear your feedback on the experience.\n\n{details}\n\nYour input helps us improve for everyone. Would you mind taking a quick moment to share your thoughts?\n\n[Feedback link]\n\nThank you!\n{sender}",
+        friendly: "Hi {recipient}!\n\nHope everything's going great since {context}! We'd love to hear how things are going.\n\n{details}\n\nIf you have a sec, your feedback would mean the world: [link]\n\nThanks!\n{sender}",
+        formal: "Dear {recipient},\n\nWe value your experience and would appreciate your feedback regarding {context}. {details}\n\nKindly share your thoughts at your convenience: [link]\n\nSincerely,\n{sender}",
+        casual: "Hey {recipient}! How's everything since {context}? {details}\n\nWould love your feedback if you get a chance: [link]\n\nThanks!\n{sender}"
+      },
+      connect: {
+        professional: "Hi {recipient},\n\nI've been following your work at {company} and I'm impressed by {context}.\n\n{details}\n\nI'd love to connect and exchange ideas. Would you be open to a brief conversation?\n\nBest,\n{sender}",
+        friendly: "Hi {recipient}!\n\nI've been a fan of what {company} is doing — especially {context}. {details}\n\nWould love to connect and learn more about your journey!\n\nCheers,\n{sender}",
+        formal: "Dear {recipient},\n\nI am writing to request the opportunity to connect with you regarding {context}. {details}\n\nI believe a conversation could be mutually beneficial.\n\nSincerely,\n{sender}",
+        casual: "Hey {recipient}! Love what you're doing at {company}. {context}.\n\n{details}\n\nWould be great to connect sometime!\n\n{sender}"
+      },
+      referral: {
+        professional: "Hi {recipient},\n\nI hope you're doing well. I'm reaching out because {context}, and I was wondering if you might know someone who could benefit from [product/service].\n\n{details}\n\nAny introduction would be greatly appreciated. Thank you!\n\nBest,\n{sender}",
+        friendly: "Hi {recipient}!\n\nQuick ask — {context}. Do you happen to know anyone who might be interested?\n\n{details}\n\nNo pressure at all. Thanks for even considering it!\n\nCheers,\n{sender}",
+        formal: "Dear {recipient},\n\nI hope this message finds you well. {context}. {details}\n\nIf you are aware of anyone who might benefit, I would be most grateful for an introduction.\n\nSincerely,\n{sender}",
+        casual: "Hey {recipient}! {context}. Know anyone who might be interested? {details}\n\nThanks either way!\n\n{sender}"
+      },
+      congratulations: {
+        professional: "Hi {recipient},\n\nCongratulations on {context}! That's a fantastic achievement, and it's well-deserved.\n\n{details}\n\nWishing you and the {company} team continued success.\n\nBest,\n{sender}",
+        friendly: "Hi {recipient}!\n\nJust saw the news about {context} — congrats!! So well deserved. {details}\n\nCheering you on!\n\n{sender}",
+        formal: "Dear {recipient},\n\nPlease accept my congratulations on {context}. {details}\n\nI wish you and {company} continued success in your endeavors.\n\nSincerely,\n{sender}",
+        casual: "Hey {recipient}! Congrats on {context}! That's awesome. {details}\n\nKill it!\n\n{sender}"
+      }
+    };
+
+    document.getElementById('btn-generate').addEventListener('click', () => {
+      const type = document.getElementById('email-type').value;
+      const tone = document.getElementById('tone').value;
+      const sender = document.getElementById('sender-name').value.trim() || '[Your name]';
+      const recipient = document.getElementById('recipient-name').value.trim() || '[Name]';
+      const company = document.getElementById('company').value.trim() || '[Company]';
+      const context = document.getElementById('context').value.trim() || '[context]';
+      const details = document.getElementById('details').value.trim();
+
+      if (!type) { alert('Please select an email type'); return; }
+
+      let template = TEMPLATES[type]?.[tone] || TEMPLATES[type]?.professional;
+      if (!template) return;
+
+      template = template
+        .replace(/\{sender\}/g, sender)
+        .replace(/\{recipient\}/g, recipient)
+        .replace(/\{company\}/g, company)
+        .replace(/\{context\}/g, context)
+        .replace(/\{details\}/g, details || '');
+
+      // Clean up empty lines from missing details
+      template = template.replace(/\n\n\n+/g, '\n\n');
+
+      document.getElementById('output-text').textContent = template;
+      document.getElementById('output-section').style.display = 'block';
+      document.getElementById('output-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    document.getElementById('btn-copy').addEventListener('click', () => {
+      const text = document.getElementById('output-text').textContent;
+      navigator.clipboard.writeText(text);
+      const btn = document.getElementById('btn-copy');
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy to clipboard'; btn.classList.remove('copied'); }, 2000);
+    });
+  </script>
+</body>
+</html>
