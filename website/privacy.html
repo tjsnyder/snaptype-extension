@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — SnapType</title>
+  <meta name="description" content="SnapType privacy policy. Your data stays on your device. We don't collect, store, or transmit your snippets.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, sans-serif; color: #1e1b4b; line-height: 1.7; }
+    nav { padding: 16px 0; border-bottom: 1px solid #f3f4f6; position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); z-index: 100; }
+    .nav-inner { max-width: 1080px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-size: 20px; font-weight: 800; color: #1e1b4b; text-decoration: none; }
+    .nav-logo span { color: #6366f1; }
+    .container { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+    article { padding: 60px 0 80px; }
+    h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; }
+    .updated { font-size: 14px; color: #9ca3af; margin-bottom: 32px; }
+    h2 { font-size: 20px; font-weight: 700; margin: 32px 0 12px; }
+    p { margin-bottom: 16px; color: #374151; }
+    ul { margin-bottom: 16px; padding-left: 24px; color: #374151; }
+    li { margin-bottom: 6px; }
+    .highlight { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .highlight strong { color: #166534; }
+    footer { padding: 32px 0; border-top: 1px solid #f3f4f6; text-align: center; font-size: 13px; color: #9ca3af; }
+    footer a { color: #6366f1; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><span>Snap</span>Type</a>
+    </div>
+  </nav>
+
+  <article>
+    <div class="container">
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: February 10, 2026</p>
+
+      <div class="highlight">
+        <strong>The short version:</strong> Your snippets stay on your device. We don't collect, store, or transmit your text data. Period.
+      </div>
+
+      <h2>What data we collect</h2>
+      <p>SnapType is designed with privacy as a core principle. Here's exactly what we do and don't collect:</p>
+
+      <p><strong>We do NOT collect:</strong></p>
+      <ul>
+        <li>Your snippet content or shortcut text</li>
+        <li>Text you type on any website</li>
+        <li>Browsing history or website URLs</li>
+        <li>Personal information (name, email, etc.)</li>
+        <li>Keystroke data or typing patterns</li>
+        <li>Any data from pages you visit</li>
+      </ul>
+
+      <p><strong>We DO store locally on your device:</strong></p>
+      <ul>
+        <li>Your snippets and shortcuts (using Chrome's local storage API)</li>
+        <li>Your settings and preferences</li>
+        <li>Aggregate usage statistics (total expansion count, keystrokes saved)</li>
+        <li>License key status (if you have a Pro subscription)</li>
+      </ul>
+
+      <h2>How your data is stored</h2>
+      <p>All snippet data is stored locally on your device using Chrome's <code>chrome.storage.local</code> API. This data never leaves your browser unless you explicitly choose to export it.</p>
+      <p>We do not operate any servers that receive or store your snippet data.</p>
+
+      <h2>Pro subscription</h2>
+      <p>If you purchase SnapType Pro, payment is processed by Lemon Squeezy, our payment provider. We receive a license key associated with your purchase but do not directly handle your payment information. Please refer to <a href="https://www.lemonsqueezy.com/privacy" style="color:#6366f1">Lemon Squeezy's privacy policy</a> for details on how they handle payment data.</p>
+      <p>The only data transmitted for Pro users is the license key validation check, which verifies whether your license is active. No snippet data is included in this request.</p>
+
+      <h2>Snippet Packs</h2>
+      <p>When you import a snippet pack, the extension fetches a JSON file from our GitHub repository. This is a standard HTTP request and does not transmit any of your personal data or snippet content.</p>
+
+      <h2>Third-party services</h2>
+      <p>SnapType does not use any analytics services, tracking pixels, or third-party SDKs. We do not share data with any third parties.</p>
+
+      <h2>Permissions explained</h2>
+      <ul>
+        <li><strong>storage:</strong> To save your snippets and settings locally on your device</li>
+        <li><strong>activeTab:</strong> To expand snippets in the currently active tab when you use a shortcut</li>
+        <li><strong>contextMenus:</strong> To add the "Save as SnapType snippet" option when you right-click selected text</li>
+      </ul>
+
+      <h2>Data deletion</h2>
+      <p>You can delete all your SnapType data at any time by:</p>
+      <ul>
+        <li>Uninstalling the extension (removes all local data)</li>
+        <li>Using Chrome's "Clear browsing data" to clear extension storage</li>
+        <li>Deleting individual snippets through the SnapType popup</li>
+      </ul>
+
+      <h2>Children's privacy</h2>
+      <p>SnapType does not knowingly collect any data from children under the age of 13.</p>
+
+      <h2>Changes to this policy</h2>
+      <p>We may update this privacy policy from time to time. We will notify users of any material changes by updating the "Last updated" date at the top of this page.</p>
+
+      <h2>Contact</h2>
+      <p>If you have questions about this privacy policy, please contact us at <a href="mailto:privacy@snaptype.app" style="color:#6366f1">privacy@snaptype.app</a>.</p>
+    </div>
+  </article>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 SnapType. <a href="/">Home</a> &middot; <a href="/privacy.html">Privacy</a></p>
+    </div>
+  </footer>
+</body>
+</html>

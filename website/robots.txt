@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tjsnyder.github.io/snaptype-extension/sitemap.xml
