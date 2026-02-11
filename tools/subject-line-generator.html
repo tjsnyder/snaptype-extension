@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Email Subject Line Generator — SnapType</title>
+  <meta name="description" content="Generate high-converting email subject lines instantly. Get 10 variations across 5 proven categories. Free email subject line generator by SnapType.">
+  <meta name="keywords" content="email subject line generator, subject line ideas, email subject lines, cold email subject line, email open rate, best email subject lines">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, sans-serif; color: #1e1b4b; line-height: 1.6; background: #f9fafb; }
+    nav { padding: 16px 0; border-bottom: 1px solid #f3f4f6; background: white; position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 1080px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-size: 20px; font-weight: 800; color: #1e1b4b; text-decoration: none; }
+    .nav-logo span { color: #6366f1; }
+    .nav-links { display: flex; gap: 16px; align-items: center; }
+    .nav-links a { font-size: 14px; color: #6b7280; text-decoration: none; font-weight: 500; }
+    .nav-cta { background: #6366f1; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600 !important; }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    .hero { padding: 48px 0 32px; text-align: center; }
+    .hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; }
+    .hero p { font-size: 16px; color: #6b7280; }
+
+    .generator { background: white; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); padding: 32px; margin-bottom: 32px; }
+    .gen-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .gen-full { margin-bottom: 16px; }
+    label { display: block; font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 4px; }
+    select, input, textarea {
+      width: 100%; padding: 10px 14px; border: 1.5px solid #e5e7eb; border-radius: 8px;
+      font-size: 14px; font-family: inherit; outline: none; transition: border-color 0.15s;
+      background: white;
+    }
+    select:focus, input:focus, textarea:focus { border-color: #6366f1; }
+    textarea { resize: vertical; min-height: 60px; }
+    .hint { font-size: 11px; color: #9ca3af; margin-top: 2px; }
+
+    .btn-generate {
+      display: block; width: 100%; padding: 14px; background: #6366f1; color: white;
+      border: none; border-radius: 10px; font-size: 15px; font-weight: 700;
+      cursor: pointer; font-family: inherit; transition: background 0.15s;
+      margin-top: 20px;
+    }
+    .btn-generate:hover { background: #4f46e5; }
+
+    .output-section { display: none; margin-top: 24px; }
+
+    .category-block { margin-bottom: 20px; }
+    .category-header {
+      font-size: 13px; font-weight: 700; color: #6366f1; text-transform: uppercase;
+      letter-spacing: 0.05em; margin-bottom: 8px; padding-bottom: 6px;
+      border-bottom: 2px solid #eef2ff;
+    }
+    .category-icon { margin-right: 6px; }
+
+    .subject-line-item {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 10px 14px; background: #f9fafb; border: 1.5px solid #e5e7eb;
+      border-radius: 8px; margin-bottom: 6px; transition: border-color 0.15s;
+    }
+    .subject-line-item:hover { border-color: #c7d2fe; }
+    .subject-text { font-size: 14px; color: #374151; flex: 1; line-height: 1.4; }
+    .subject-meta { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    .char-count {
+      font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px;
+      white-space: nowrap;
+    }
+    .char-good { background: #d1fae5; color: #166534; }
+    .char-ok { background: #fef3c7; color: #92400e; }
+    .char-long { background: #fee2e2; color: #991b1b; }
+    .btn-copy-line {
+      padding: 5px 12px; background: #eef2ff; color: #4338ca; border: none;
+      border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer;
+      font-family: inherit; white-space: nowrap; transition: background 0.15s;
+    }
+    .btn-copy-line:hover { background: #e0e7ff; }
+    .btn-copy-line.copied { background: #d1fae5; color: #166534; }
+
+    .copy-all-row { display: flex; justify-content: flex-end; margin-bottom: 16px; }
+    .btn-copy-all {
+      padding: 8px 18px; background: #1e1b4b; color: white; border: none;
+      border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer;
+      font-family: inherit; transition: background 0.15s;
+    }
+    .btn-copy-all:hover { background: #312e81; }
+    .btn-copy-all.copied { background: #166534; }
+
+    .pro-tips {
+      background: #fefce8; border: 1.5px solid #fde68a; border-radius: 12px;
+      padding: 20px 24px; margin-top: 24px;
+    }
+    .pro-tips h3 { font-size: 14px; font-weight: 700; color: #92400e; margin-bottom: 10px; }
+    .pro-tips ul { list-style: none; padding: 0; }
+    .pro-tips li {
+      font-size: 13px; color: #78350f; padding: 4px 0; padding-left: 20px;
+      position: relative; line-height: 1.5;
+    }
+    .pro-tips li::before {
+      content: "\2713"; position: absolute; left: 0; color: #d97706; font-weight: 700;
+    }
+
+    .promo-banner {
+      background: linear-gradient(135deg, #1e1b4b, #312e81); color: white;
+      border-radius: 12px; padding: 24px; text-align: center; margin-top: 24px;
+    }
+    .promo-banner h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .promo-banner p { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 12px; }
+    .promo-banner a {
+      display: inline-block; background: white; color: #4f46e5; padding: 8px 20px;
+      border-radius: 8px; font-weight: 700; font-size: 13px; text-decoration: none;
+    }
+
+    .seo-content { padding: 48px 0; }
+    .seo-content h2 { font-size: 24px; font-weight: 700; margin-bottom: 16px; }
+    .seo-content p { color: #6b7280; margin-bottom: 12px; }
+
+    footer { padding: 32px 0; border-top: 1px solid #f3f4f6; text-align: center; font-size: 13px; color: #9ca3af; }
+    footer a { color: #6366f1; text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .gen-row { grid-template-columns: 1fr; }
+      .subject-line-item { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .subject-meta { width: 100%; justify-content: space-between; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="/snaptype-extension/" class="nav-logo"><span>Snap</span>Type</a>
+      <div class="nav-links">
+        <a href="/snaptype-extension/tools/email-generator.html">Email Generator</a>
+        <a href="/snaptype-extension/" class="nav-cta">Install Extension</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="hero">
+      <h1>Free Email Subject Line Generator</h1>
+      <p>Generate 10 high-converting subject lines in seconds. Tested formats, proven psychology.</p>
+    </div>
+
+    <div class="generator">
+      <div class="gen-row">
+        <div>
+          <label for="purpose">Email purpose</label>
+          <select id="purpose">
+            <option value="">Choose a purpose...</option>
+            <option value="cold_outreach">Cold outreach</option>
+            <option value="follow_up">Follow-up</option>
+            <option value="meeting_request">Meeting request</option>
+            <option value="product_announcement">Product announcement</option>
+            <option value="newsletter">Newsletter</option>
+            <option value="promotion">Promotion / Sale</option>
+            <option value="event_invitation">Event invitation</option>
+            <option value="thank_you">Thank you</option>
+            <option value="apology">Apology</option>
+            <option value="feedback_request">Feedback request</option>
+            <option value="welcome">Welcome</option>
+            <option value="re_engagement">Re-engagement</option>
+          </select>
+        </div>
+        <div>
+          <label for="tone">Tone</label>
+          <select id="tone">
+            <option value="professional">Professional</option>
+            <option value="friendly">Friendly</option>
+            <option value="urgent">Urgent</option>
+            <option value="creative">Creative</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="gen-row">
+        <div>
+          <label for="topic">Key topic or product</label>
+          <input type="text" id="topic" placeholder="e.g., project management tool, Q4 report">
+          <div class="hint">What is the email about?</div>
+        </div>
+        <div>
+          <label for="audience">Target audience</label>
+          <input type="text" id="audience" placeholder="e.g., marketing managers, SaaS founders">
+          <div class="hint">Who is receiving this email?</div>
+        </div>
+      </div>
+
+      <button class="btn-generate" id="btn-generate">Generate 10 Subject Lines</button>
+
+      <div class="output-section" id="output-section">
+        <div class="copy-all-row">
+          <button class="btn-copy-all" id="btn-copy-all">Copy All</button>
+        </div>
+        <div id="results-container"></div>
+
+        <div class="pro-tips">
+          <h3>Pro Tips for Email Subject Lines</h3>
+          <ul>
+            <li>Keep it under 50 characters for full visibility on mobile devices</li>
+            <li>Use the recipient's name or company for 26% higher open rates</li>
+            <li>Numbers and lists create specificity that drives clicks</li>
+            <li>Create urgency without being spammy (avoid ALL CAPS and excessive punctuation!!!)</li>
+            <li>A/B test your top 2 candidates with a small segment before full send</li>
+            <li>Avoid spam triggers: "free", "act now", "limited time", excessive emojis</li>
+            <li>Preview text (preheader) is your subject line's wingman: use it</li>
+            <li>Question-based subjects get 10% more opens than statements</li>
+          </ul>
+        </div>
+
+        <div class="promo-banner">
+          <h3>Save your best subject lines as SnapType snippets</h3>
+          <p>Type them instantly with a shortcut. Works on Gmail, Outlook, LinkedIn, and every website.</p>
+          <a href="/snaptype-extension/">Install SnapType Free &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="seo-content">
+      <h2>How to write email subject lines that get opened</h2>
+      <p>Your subject line is the single most important line of your email. It determines whether your message gets opened, ignored, or sent straight to trash. Studies show that 47% of recipients decide to open an email based solely on the subject line.</p>
+      <p>This free email subject line generator creates 10 variations across five proven categories: direct statements, questions, curiosity and FOMO triggers, personalized approaches, and number-based formats. Each category uses a different psychological lever to capture attention.</p>
+      <p>For the fastest email workflow, try <a href="/snaptype-extension/" style="color:#6366f1;">SnapType</a> — our free Chrome extension that lets you save any subject line as a reusable snippet. Type a shortcut like <code>/subj</code> and your subject line appears instantly, anywhere you type.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 SnapType. <a href="/snaptype-extension/">Home</a> &middot; <a href="/snaptype-extension/blog/">Blog</a> &middot; <a href="/snaptype-extension/tools/email-generator.html">Email Generator</a> &middot; <a href="/snaptype-extension/tools/subject-line-generator.html">Subject Line Generator</a> &middot; <a href="/snaptype-extension/privacy.html">Privacy</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // ── Helpers ──
+    function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+    function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+    function truncate(s, max) { return s.length > max ? s.slice(0, max - 1).trim() + '...' : s; }
+    function shortTopic(topic) {
+      const words = topic.split(/\s+/);
+      return words.length > 4 ? words.slice(0, 4).join(' ') : topic;
+    }
+    function tinyTopic(topic) {
+      const words = topic.split(/\s+/);
+      return words.length > 2 ? words.slice(0, 2).join(' ') : topic;
+    }
+
+    // ── Template data ──
+    const POWER_WORDS = {
+      professional: ['proven', 'strategic', 'essential', 'critical', 'effective', 'streamlined', 'optimized'],
+      friendly: ['amazing', 'exciting', 'awesome', 'brilliant', 'fresh', 'game-changing', 'delightful'],
+      urgent: ['urgent', 'time-sensitive', 'breaking', 'final', 'last chance', 'immediate', 'closing soon'],
+      creative: ['unexpected', 'wild', 'secret', 'hidden', 'untold', 'bizarre', 'remarkable']
+    };
+
+    const TEMPLATES = {
+      // ── COLD OUTREACH ──
+      cold_outreach: {
+        direct: {
+          professional: [
+            (t, a, pw) => `${cap(pw)} idea for ${a}`,
+            (t, a, pw) => `Quick question about your ${tinyTopic(t)} strategy`,
+            (t, a, pw) => `${cap(t)} — a ${pw} approach for ${a}`,
+            (t, a, pw) => `Can we help ${a} with ${tinyTopic(t)}?`,
+          ],
+          friendly: [
+            (t, a, pw) => `Hey! Thought this might help with ${tinyTopic(t)}`,
+            (t, a, pw) => `${cap(pw)} way to rethink ${tinyTopic(t)}`,
+            (t, a, pw) => `Quick thought for ${a} re: ${tinyTopic(t)}`,
+            (t, a, pw) => `Loved what you're doing with ${tinyTopic(t)}`,
+          ],
+          urgent: [
+            (t, a, pw) => `${cap(pw)}: ${a} can't afford to miss this`,
+            (t, a, pw) => `Time-sensitive: ${tinyTopic(t)} opportunity`,
+            (t, a, pw) => `Your competitors are already doing this`,
+            (t, a, pw) => `${cap(pw)} ${tinyTopic(t)} update for ${a}`,
+          ],
+          creative: [
+            (t, a, pw) => `The ${pw} truth about ${tinyTopic(t)}`,
+            (t, a, pw) => `What if ${tinyTopic(t)} was 10x easier?`,
+            (t, a, pw) => `I studied ${a}'s ${tinyTopic(t)} — here's what I found`,
+            (t, a, pw) => `This ${pw} idea might change how you see ${tinyTopic(t)}`,
+          ]
+        },
+        question: {
+          professional: [
+            (t, a, pw) => `Are you still handling ${tinyTopic(t)} manually?`,
+            (t, a, pw) => `What's your biggest ${tinyTopic(t)} challenge?`,
+          ],
+          friendly: [
+            (t, a, pw) => `Ever wish ${tinyTopic(t)} was simpler?`,
+            (t, a, pw) => `Is ${tinyTopic(t)} eating up your week too?`,
+          ],
+          urgent: [
+            (t, a, pw) => `Is ${tinyTopic(t)} costing you more than you think?`,
+            (t, a, pw) => `Can ${a} afford to ignore ${tinyTopic(t)}?`,
+          ],
+          creative: [
+            (t, a, pw) => `What do top ${a} know about ${tinyTopic(t)} that you don't?`,
+            (t, a, pw) => `Guess what ${a} are Googling about ${tinyTopic(t)}?`,
+          ]
+        },
+        curiosity: {
+          professional: [
+            (t, a, pw) => `The #1 ${tinyTopic(t)} mistake ${a} make`,
+            (t, a, pw) => `We found something interesting about ${tinyTopic(t)}`,
+          ],
+          friendly: [
+            (t, a, pw) => `You won't believe what we built for ${tinyTopic(t)}`,
+            (t, a, pw) => `This changes everything about ${tinyTopic(t)}`,
+          ],
+          urgent: [
+            (t, a, pw) => `${cap(a)} are switching — here's why`,
+            (t, a, pw) => `Before you plan next quarter's ${tinyTopic(t)}...`,
+          ],
+          creative: [
+            (t, a, pw) => `The ${pw} ${tinyTopic(t)} hack no one talks about`,
+            (t, a, pw) => `I reverse-engineered the best ${tinyTopic(t)} strategy`,
+          ]
+        },
+        personalized: {
+          professional: [
+            (t, a, pw) => `{{First name}}, a ${pw} idea for your team`,
+            (t, a, pw) => `For {{Company}} — a better way to handle ${tinyTopic(t)}`,
+          ],
+          friendly: [
+            (t, a, pw) => `{{First name}}, thought of you when I saw this`,
+            (t, a, pw) => `{{First name}} — this might be right up your alley`,
+          ],
+          urgent: [
+            (t, a, pw) => `{{First name}}, don't miss this ${tinyTopic(t)} window`,
+            (t, a, pw) => `{{Company}}: ${cap(pw)} ${tinyTopic(t)} update`,
+          ],
+          creative: [
+            (t, a, pw) => `{{First name}}, I have a ${pw} confession`,
+            (t, a, pw) => `A note for {{First name}} about ${tinyTopic(t)}`,
+          ]
+        },
+        number: {
+          professional: [
+            (t, a, pw) => `3 ways ${a} improve ${tinyTopic(t)} results`,
+            (t, a, pw) => `5 ${pw} ${tinyTopic(t)} tactics for ${a}`,
+          ],
+          friendly: [
+            (t, a, pw) => `2-min read: better ${tinyTopic(t)} for ${a}`,
+            (t, a, pw) => `1 simple shift to fix your ${tinyTopic(t)}`,
+          ],
+          urgent: [
+            (t, a, pw) => `72 hours left to transform your ${tinyTopic(t)}`,
+            (t, a, pw) => `3 ${pw} reasons to rethink ${tinyTopic(t)} now`,
+          ],
+          creative: [
+            (t, a, pw) => `The 1% of ${a} who nail ${tinyTopic(t)} do this`,
+            (t, a, pw) => `7 ${pw} ${tinyTopic(t)} lessons from the trenches`,
+          ]
+        }
+      },
+
+      // ── FOLLOW-UP ──
+      follow_up: {
+        direct: {
+          professional: [
+            (t, a, pw) => `Following up on ${tinyTopic(t)}`,
+            (t, a, pw) => `Circling back — ${tinyTopic(t)} next steps`,
+            (t, a, pw) => `Re: our ${tinyTopic(t)} conversation`,
+            (t, a, pw) => `Any thoughts on the ${tinyTopic(t)} proposal?`,
+          ],
+          friendly: [
+            (t, a, pw) => `Just checking in on ${tinyTopic(t)}`,
+            (t, a, pw) => `Bumping this up: ${tinyTopic(t)}`,
+            (t, a, pw) => `Hey! Still interested in ${tinyTopic(t)}?`,
+            (t, a, pw) => `Popping back in about ${tinyTopic(t)}`,
+          ],
+          urgent: [
+            (t, a, pw) => `${cap(pw)}: need your input on ${tinyTopic(t)}`,
+            (t, a, pw) => `Time-sensitive: ${tinyTopic(t)} decision needed`,
+            (t, a, pw) => `Quick response needed on ${tinyTopic(t)}`,
+            (t, a, pw) => `Final follow-up: ${tinyTopic(t)}`,
+          ],
+          creative: [
+            (t, a, pw) => `Did my last email about ${tinyTopic(t)} get lost?`,
+            (t, a, pw) => `I'll keep this short: ${tinyTopic(t)}`,
+            (t, a, pw) => `Not sure if you saw this — ${tinyTopic(t)}`,
+            (t, a, pw) => `The ${tinyTopic(t)} ball is in your court`,
+          ]
+        },
+        question: {
+          professional: [
+            (t, a, pw) => `Have you had a chance to review ${tinyTopic(t)}?`,
+            (t, a, pw) => `Is ${tinyTopic(t)} still a priority for your team?`,
+          ],
+          friendly: [
+            (t, a, pw) => `Still thinking about ${tinyTopic(t)}?`,
+            (t, a, pw) => `Did you get a chance to look at ${tinyTopic(t)}?`,
+          ],
+          urgent: [
+            (t, a, pw) => `Can we finalize ${tinyTopic(t)} this week?`,
+            (t, a, pw) => `Should we move forward on ${tinyTopic(t)}?`,
+          ],
+          creative: [
+            (t, a, pw) => `Was it something I said? (Re: ${tinyTopic(t)})`,
+            (t, a, pw) => `Inbox overload? Let me simplify ${tinyTopic(t)}`,
+          ]
+        },
+        curiosity: {
+          professional: [
+            (t, a, pw) => `One more thing about ${tinyTopic(t)}`,
+            (t, a, pw) => `New development on ${tinyTopic(t)}`,
+          ],
+          friendly: [
+            (t, a, pw) => `Almost forgot to mention this about ${tinyTopic(t)}`,
+            (t, a, pw) => `P.S. — something ${pw} about ${tinyTopic(t)}`,
+          ],
+          urgent: [
+            (t, a, pw) => `Update: ${tinyTopic(t)} timeline is moving up`,
+            (t, a, pw) => `${cap(pw)} change to the ${tinyTopic(t)} offer`,
+          ],
+          creative: [
+            (t, a, pw) => `I added something to the ${tinyTopic(t)} idea`,
+            (t, a, pw) => `Plot twist on our ${tinyTopic(t)} discussion`,
+          ]
+        },
+        personalized: {
+          professional: [
+            (t, a, pw) => `{{First name}}, following up on ${tinyTopic(t)}`,
+            (t, a, pw) => `{{First name}} — next steps on ${tinyTopic(t)}?`,
+          ],
+          friendly: [
+            (t, a, pw) => `{{First name}}, just a gentle nudge on ${tinyTopic(t)}`,
+            (t, a, pw) => `{{First name}}, still on your radar?`,
+          ],
+          urgent: [
+            (t, a, pw) => `{{First name}}, need a quick yes/no on ${tinyTopic(t)}`,
+            (t, a, pw) => `{{First name}} — closing the loop on ${tinyTopic(t)}`,
+          ],
+          creative: [
+            (t, a, pw) => `{{First name}}, I promise this is my last nudge`,
+            (t, a, pw) => `{{First name}}: 30-second reply is all I need`,
+          ]
+        },
+        number: {
+          professional: [
+            (t, a, pw) => `Follow-up #2: ${tinyTopic(t)} proposal`,
+            (t, a, pw) => `2 options for moving ${tinyTopic(t)} forward`,
+          ],
+          friendly: [
+            (t, a, pw) => `Take 2: ${tinyTopic(t)} (30-second read)`,
+            (t, a, pw) => `1 quick question about ${tinyTopic(t)}`,
+          ],
+          urgent: [
+            (t, a, pw) => `48 hours left on the ${tinyTopic(t)} offer`,
+            (t, a, pw) => `3rd and final follow-up: ${tinyTopic(t)}`,
+          ],
+          creative: [
+            (t, a, pw) => `Attempt #2 — 15 seconds of your time on ${tinyTopic(t)}`,
+            (t, a, pw) => `1 line reply is all I need re: ${tinyTopic(t)}`,
+          ]
+        }
+      },
+
+      // ── MEETING REQUEST ──
+      meeting_request: {
+        direct: {
+          professional: [
+            (t, a, pw) => `Meeting request: ${shortTopic(t)}`,
+            (t, a, pw) => `Can we schedule 15 min to discuss ${tinyTopic(t)}?`,
+            (t, a, pw) => `Let's talk ${tinyTopic(t)} — available this week?`,
+            (t, a, pw) => `${cap(pw)} discussion: ${tinyTopic(t)} strategy`,
+          ],
+          friendly: [
+            (t, a, pw) => `Coffee chat about ${tinyTopic(t)}?`,
+            (t, a, pw) => `Let's hop on a quick call about ${tinyTopic(t)}`,
+            (t, a, pw) => `Would love to chat about ${tinyTopic(t)}`,
+            (t, a, pw) => `Got 15 min? Let's talk ${tinyTopic(t)}`,
+          ],
+          urgent: [
+            (t, a, pw) => `${cap(pw)}: need to align on ${tinyTopic(t)} ASAP`,
+            (t, a, pw) => `Priority meeting: ${tinyTopic(t)} decision`,
+            (t, a, pw) => `Can we sync on ${tinyTopic(t)} today?`,
+            (t, a, pw) => `${cap(pw)}: ${tinyTopic(t)} meeting this week`,
+          ],
+          creative: [
+            (t, a, pw) => `15 min that could transform your ${tinyTopic(t)}`,
+            (t, a, pw) => `A ${pw} conversation about ${tinyTopic(t)}`,
+            (t, a, pw) => `Brain-pick session: ${tinyTopic(t)}`,
+            (t, a, pw) => `The ${tinyTopic(t)} chat you didn't know you needed`,
+          ]
+        },
+        question: {
+          professional: [
+            (t, a, pw) => `When works best to discuss ${tinyTopic(t)}?`,
+            (t, a, pw) => `Free for a ${tinyTopic(t)} strategy call?`,
+          ],
+          friendly: [
+            (t, a, pw) => `Can I pick your brain on ${tinyTopic(t)}?`,
+            (t, a, pw) => `Fancy a quick chat about ${tinyTopic(t)}?`,
+          ],
+          urgent: [
+            (t, a, pw) => `Can you carve out 15 min for ${tinyTopic(t)} this week?`,
+            (t, a, pw) => `Are you free today to discuss ${tinyTopic(t)}?`,
+          ],
+          creative: [
+            (t, a, pw) => `What if we could solve ${tinyTopic(t)} in one call?`,
+            (t, a, pw) => `Worth 15 minutes? A ${pw} ${tinyTopic(t)} idea`,
+          ]
+        },
+        curiosity: {
+          professional: [
+            (t, a, pw) => `Something ${pw} to discuss about ${tinyTopic(t)}`,
+            (t, a, pw) => `I have an idea for your ${tinyTopic(t)} approach`,
+          ],
+          friendly: [
+            (t, a, pw) => `I stumbled on something cool about ${tinyTopic(t)}`,
+            (t, a, pw) => `Wait until you hear this ${tinyTopic(t)} insight`,
+          ],
+          urgent: [
+            (t, a, pw) => `New ${tinyTopic(t)} development — need to discuss`,
+            (t, a, pw) => `${cap(pw)}: ${tinyTopic(t)} opportunity closing soon`,
+          ],
+          creative: [
+            (t, a, pw) => `The ${pw} ${tinyTopic(t)} insight I can't stop thinking about`,
+            (t, a, pw) => `I have a ${pw} hunch about ${tinyTopic(t)}`,
+          ]
+        },
+        personalized: {
+          professional: [
+            (t, a, pw) => `{{First name}}, let's connect on ${tinyTopic(t)}`,
+            (t, a, pw) => `Meeting request for {{First name}}: ${tinyTopic(t)}`,
+          ],
+          friendly: [
+            (t, a, pw) => `{{First name}} — let's catch up on ${tinyTopic(t)}`,
+            (t, a, pw) => `{{First name}}, 15 min for a ${tinyTopic(t)} chat?`,
+          ],
+          urgent: [
+            (t, a, pw) => `{{First name}}, need 15 min on ${tinyTopic(t)} ASAP`,
+            (t, a, pw) => `{{First name}} — ${pw} sync on ${tinyTopic(t)}`,
+          ],
+          creative: [
+            (t, a, pw) => `{{First name}}, this ${tinyTopic(t)} idea has your name on it`,
+            (t, a, pw) => `{{First name}}, let me pitch you something ${pw}`,
+          ]
+        },
+        number: {
+          professional: [
+            (t, a, pw) => `15-min call: ${tinyTopic(t)} planning`,
+            (t, a, pw) => `3 agenda items for our ${tinyTopic(t)} meeting`,
+          ],
+          friendly: [
+            (t, a, pw) => `10 min + coffee + ${tinyTopic(t)} = great combo`,
+            (t, a, pw) => `Just 15 min on ${tinyTopic(t)} — promise!`,
+          ],
+          urgent: [
+            (t, a, pw) => `15 min this week: ${pw} ${tinyTopic(t)} update`,
+            (t, a, pw) => `2 days left to book our ${tinyTopic(t)} call`,
+          ],
+          creative: [
+            (t, a, pw) => `1 call, 15 min, a ${pw} ${tinyTopic(t)} plan`,
+            (t, a, pw) => `Zero fluff: 15-min ${tinyTopic(t)} session`,
+          ]
+        }
+      },
+
+      // ── PRODUCT ANNOUNCEMENT ──
+      product_announcement: {
+        direct: {
+          professional: [
+            (t, a, pw) => `Introducing ${shortTopic(t)}`,
+            (t, a, pw) => `New: ${cap(shortTopic(t))} is here`,
+            (t, a, pw) => `${cap(shortTopic(t))} — now available for ${a}`,
+            (t, a, pw) => `Announcing ${shortTopic(t)} for ${a}`,
+          ],
+          friendly: [
+            (t, a, pw) => `It's here! ${cap(shortTopic(t))} just launched`,
+            (t, a, pw) => `Big news: ${cap(shortTopic(t))} is live`,
+            (t, a, pw) => `We built something ${pw} for ${a}`,
+            (t, a, pw) => `Say hello to ${shortTopic(t)}`,
+          ],
+          urgent: [
+            (t, a, pw) => `Just launched: ${cap(shortTopic(t))} — be first`,
+            (t, a, pw) => `${cap(pw)}: ${shortTopic(t)} is live now`,
+            (t, a, pw) => `${cap(shortTopic(t))} drops today — early access`,
+            (t, a, pw) => `Don't miss the ${shortTopic(t)} launch`,
+          ],
+          creative: [
+            (t, a, pw) => `The ${pw} thing we've been building`,
+            (t, a, pw) => `Remember when ${tinyTopic(t)} was hard? Not anymore`,
+            (t, a, pw) => `We broke the mold with ${shortTopic(t)}`,
+            (t, a, pw) => `${cap(shortTopic(t))}: built by ${a}, for ${a}`,
+          ]
+        },
+        question: {
+          professional: [
+            (t, a, pw) => `Ready for a better way to handle ${tinyTopic(t)}?`,
+            (t, a, pw) => `What if ${tinyTopic(t)} just got ${pw}?`,
+          ],
+          friendly: [
+            (t, a, pw) => `Want to see what we've been cooking?`,
+            (t, a, pw) => `Guess what we just built for ${a}?`,
+          ],
+          urgent: [
+            (t, a, pw) => `Are you ready for the ${tinyTopic(t)} revolution?`,
+            (t, a, pw) => `Want early access to ${shortTopic(t)}?`,
+          ],
+          creative: [
+            (t, a, pw) => `What happens when you rethink ${tinyTopic(t)}?`,
+            (t, a, pw) => `Can ${a} really do ${tinyTopic(t)} in half the time?`,
+          ]
+        },
+        curiosity: {
+          professional: [
+            (t, a, pw) => `A ${pw} new way for ${a} to handle ${tinyTopic(t)}`,
+            (t, a, pw) => `The future of ${tinyTopic(t)} starts here`,
+          ],
+          friendly: [
+            (t, a, pw) => `Peek inside our newest creation`,
+            (t, a, pw) => `You asked for it — we built ${shortTopic(t)}`,
+          ],
+          urgent: [
+            (t, a, pw) => `Sneak peek: ${shortTopic(t)} (going live soon)`,
+            (t, a, pw) => `First look before anyone else: ${shortTopic(t)}`,
+          ],
+          creative: [
+            (t, a, pw) => `The ${pw} reason we stayed up all night`,
+            (t, a, pw) => `We almost didn't ship this (glad we did)`,
+          ]
+        },
+        personalized: {
+          professional: [
+            (t, a, pw) => `{{First name}}, ${shortTopic(t)} was built for teams like yours`,
+            (t, a, pw) => `For {{Company}}: introducing ${shortTopic(t)}`,
+          ],
+          friendly: [
+            (t, a, pw) => `{{First name}}, you're going to love this`,
+            (t, a, pw) => `{{First name}}, made this with ${a} in mind`,
+          ],
+          urgent: [
+            (t, a, pw) => `{{First name}}, get first access to ${shortTopic(t)}`,
+            (t, a, pw) => `Exclusive for {{First name}}: ${shortTopic(t)} preview`,
+          ],
+          creative: [
+            (t, a, pw) => `{{First name}}, this ${pw} thing is finally ready`,
+            (t, a, pw) => `Dear {{First name}}: we solved ${tinyTopic(t)}`,
+          ]
+        },
+        number: {
+          professional: [
+            (t, a, pw) => `5 things ${shortTopic(t)} does for ${a}`,
+            (t, a, pw) => `${cap(shortTopic(t))}: 3 features ${a} need`,
+          ],
+          friendly: [
+            (t, a, pw) => `1 new tool, 10x faster ${tinyTopic(t)}`,
+            (t, a, pw) => `2 years in the making: ${shortTopic(t)}`,
+          ],
+          urgent: [
+            (t, a, pw) => `100 early-access spots for ${shortTopic(t)}`,
+            (t, a, pw) => `${cap(shortTopic(t))}: 24-hour launch special`,
+          ],
+          creative: [
+            (t, a, pw) => `0 to ${pw}: the ${shortTopic(t)} story`,
+            (t, a, pw) => `1 tool to replace 5: meet ${shortTopic(t)}`,
+          ]
+        }
+      },
+
+      // ── NEWSLETTER ──
+      newsletter: {
+        direct: {
+          professional: [
+            (t, a, pw) => `This week: ${pw} ${tinyTopic(t)} insights`,
+            (t, a, pw) => `Your ${tinyTopic(t)} briefing is ready`,
+            (t, a, pw) => `${cap(tinyTopic(t))} roundup for ${a}`,
+            (t, a, pw) => `${cap(pw)} ${tinyTopic(t)} trends this week`,
+          ],
+          friendly: [
+            (t, a, pw) => `Fresh ${tinyTopic(t)} reads, just for you`,
+            (t, a, pw) => `Your weekly dose of ${tinyTopic(t)} goodness`,
+            (t, a, pw) => `Happy reading: ${tinyTopic(t)} edition`,
+            (t, a, pw) => `What's new in ${tinyTopic(t)} this week`,
+          ],
+          urgent: [
+            (t, a, pw) => `${cap(pw)} ${tinyTopic(t)} news you need today`,
+            (t, a, pw) => `Don't start your week without this`,
+            (t, a, pw) => `${cap(pw)} developments in ${tinyTopic(t)}`,
+            (t, a, pw) => `This week's must-read ${tinyTopic(t)} updates`,
+          ],
+          creative: [
+            (t, a, pw) => `The ${pw} ${tinyTopic(t)} stories no one is covering`,
+            (t, a, pw) => `${cap(tinyTopic(t))}, decoded`,
+            (t, a, pw) => `What ${a} should know this week`,
+            (t, a, pw) => `The ${pw} side of ${tinyTopic(t)}`,
+          ]
+        },
+        question: {
+          professional: [
+            (t, a, pw) => `What's shaping ${tinyTopic(t)} this week?`,
+            (t, a, pw) => `Caught up on the latest ${tinyTopic(t)} trends?`,
+          ],
+          friendly: [
+            (t, a, pw) => `Ready for this week's ${tinyTopic(t)} gems?`,
+            (t, a, pw) => `Seen these ${pw} ${tinyTopic(t)} stories yet?`,
+          ],
+          urgent: [
+            (t, a, pw) => `Are you prepared for this ${tinyTopic(t)} shift?`,
+            (t, a, pw) => `Did you hear what happened in ${tinyTopic(t)}?`,
+          ],
+          creative: [
+            (t, a, pw) => `Wanna know the ${pw} ${tinyTopic(t)} trend?`,
+            (t, a, pw) => `Think you know ${tinyTopic(t)}? Think again`,
+          ]
+        },
+        curiosity: {
+          professional: [
+            (t, a, pw) => `Inside: the ${tinyTopic(t)} shift ${a} should watch`,
+            (t, a, pw) => `The ${tinyTopic(t)} insight that surprised us`,
+          ],
+          friendly: [
+            (t, a, pw) => `You'll want to read #3 (trust me)`,
+            (t, a, pw) => `This week's ${pw} ${tinyTopic(t)} find`,
+          ],
+          urgent: [
+            (t, a, pw) => `The ${tinyTopic(t)} trend that's accelerating fast`,
+            (t, a, pw) => `Before everyone else sees this ${tinyTopic(t)} data`,
+          ],
+          creative: [
+            (t, a, pw) => `The ${pw} ${tinyTopic(t)} thread we fell down`,
+            (t, a, pw) => `We almost didn't include this ${tinyTopic(t)} story`,
+          ]
+        },
+        personalized: {
+          professional: [
+            (t, a, pw) => `{{First name}}, your ${tinyTopic(t)} digest`,
+            (t, a, pw) => `Curated for {{First name}}: ${tinyTopic(t)} updates`,
+          ],
+          friendly: [
+            (t, a, pw) => `{{First name}}, picked these just for you`,
+            (t, a, pw) => `{{First name}}'s weekly ${tinyTopic(t)} reads`,
+          ],
+          urgent: [
+            (t, a, pw) => `{{First name}}, don't miss this week's ${tinyTopic(t)}`,
+            (t, a, pw) => `{{First name}}: ${pw} update inside`,
+          ],
+          creative: [
+            (t, a, pw) => `{{First name}}, this one's a page-turner`,
+            (t, a, pw) => `Bet you'll forward this to a friend, {{First name}}`,
+          ]
+        },
+        number: {
+          professional: [
+            (t, a, pw) => `5 ${pw} ${tinyTopic(t)} links for ${a}`,
+            (t, a, pw) => `Top 3 ${tinyTopic(t)} stories this week`,
+          ],
+          friendly: [
+            (t, a, pw) => `7 ${tinyTopic(t)} reads under 3 minutes`,
+            (t, a, pw) => `4 ${pw} ${tinyTopic(t)} ideas to try today`,
+          ],
+          urgent: [
+            (t, a, pw) => `3 ${pw} ${tinyTopic(t)} shifts happening now`,
+            (t, a, pw) => `The 1 ${tinyTopic(t)} article you need this week`,
+          ],
+          creative: [
+            (t, a, pw) => `11 ${tinyTopic(t)} thoughts in under 2 minutes`,
+            (t, a, pw) => `${cap(tinyTopic(t))}: by the numbers this week`,
+          ]
+        }
+      },
+
+      // ── PROMOTION / SALE ──
+      promotion: {
+        direct: {
+          professional: [
+            (t, a, pw) => `Save on ${shortTopic(t)} — limited offer`,
+            (t, a, pw) => `Special pricing on ${shortTopic(t)} for ${a}`,
+            (t, a, pw) => `${cap(shortTopic(t))} — exclusive ${a} discount`,
+            (t, a, pw) => `Your ${pw} deal on ${shortTopic(t)} is here`,
+          ],
+          friendly: [
+            (t, a, pw) => `We've got a treat for you: ${shortTopic(t)} sale`,
+            (t, a, pw) => `Surprise! ${cap(shortTopic(t))} just went on sale`,
+            (t, a, pw) => `Deals on ${shortTopic(t)} you'll actually want`,
+            (t, a, pw) => `${cap(shortTopic(t))} at a price you'll love`,
+          ],
+          urgent: [
+            (t, a, pw) => `Ends tonight: ${shortTopic(t)} sale`,
+            (t, a, pw) => `${cap(pw)}: ${shortTopic(t)} deal expires soon`,
+            (t, a, pw) => `Flash sale: ${shortTopic(t)} — hours left`,
+            (t, a, pw) => `Last chance: ${shortTopic(t)} at this price`,
+          ],
+          creative: [
+            (t, a, pw) => `This ${shortTopic(t)} deal almost didn't happen`,
+            (t, a, pw) => `Our accountant said we're crazy (${shortTopic(t)} sale)`,
+            (t, a, pw) => `The ${pw} ${shortTopic(t)} deal of the year`,
+            (t, a, pw) => `We just slashed ${shortTopic(t)} prices. You're welcome`,
+          ]
+        },
+        question: {
+          professional: [
+            (t, a, pw) => `Looking for a better price on ${tinyTopic(t)}?`,
+            (t, a, pw) => `Ready to save on ${tinyTopic(t)}?`,
+          ],
+          friendly: [
+            (t, a, pw) => `Want ${tinyTopic(t)} for less? Here you go`,
+            (t, a, pw) => `Who doesn't love a ${tinyTopic(t)} deal?`,
+          ],
+          urgent: [
+            (t, a, pw) => `Why pay full price for ${tinyTopic(t)}?`,
+            (t, a, pw) => `Miss this ${tinyTopic(t)} deal? It won't come back`,
+          ],
+          creative: [
+            (t, a, pw) => `What if ${tinyTopic(t)} cost half as much?`,
+            (t, a, pw) => `${cap(tinyTopic(t))} at this price — real or dream?`,
+          ]
+        },
+        curiosity: {
+          professional: [
+            (t, a, pw) => `An exclusive ${tinyTopic(t)} offer inside`,
+            (t, a, pw) => `Something special for ${a} — ${tinyTopic(t)}`,
+          ],
+          friendly: [
+            (t, a, pw) => `Open for a ${pw} ${tinyTopic(t)} surprise`,
+            (t, a, pw) => `You're going to want to see this ${tinyTopic(t)} deal`,
+          ],
+          urgent: [
+            (t, a, pw) => `Before midnight: ${tinyTopic(t)} offer disappears`,
+            (t, a, pw) => `The ${tinyTopic(t)} deal that's selling out fast`,
+          ],
+          creative: [
+            (t, a, pw) => `We probably shouldn't offer ${tinyTopic(t)} at this price`,
+            (t, a, pw) => `Our boss doesn't know about this ${tinyTopic(t)} deal yet`,
+          ]
+        },
+        personalized: {
+          professional: [
+            (t, a, pw) => `{{First name}}, an exclusive ${tinyTopic(t)} offer for you`,
+            (t, a, pw) => `A special ${tinyTopic(t)} deal for {{Company}}`,
+          ],
+          friendly: [
+            (t, a, pw) => `{{First name}}, this ${tinyTopic(t)} deal has your name on it`,
+            (t, a, pw) => `Just for you, {{First name}}: ${tinyTopic(t)} savings`,
+          ],
+          urgent: [
+            (t, a, pw) => `{{First name}}, your ${tinyTopic(t)} offer expires tonight`,
+            (t, a, pw) => `{{First name}}: ${pw} — claim your ${tinyTopic(t)} discount`,
+          ],
+          creative: [
+            (t, a, pw) => `{{First name}}, we saved the best deal for you`,
+            (t, a, pw) => `For {{First name}}'s eyes only: ${tinyTopic(t)} insider price`,
+          ]
+        },
+        number: {
+          professional: [
+            (t, a, pw) => `Save 30% on ${shortTopic(t)} this week`,
+            (t, a, pw) => `${cap(shortTopic(t))}: 2 days, 1 ${pw} price`,
+          ],
+          friendly: [
+            (t, a, pw) => `Up to 50% off ${shortTopic(t)} — today only`,
+            (t, a, pw) => `$0 to start with ${shortTopic(t)}`,
+          ],
+          urgent: [
+            (t, a, pw) => `24 hours: 40% off ${shortTopic(t)}`,
+            (t, a, pw) => `Only 50 spots at this ${shortTopic(t)} price`,
+          ],
+          creative: [
+            (t, a, pw) => `${cap(shortTopic(t))} for $1/day — seriously`,
+            (t, a, pw) => `3 reasons this ${shortTopic(t)} deal is ${pw}`,
+          ]
+        }
+      },
+
+      // ── EVENT INVITATION ──
+      event_invitation: {
+        direct: {
+          professional: [
+            (t, a, pw) => `You're invited: ${shortTopic(t)}`,
+            (t, a, pw) => `Join us for ${shortTopic(t)}`,
+            (t, a, pw) => `${cap(shortTopic(t))} — save the date`,
+            (t, a, pw) => `Invitation: ${shortTopic(t)} for ${a}`,
+          ],
+          friendly: [
+            (t, a, pw) => `Come hang! ${cap(shortTopic(t))} is happening`,
+            (t, a, pw) => `You in? ${cap(shortTopic(t))} is coming up`,
+            (t, a, pw) => `${cap(shortTopic(t))} — and you're invited!`,
+            (t, a, pw) => `Mark your calendar: ${shortTopic(t)}`,
+          ],
+          urgent: [
+            (t, a, pw) => `Spots filling fast: ${shortTopic(t)}`,
+            (t, a, pw) => `RSVP now: ${shortTopic(t)} (limited seats)`,
+            (t, a, pw) => `${cap(pw)}: ${shortTopic(t)} seats running out`,
+            (t, a, pw) => `Register today: ${shortTopic(t)}`,
+          ],
+          creative: [
+            (t, a, pw) => `The ${pw} event ${a} are talking about`,
+            (t, a, pw) => `Cancel your plans: ${shortTopic(t)} is here`,
+            (t, a, pw) => `This might be the best ${tinyTopic(t)} event yet`,
+            (t, a, pw) => `What happens when ${a} gather for ${tinyTopic(t)}`,
+          ]
+        },
+        question: {
+          professional: [
+            (t, a, pw) => `Can we count you in for ${shortTopic(t)}?`,
+            (t, a, pw) => `Will we see you at ${shortTopic(t)}?`,
+          ],
+          friendly: [
+            (t, a, pw) => `Coming to ${shortTopic(t)}? Please say yes`,
+            (t, a, pw) => `Free on [date]? ${cap(shortTopic(t))} awaits`,
+          ],
+          urgent: [
+            (t, a, pw) => `Have you secured your spot for ${shortTopic(t)}?`,
+            (t, a, pw) => `Still time to RSVP — joining ${shortTopic(t)}?`,
+          ],
+          creative: [
+            (t, a, pw) => `What are you doing on [date]? (Hint: ${tinyTopic(t)})`,
+            (t, a, pw) => `Know what's better than reading about ${tinyTopic(t)}?`,
+          ]
+        },
+        curiosity: {
+          professional: [
+            (t, a, pw) => `A ${pw} lineup for ${shortTopic(t)}`,
+            (t, a, pw) => `What to expect at ${shortTopic(t)}`,
+          ],
+          friendly: [
+            (t, a, pw) => `Sneak peek: the ${shortTopic(t)} agenda is stacked`,
+            (t, a, pw) => `Wait until you see who's speaking at ${shortTopic(t)}`,
+          ],
+          urgent: [
+            (t, a, pw) => `Early bird closes soon: ${shortTopic(t)}`,
+            (t, a, pw) => `Last week to register for ${shortTopic(t)}`,
+          ],
+          creative: [
+            (t, a, pw) => `The event that ${a} won't stop talking about`,
+            (t, a, pw) => `We have a ${pw} surprise planned for ${shortTopic(t)}`,
+          ]
+        },
+        personalized: {
+          professional: [
+            (t, a, pw) => `{{First name}}, join us for ${shortTopic(t)}`,
+            (t, a, pw) => `A personal invite for {{First name}}: ${shortTopic(t)}`,
+          ],
+          friendly: [
+            (t, a, pw) => `{{First name}}, we saved you a seat`,
+            (t, a, pw) => `{{First name}} — ${shortTopic(t)} wouldn't be the same without you`,
+          ],
+          urgent: [
+            (t, a, pw) => `{{First name}}, your spot is reserved (claim it)`,
+            (t, a, pw) => `{{First name}}: VIP access to ${shortTopic(t)}`,
+          ],
+          creative: [
+            (t, a, pw) => `{{First name}}, this event was made for people like you`,
+            (t, a, pw) => `{{First name}}, something ${pw} awaits you at ${shortTopic(t)}`,
+          ]
+        },
+        number: {
+          professional: [
+            (t, a, pw) => `500+ ${a} are attending ${shortTopic(t)}`,
+            (t, a, pw) => `3 keynotes, 10 sessions: ${shortTopic(t)}`,
+          ],
+          friendly: [
+            (t, a, pw) => `1 day, 1 event, 100% ${tinyTopic(t)} energy`,
+            (t, a, pw) => `Join 200+ ${a} at ${shortTopic(t)}`,
+          ],
+          urgent: [
+            (t, a, pw) => `Only 25 seats left for ${shortTopic(t)}`,
+            (t, a, pw) => `7 days until ${shortTopic(t)} — register now`,
+          ],
+          creative: [
+            (t, a, pw) => `12 speakers, 0 boring slides: ${shortTopic(t)}`,
+            (t, a, pw) => `1 ticket to the ${pw} ${tinyTopic(t)} event of the year`,
+          ]
+        }
+      },
+
+      // ── THANK YOU ──
+      thank_you: {
+        direct: {
+          professional: [
+            (t, a, pw) => `Thank you for your ${tinyTopic(t)} support`,
+            (t, a, pw) => `Grateful for your partnership on ${tinyTopic(t)}`,
+            (t, a, pw) => `Thanks for choosing ${shortTopic(t)}`,
+            (t, a, pw) => `We appreciate your ${tinyTopic(t)} contribution`,
+          ],
+          friendly: [
+            (t, a, pw) => `You're awesome — thanks for ${tinyTopic(t)}!`,
+            (t, a, pw) => `A big thank you from the ${tinyTopic(t)} team`,
+            (t, a, pw) => `Thanks for being part of ${tinyTopic(t)}!`,
+            (t, a, pw) => `Cheers to you! Thanks for ${tinyTopic(t)}`,
+          ],
+          urgent: [
+            (t, a, pw) => `A heartfelt thank you for ${tinyTopic(t)}`,
+            (t, a, pw) => `We had to say this now: thank you`,
+            (t, a, pw) => `Your ${tinyTopic(t)} impact was ${pw}`,
+            (t, a, pw) => `Can't wait to share: thank you for ${tinyTopic(t)}`,
+          ],
+          creative: [
+            (t, a, pw) => `You made ${tinyTopic(t)} happen (and we're grateful)`,
+            (t, a, pw) => `This email has one purpose: to thank you`,
+            (t, a, pw) => `${cap(tinyTopic(t))} wouldn't exist without you`,
+            (t, a, pw) => `A ${pw} thank-you note for a ${pw} person`,
+          ]
+        },
+        question: {
+          professional: [
+            (t, a, pw) => `Did we mention how much we appreciate you?`,
+            (t, a, pw) => `Know what makes ${tinyTopic(t)} special? You do`,
+          ],
+          friendly: [
+            (t, a, pw) => `Can we take a sec to say thanks?`,
+            (t, a, pw) => `Have we thanked you enough for ${tinyTopic(t)}?`,
+          ],
+          urgent: [
+            (t, a, pw) => `Know what your ${tinyTopic(t)} support means to us?`,
+            (t, a, pw) => `Can we share some ${pw} results you helped create?`,
+          ],
+          creative: [
+            (t, a, pw) => `Guess who just made our day? (It's you)`,
+            (t, a, pw) => `What do ${a} and superheroes have in common?`,
+          ]
+        },
+        curiosity: {
+          professional: [
+            (t, a, pw) => `The impact of your ${tinyTopic(t)} contribution`,
+            (t, a, pw) => `Here's what your support made possible`,
+          ],
+          friendly: [
+            (t, a, pw) => `You'll never guess what happened after ${tinyTopic(t)}`,
+            (t, a, pw) => `Something ${pw} happened because of you`,
+          ],
+          urgent: [
+            (t, a, pw) => `The results are in — and you made it happen`,
+            (t, a, pw) => `Your ${tinyTopic(t)} impact, by the numbers`,
+          ],
+          creative: [
+            (t, a, pw) => `The ${pw} ripple effect of your ${tinyTopic(t)} support`,
+            (t, a, pw) => `Open this for a thank-you surprise`,
+          ]
+        },
+        personalized: {
+          professional: [
+            (t, a, pw) => `{{First name}}, thank you for ${tinyTopic(t)}`,
+            (t, a, pw) => `A personal thanks, {{First name}}`,
+          ],
+          friendly: [
+            (t, a, pw) => `{{First name}}, you're a ${tinyTopic(t)} rockstar`,
+            (t, a, pw) => `{{First name}} — seriously, thank you`,
+          ],
+          urgent: [
+            (t, a, pw) => `{{First name}}, your impact on ${tinyTopic(t)} was ${pw}`,
+            (t, a, pw) => `A ${pw} thank-you for {{First name}}`,
+          ],
+          creative: [
+            (t, a, pw) => `{{First name}}, this one's just for you`,
+            (t, a, pw) => `Dear {{First name}}: you're the real MVP`,
+          ]
+        },
+        number: {
+          professional: [
+            (t, a, pw) => `Thanks to you: ${tinyTopic(t)} by the numbers`,
+            (t, a, pw) => `1 word, ${pw} meaning: thanks`,
+          ],
+          friendly: [
+            (t, a, pw) => `1,000 thank yous for your ${tinyTopic(t)} help`,
+            (t, a, pw) => `3 reasons we're grateful for ${a} like you`,
+          ],
+          urgent: [
+            (t, a, pw) => `100% grateful for your ${tinyTopic(t)} support`,
+            (t, a, pw) => `Your support = ${pw} ${tinyTopic(t)} results`,
+          ],
+          creative: [
+            (t, a, pw) => `10/10 would thank you again`,
+            (t, a, pw) => `5 stars: you and your ${tinyTopic(t)} impact`,
+          ]
+        }
+      },
+
+      // ── APOLOGY ──
+      apology: {
+        direct: {
+          professional: [
+            (t, a, pw) => `Our apology regarding ${shortTopic(t)}`,
+            (t, a, pw) => `We're sorry about the ${tinyTopic(t)} issue`,
+            (t, a, pw) => `An update and apology: ${tinyTopic(t)}`,
+            (t, a, pw) => `Making things right on ${tinyTopic(t)}`,
+          ],
+          friendly: [
+            (t, a, pw) => `We messed up on ${tinyTopic(t)}. Here's our fix`,
+            (t, a, pw) => `Oops — sorry about ${tinyTopic(t)}`,
+            (t, a, pw) => `We owe you an apology about ${tinyTopic(t)}`,
+            (t, a, pw) => `Sorry about that! Here's what we're doing`,
+          ],
+          urgent: [
+            (t, a, pw) => `${cap(pw)} update: ${tinyTopic(t)} resolution`,
+            (t, a, pw) => `Addressing the ${tinyTopic(t)} issue immediately`,
+            (t, a, pw) => `${cap(pw)} fix for the ${tinyTopic(t)} problem`,
+            (t, a, pw) => `We've resolved the ${tinyTopic(t)} issue`,
+          ],
+          creative: [
+            (t, a, pw) => `We dropped the ball on ${tinyTopic(t)}. Picking it up now`,
+            (t, a, pw) => `No excuses: our ${tinyTopic(t)} apology`,
+            (t, a, pw) => `Transparency time: what happened with ${tinyTopic(t)}`,
+            (t, a, pw) => `The honest truth about the ${tinyTopic(t)} situation`,
+          ]
+        },
+        question: {
+          professional: [
+            (t, a, pw) => `How can we make the ${tinyTopic(t)} issue right?`,
+            (t, a, pw) => `Were you affected by the ${tinyTopic(t)} issue?`,
+          ],
+          friendly: [
+            (t, a, pw) => `Can we make it up to you? (Re: ${tinyTopic(t)})`,
+            (t, a, pw) => `How can we earn back your trust on ${tinyTopic(t)}?`,
+          ],
+          urgent: [
+            (t, a, pw) => `Affected by the ${tinyTopic(t)} issue? Read this`,
+            (t, a, pw) => `Need help with the ${tinyTopic(t)} disruption?`,
+          ],
+          creative: [
+            (t, a, pw) => `Will you give us a second chance on ${tinyTopic(t)}?`,
+            (t, a, pw) => `What would you do in our shoes? (${tinyTopic(t)} update)`,
+          ]
+        },
+        curiosity: {
+          professional: [
+            (t, a, pw) => `What went wrong with ${tinyTopic(t)} — and our fix`,
+            (t, a, pw) => `The steps we're taking after ${tinyTopic(t)}`,
+          ],
+          friendly: [
+            (t, a, pw) => `Here's the full story behind ${tinyTopic(t)}`,
+            (t, a, pw) => `What we learned from the ${tinyTopic(t)} mistake`,
+          ],
+          urgent: [
+            (t, a, pw) => `${cap(pw)}: ${tinyTopic(t)} post-mortem and next steps`,
+            (t, a, pw) => `Resolved: here's what happened with ${tinyTopic(t)}`,
+          ],
+          creative: [
+            (t, a, pw) => `Mistakes were made. Lessons were learned. (${tinyTopic(t)})`,
+            (t, a, pw) => `Behind the scenes of the ${tinyTopic(t)} hiccup`,
+          ]
+        },
+        personalized: {
+          professional: [
+            (t, a, pw) => `{{First name}}, our sincere apology on ${tinyTopic(t)}`,
+            (t, a, pw) => `{{First name}} — we take the ${tinyTopic(t)} issue seriously`,
+          ],
+          friendly: [
+            (t, a, pw) => `{{First name}}, we're sorry and here's our plan`,
+            (t, a, pw) => `{{First name}}, you deserved better on ${tinyTopic(t)}`,
+          ],
+          urgent: [
+            (t, a, pw) => `{{First name}}: ${pw} ${tinyTopic(t)} resolution inside`,
+            (t, a, pw) => `{{First name}}, we fixed the ${tinyTopic(t)} issue`,
+          ],
+          creative: [
+            (t, a, pw) => `{{First name}}, this isn't a form letter — it's a real apology`,
+            (t, a, pw) => `Dear {{First name}}: we owe you one`,
+          ]
+        },
+        number: {
+          professional: [
+            (t, a, pw) => `3 steps we're taking after the ${tinyTopic(t)} issue`,
+            (t, a, pw) => `${cap(tinyTopic(t))} issue: resolved in under 2 hours`,
+          ],
+          friendly: [
+            (t, a, pw) => `1 apology + 3 fixes for ${tinyTopic(t)}`,
+            (t, a, pw) => `2 things we're changing after ${tinyTopic(t)}`,
+          ],
+          urgent: [
+            (t, a, pw) => `100% resolved: ${tinyTopic(t)} fix is live`,
+            (t, a, pw) => `5-point action plan for ${tinyTopic(t)}`,
+          ],
+          creative: [
+            (t, a, pw) => `0 excuses, 1 honest apology about ${tinyTopic(t)}`,
+            (t, a, pw) => `The 3-word email: we are sorry`,
+          ]
+        }
+      },
+
+      // ── FEEDBACK REQUEST ──
+      feedback_request: {
+        direct: {
+          professional: [
+            (t, a, pw) => `We'd love your feedback on ${shortTopic(t)}`,
+            (t, a, pw) => `Share your ${tinyTopic(t)} experience with us`,
+            (t, a, pw) => `Your ${tinyTopic(t)} feedback matters to us`,
+            (t, a, pw) => `Help us improve ${shortTopic(t)}`,
+          ],
+          friendly: [
+            (t, a, pw) => `Quick favor? Tell us about ${tinyTopic(t)}`,
+            (t, a, pw) => `How's ${shortTopic(t)} working for you?`,
+            (t, a, pw) => `We're all ears: ${tinyTopic(t)} feedback`,
+            (t, a, pw) => `Your opinion on ${tinyTopic(t)} = priceless`,
+          ],
+          urgent: [
+            (t, a, pw) => `Last day to share ${tinyTopic(t)} feedback`,
+            (t, a, pw) => `Your ${tinyTopic(t)} input needed before Friday`,
+            (t, a, pw) => `${cap(pw)}: help shape the future of ${tinyTopic(t)}`,
+            (t, a, pw) => `Survey closing: ${tinyTopic(t)} feedback`,
+          ],
+          creative: [
+            (t, a, pw) => `Be honest: what do you really think of ${tinyTopic(t)}?`,
+            (t, a, pw) => `Roast us (nicely) on ${tinyTopic(t)}`,
+            (t, a, pw) => `Your ${pw} opinion could shape ${tinyTopic(t)}`,
+            (t, a, pw) => `The ${tinyTopic(t)} team wants the unfiltered truth`,
+          ]
+        },
+        question: {
+          professional: [
+            (t, a, pw) => `How would you rate your ${tinyTopic(t)} experience?`,
+            (t, a, pw) => `Got 2 minutes to improve ${tinyTopic(t)}?`,
+          ],
+          friendly: [
+            (t, a, pw) => `What do you love (or not) about ${tinyTopic(t)}?`,
+            (t, a, pw) => `If you could change one thing about ${tinyTopic(t)}...?`,
+          ],
+          urgent: [
+            (t, a, pw) => `Can you help us fix ${tinyTopic(t)} before the next update?`,
+            (t, a, pw) => `What's your #1 ${tinyTopic(t)} request?`,
+          ],
+          creative: [
+            (t, a, pw) => `If ${tinyTopic(t)} was a restaurant, what's its Yelp rating?`,
+            (t, a, pw) => `What would make ${tinyTopic(t)} a 10/10 for you?`,
+          ]
+        },
+        curiosity: {
+          professional: [
+            (t, a, pw) => `See how other ${a} rated ${tinyTopic(t)}`,
+            (t, a, pw) => `Your feedback unlocks ${pw} ${tinyTopic(t)} updates`,
+          ],
+          friendly: [
+            (t, a, pw) => `Psst... we're building something based on your feedback`,
+            (t, a, pw) => `Your ${tinyTopic(t)} feedback could win you something`,
+          ],
+          urgent: [
+            (t, a, pw) => `The ${tinyTopic(t)} changes coming — help us decide`,
+            (t, a, pw) => `We're deciding ${tinyTopic(t)}'s next feature. You pick`,
+          ],
+          creative: [
+            (t, a, pw) => `Be the ${pw} voice that shapes ${tinyTopic(t)}'s future`,
+            (t, a, pw) => `Your ${tinyTopic(t)} hot takes, please`,
+          ]
+        },
+        personalized: {
+          professional: [
+            (t, a, pw) => `{{First name}}, your ${tinyTopic(t)} feedback would mean a lot`,
+            (t, a, pw) => `{{First name}} — how can we improve ${tinyTopic(t)} for you?`,
+          ],
+          friendly: [
+            (t, a, pw) => `{{First name}}, quick question about ${tinyTopic(t)}`,
+            (t, a, pw) => `{{First name}}, help us make ${tinyTopic(t)} better for you`,
+          ],
+          urgent: [
+            (t, a, pw) => `{{First name}}, we need your input before we ship`,
+            (t, a, pw) => `{{First name}}: 60-second ${tinyTopic(t)} survey (closing soon)`,
+          ],
+          creative: [
+            (t, a, pw) => `{{First name}}, be brutally honest with us`,
+            (t, a, pw) => `{{First name}}, your ${pw} perspective on ${tinyTopic(t)}?`,
+          ]
+        },
+        number: {
+          professional: [
+            (t, a, pw) => `3 quick questions about ${tinyTopic(t)}`,
+            (t, a, pw) => `60-second ${tinyTopic(t)} survey (5 questions)`,
+          ],
+          friendly: [
+            (t, a, pw) => `1 question, 10 seconds: rate ${tinyTopic(t)}`,
+            (t, a, pw) => `2-minute survey, ${pw} impact on ${tinyTopic(t)}`,
+          ],
+          urgent: [
+            (t, a, pw) => `48 hours left: ${tinyTopic(t)} feedback survey`,
+            (t, a, pw) => `5 questions, 1 minute: ${tinyTopic(t)} input needed`,
+          ],
+          creative: [
+            (t, a, pw) => `Rate ${tinyTopic(t)}: 1 to 10 (be honest!)`,
+            (t, a, pw) => `3 emojis to describe ${tinyTopic(t)}? Go!`,
+          ]
+        }
+      },
+
+      // ── WELCOME ──
+      welcome: {
+        direct: {
+          professional: [
+            (t, a, pw) => `Welcome to ${shortTopic(t)}`,
+            (t, a, pw) => `You're in! Getting started with ${shortTopic(t)}`,
+            (t, a, pw) => `Welcome aboard — your ${tinyTopic(t)} journey begins`,
+            (t, a, pw) => `Get started with ${shortTopic(t)} today`,
+          ],
+          friendly: [
+            (t, a, pw) => `Welcome! Let's get you set up with ${tinyTopic(t)}`,
+            (t, a, pw) => `You made a ${pw} choice! Welcome to ${tinyTopic(t)}`,
+            (t, a, pw) => `Hey there! Welcome to the ${tinyTopic(t)} family`,
+            (t, a, pw) => `So glad you're here! Let's dive into ${tinyTopic(t)}`,
+          ],
+          urgent: [
+            (t, a, pw) => `Start now: your ${tinyTopic(t)} account is ready`,
+            (t, a, pw) => `Don't wait — set up ${tinyTopic(t)} in 2 minutes`,
+            (t, a, pw) => `Your ${tinyTopic(t)} access is live. Jump in`,
+            (t, a, pw) => `${cap(pw)}: activate your ${tinyTopic(t)} account now`,
+          ],
+          creative: [
+            (t, a, pw) => `Day 1 of your ${pw} ${tinyTopic(t)} adventure`,
+            (t, a, pw) => `You just joined something ${pw}`,
+            (t, a, pw) => `Welcome to the ${tinyTopic(t)} revolution`,
+            (t, a, pw) => `The start of something ${pw}: welcome`,
+          ]
+        },
+        question: {
+          professional: [
+            (t, a, pw) => `Ready to get the most from ${tinyTopic(t)}?`,
+            (t, a, pw) => `What will you build first with ${tinyTopic(t)}?`,
+          ],
+          friendly: [
+            (t, a, pw) => `Excited to start with ${tinyTopic(t)}?`,
+            (t, a, pw) => `Know the best way to start with ${tinyTopic(t)}?`,
+          ],
+          urgent: [
+            (t, a, pw) => `Want to see ${tinyTopic(t)} results on day one?`,
+            (t, a, pw) => `Ready to unlock ${tinyTopic(t)} in 60 seconds?`,
+          ],
+          creative: [
+            (t, a, pw) => `Guess what ${a} do first with ${tinyTopic(t)}?`,
+            (t, a, pw) => `What if you mastered ${tinyTopic(t)} this week?`,
+          ]
+        },
+        curiosity: {
+          professional: [
+            (t, a, pw) => `What top ${a} do with ${tinyTopic(t)} first`,
+            (t, a, pw) => `The ${pw} feature most new users miss`,
+          ],
+          friendly: [
+            (t, a, pw) => `You unlocked something ${pw} — open to see`,
+            (t, a, pw) => `A welcome gift is waiting inside`,
+          ],
+          urgent: [
+            (t, a, pw) => `Your ${pw} bonus expires in 48 hours`,
+            (t, a, pw) => `Claim your new-member ${tinyTopic(t)} perks now`,
+          ],
+          creative: [
+            (t, a, pw) => `The ${pw} ${tinyTopic(t)} trick veteran users swear by`,
+            (t, a, pw) => `Welcome! (Here's what no one tells new ${a})`,
+          ]
+        },
+        personalized: {
+          professional: [
+            (t, a, pw) => `Welcome, {{First name}} — let's set up ${tinyTopic(t)}`,
+            (t, a, pw) => `{{First name}}, your ${tinyTopic(t)} account is ready`,
+          ],
+          friendly: [
+            (t, a, pw) => `{{First name}}, welcome to the crew!`,
+            (t, a, pw) => `Hey {{First name}}! So happy you joined ${tinyTopic(t)}`,
+          ],
+          urgent: [
+            (t, a, pw) => `{{First name}}, start with ${tinyTopic(t)} right now`,
+            (t, a, pw) => `{{First name}}: your ${pw} welcome offer is inside`,
+          ],
+          creative: [
+            (t, a, pw) => `{{First name}}, you just made a ${pw} decision`,
+            (t, a, pw) => `Dear {{First name}}: welcome to the inner circle`,
+          ]
+        },
+        number: {
+          professional: [
+            (t, a, pw) => `3 steps to get started with ${tinyTopic(t)}`,
+            (t, a, pw) => `Your first 5 minutes with ${tinyTopic(t)}`,
+          ],
+          friendly: [
+            (t, a, pw) => `1 click to your first ${tinyTopic(t)} win`,
+            (t, a, pw) => `Setup in 2 min: your ${tinyTopic(t)} quick-start`,
+          ],
+          urgent: [
+            (t, a, pw) => `24-hour welcome bonus for ${tinyTopic(t)}`,
+            (t, a, pw) => `Step 1 of 3: activate ${tinyTopic(t)} now`,
+          ],
+          creative: [
+            (t, a, pw) => `Join 10,000+ ${a} already using ${tinyTopic(t)}`,
+            (t, a, pw) => `0 to ${pw} in 5 minutes with ${tinyTopic(t)}`,
+          ]
+        }
+      },
+
+      // ── RE-ENGAGEMENT ──
+      re_engagement: {
+        direct: {
+          professional: [
+            (t, a, pw) => `We've missed you — ${tinyTopic(t)} update`,
+            (t, a, pw) => `A lot has changed with ${tinyTopic(t)}`,
+            (t, a, pw) => `Come back and see what's new in ${tinyTopic(t)}`,
+            (t, a, pw) => `${cap(shortTopic(t))} has gotten even better`,
+          ],
+          friendly: [
+            (t, a, pw) => `It's been a while! Miss you around ${tinyTopic(t)}`,
+            (t, a, pw) => `Hey stranger! ${cap(tinyTopic(t))} misses you`,
+            (t, a, pw) => `Where've you been? ${cap(tinyTopic(t))} got a glow-up`,
+            (t, a, pw) => `Come back! ${cap(tinyTopic(t))} has new tricks`,
+          ],
+          urgent: [
+            (t, a, pw) => `Your ${tinyTopic(t)} account: use it or lose it`,
+            (t, a, pw) => `${cap(pw)}: your ${tinyTopic(t)} data expires soon`,
+            (t, a, pw) => `Come back now — ${pw} ${tinyTopic(t)} offer inside`,
+            (t, a, pw) => `Last chance to reactivate ${tinyTopic(t)}`,
+          ],
+          creative: [
+            (t, a, pw) => `We rebuilt ${tinyTopic(t)} while you were away`,
+            (t, a, pw) => `${cap(tinyTopic(t))} had a ${pw} transformation`,
+            (t, a, pw) => `Remember ${tinyTopic(t)}? It barely recognizes itself`,
+            (t, a, pw) => `The ${pw} return: give ${tinyTopic(t)} another shot`,
+          ]
+        },
+        question: {
+          professional: [
+            (t, a, pw) => `Still interested in ${tinyTopic(t)}?`,
+            (t, a, pw) => `What would bring you back to ${tinyTopic(t)}?`,
+          ],
+          friendly: [
+            (t, a, pw) => `Remember us? We remember you!`,
+            (t, a, pw) => `Ready to give ${tinyTopic(t)} another try?`,
+          ],
+          urgent: [
+            (t, a, pw) => `Should we keep your ${tinyTopic(t)} account active?`,
+            (t, a, pw) => `Want to see what you've been missing?`,
+          ],
+          creative: [
+            (t, a, pw) => `What if ${tinyTopic(t)} solved the thing that bugged you?`,
+            (t, a, pw) => `Curiosity check: seen the new ${tinyTopic(t)}?`,
+          ]
+        },
+        curiosity: {
+          professional: [
+            (t, a, pw) => `You missed 3 ${pw} ${tinyTopic(t)} updates`,
+            (t, a, pw) => `Here's what changed since you left ${tinyTopic(t)}`,
+          ],
+          friendly: [
+            (t, a, pw) => `You won't recognize ${tinyTopic(t)} anymore`,
+            (t, a, pw) => `Guess what we added to ${tinyTopic(t)}?`,
+          ],
+          urgent: [
+            (t, a, pw) => `Before we close your ${tinyTopic(t)} account...`,
+            (t, a, pw) => `A ${pw} comeback offer you won't see again`,
+          ],
+          creative: [
+            (t, a, pw) => `The ${pw} thing about ${tinyTopic(t)} 2.0`,
+            (t, a, pw) => `We listened to your ${tinyTopic(t)} feedback. Really`,
+          ]
+        },
+        personalized: {
+          professional: [
+            (t, a, pw) => `{{First name}}, we've improved ${tinyTopic(t)} for you`,
+            (t, a, pw) => `{{First name}}, your ${tinyTopic(t)} account awaits`,
+          ],
+          friendly: [
+            (t, a, pw) => `{{First name}}, we miss having you around!`,
+            (t, a, pw) => `{{First name}} — come see what's new in ${tinyTopic(t)}`,
+          ],
+          urgent: [
+            (t, a, pw) => `{{First name}}, your ${pw} comeback offer is expiring`,
+            (t, a, pw) => `{{First name}}: one last thing before we say goodbye`,
+          ],
+          creative: [
+            (t, a, pw) => `{{First name}}, we made ${tinyTopic(t)} better because of you`,
+            (t, a, pw) => `A love letter to {{First name}} from the ${tinyTopic(t)} team`,
+          ]
+        },
+        number: {
+          professional: [
+            (t, a, pw) => `5 new ${tinyTopic(t)} features since your last visit`,
+            (t, a, pw) => `3 reasons to come back to ${tinyTopic(t)}`,
+          ],
+          friendly: [
+            (t, a, pw) => `10 things that changed in ${tinyTopic(t)} (you'll love #4)`,
+            (t, a, pw) => `2 minutes to rediscover ${tinyTopic(t)}`,
+          ],
+          urgent: [
+            (t, a, pw) => `7 days to claim your ${tinyTopic(t)} comeback perk`,
+            (t, a, pw) => `1 reason to come back: we fixed everything`,
+          ],
+          creative: [
+            (t, a, pw) => `${cap(tinyTopic(t))} 2.0: 50% new, 100% better`,
+            (t, a, pw) => `3 ${a} came back this week. Here's why`,
+          ]
+        }
+      }
+    };
+
+    // ── Category metadata ──
+    const CATEGORIES = [
+      { key: 'direct',       label: 'Direct & Clear',        icon: '\u279C' },
+      { key: 'question',     label: 'Question-Based',        icon: '?' },
+      { key: 'curiosity',    label: 'Curiosity / FOMO',      icon: '\u2728' },
+      { key: 'personalized', label: 'Personalized',          icon: '\u263A' },
+      { key: 'number',       label: 'Number-Based',          icon: '#' },
+    ];
+
+    // ── Generate logic ──
+    document.getElementById('btn-generate').addEventListener('click', () => {
+      const purpose = document.getElementById('purpose').value;
+      const tone = document.getElementById('tone').value;
+      const topic = document.getElementById('topic').value.trim() || 'your product';
+      const audience = document.getElementById('audience').value.trim() || 'your audience';
+
+      if (!purpose) { alert('Please select an email purpose'); return; }
+
+      const purposeTemplates = TEMPLATES[purpose];
+      if (!purposeTemplates) return;
+
+      const container = document.getElementById('results-container');
+      container.innerHTML = '';
+
+      const allLines = [];
+
+      CATEGORIES.forEach(cat => {
+        const catTemplates = purposeTemplates[cat.key];
+        if (!catTemplates) return;
+
+        const toneFns = catTemplates[tone] || catTemplates['professional'];
+        if (!toneFns || toneFns.length === 0) return;
+
+        // Pick 2 subject lines per category
+        const powerWords = POWER_WORDS[tone] || POWER_WORDS.professional;
+        const shuffled = [...toneFns].sort(() => Math.random() - 0.5);
+        const selected = shuffled.slice(0, 2);
+
+        const block = document.createElement('div');
+        block.className = 'category-block';
+
+        const header = document.createElement('div');
+        header.className = 'category-header';
+        header.innerHTML = `<span class="category-icon">${cat.icon}</span> ${cat.label}`;
+        block.appendChild(header);
+
+        selected.forEach(fn => {
+          const pw = pick(powerWords);
+          const line = fn(topic, audience, pw);
+          allLines.push(line);
+
+          const charCount = line.length;
+          let charClass = 'char-good';
+          let charLabel = `${charCount} chars`;
+          if (charCount > 60) {
+            charClass = 'char-long';
+            charLabel = `${charCount} chars (long)`;
+          } else if (charCount > 50) {
+            charClass = 'char-ok';
+            charLabel = `${charCount} chars`;
+          }
+
+          const item = document.createElement('div');
+          item.className = 'subject-line-item';
+          item.innerHTML = `
+            <div class="subject-text">${escapeHTML(line)}</div>
+            <div class="subject-meta">
+              <span class="char-count ${charClass}">${charLabel}</span>
+              <button class="btn-copy-line" data-line="${escapeAttr(line)}">Copy</button>
+            </div>
+          `;
+          block.appendChild(item);
+        });
+
+        container.appendChild(block);
+      });
+
+      // Attach copy handlers
+      container.querySelectorAll('.btn-copy-line').forEach(btn => {
+        btn.addEventListener('click', () => {
+          navigator.clipboard.writeText(btn.dataset.line);
+          btn.textContent = 'Copied!';
+          btn.classList.add('copied');
+          setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1500);
+        });
+      });
+
+      // Copy All handler
+      const copyAllBtn = document.getElementById('btn-copy-all');
+      copyAllBtn.onclick = () => {
+        navigator.clipboard.writeText(allLines.join('\n'));
+        copyAllBtn.textContent = 'Copied All!';
+        copyAllBtn.classList.add('copied');
+        setTimeout(() => { copyAllBtn.textContent = 'Copy All'; copyAllBtn.classList.remove('copied'); }, 2000);
+      };
+
+      document.getElementById('output-section').style.display = 'block';
+      document.getElementById('output-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    function escapeHTML(str) {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+    function escapeAttr(str) {
+      return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+  </script>
+</body>
+</html>
