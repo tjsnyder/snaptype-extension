@@ -13,6 +13,7 @@
         <h1 class="logo">⚡ SnapType</h1>
       </div>
       <div class="header-right">
+        <button id="btn-packs" class="btn btn-ghost btn-sm" title="Snippet Packs">📦</button>
         <button id="btn-add" class="btn btn-primary btn-sm">+ New</button>
         <button id="btn-settings" class="btn btn-ghost btn-sm" title="Settings">⚙</button>
       </div>
@@ -38,7 +39,10 @@
 
     <div id="limit-banner" class="limit-banner" style="display:none">
       <span>Free plan: <strong id="snippet-count">0</strong>/10 snippets</span>
-      <button id="btn-upgrade" class="btn btn-accent btn-sm">Upgrade to Pro</button>
+      <div style="display:flex;gap:4px;">
+        <button id="btn-refer" class="btn btn-ghost btn-sm" style="color:#4338ca;font-size:11px;" title="Earn free snippets">🎁 Refer</button>
+        <button id="btn-upgrade" class="btn btn-accent btn-sm">Upgrade</button>
+      </div>
     </div>
 
     <!-- Editor Modal -->

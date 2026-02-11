@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Snippet Packs — SnapType</title>
+  <link rel="stylesheet" href="popup.css">
+  <style>
+    body { width: 380px; min-height: 480px; }
+    .packs-header {
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 16px; background: #1e1b4b; color: white;
+    }
+    .packs-header h1 { font-size: 16px; font-weight: 700; flex: 1; }
+    .back-btn { background: none; border: none; color: rgba(255,255,255,0.7); cursor: pointer; font-size: 14px; }
+    .back-btn:hover { color: white; }
+    .packs-intro { padding: 12px 16px; font-size: 13px; color: #6b7280; border-bottom: 1px solid #f3f4f6; }
+    .pack-list { padding: 8px; }
+    .pack-card {
+      border: 1.5px solid #f3f4f6; border-radius: 10px; padding: 16px;
+      margin-bottom: 8px; cursor: pointer; transition: all 0.15s;
+    }
+    .pack-card:hover { border-color: #e0e7ff; background: #fafafa; }
+    .pack-card.imported { border-color: #d1fae5; background: #f0fdf4; }
+    .pack-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+    .pack-icon { font-size: 24px; }
+    .pack-badge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 10px; }
+    .badge-free { background: #d1fae5; color: #166534; }
+    .badge-pro { background: #eef2ff; color: #4338ca; }
+    .pack-name { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+    .pack-desc { font-size: 12px; color: #6b7280; margin-bottom: 8px; }
+    .pack-meta { font-size: 11px; color: #9ca3af; }
+    .pack-actions { display: flex; gap: 8px; margin-top: 10px; }
+    .btn-import {
+      padding: 6px 16px; background: #6366f1; color: white; border: none;
+      border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer;
+      font-family: inherit;
+    }
+    .btn-import:hover { background: #4f46e5; }
+    .btn-import.imported { background: #d1fae5; color: #166534; cursor: default; }
+    .btn-preview {
+      padding: 6px 16px; background: #f3f4f6; color: #374151; border: none;
+      border-radius: 6px; font-size: 12px; font-weight: 500; cursor: pointer;
+      font-family: inherit;
+    }
+    .toast {
+      position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%);
+      background: #1e1b4b; color: white; padding: 10px 20px; border-radius: 8px;
+      font-size: 13px; opacity: 0; transition: opacity 0.2s; z-index: 100;
+    }
+    .toast.show { opacity: 1; }
+  </style>
+</head>
+<body>
+  <div class="packs-header">
+    <button class="back-btn" onclick="window.location.href='popup.html'">← Back</button>
+    <h1>Snippet Packs</h1>
+  </div>
+  <div class="packs-intro">
+    One-click import curated snippet collections for your workflow.
+  </div>
+  <div class="pack-list" id="pack-list"></div>
+  <div id="toast" class="toast"></div>
+
+  <script>
+    const PACKS = [
+      {
+        id: 'customer-support',
+        icon: '🎧',
+        name: 'Customer Support',
+        desc: '20 templates for greetings, troubleshooting, billing, and follow-ups.',
+        count: 20,
+        tier: 'free',
+        url: 'https://raw.githubusercontent.com/tjsnyder/snaptype-extension/main/snippet-packs/customer-support.json'
+      },
+      {
+        id: 'sales-outreach',
+        icon: '📈',
+        name: 'Sales Outreach',
+        desc: '10 templates for cold emails, follow-ups, objection handling, and closing.',
+        count: 10,
+        tier: 'free',
+        url: 'https://raw.githubusercontent.com/tjsnyder/snaptype-extension/main/snippet-packs/sales-outreach.json'
+      },
+      {
+        id: 'developer',
+        icon: '💻',
+        name: 'Developer Toolkit',
+        desc: '10 templates for PRs, commits, code review, standups, and incident reports.',
+        count: 10,
+        tier: 'free',
+        url: 'https://raw.githubusercontent.com/tjsnyder/snaptype-extension/main/snippet-packs/developer.json'
+      },
+      {
+        id: 'recruiting',
+        icon: '🤝',
+        name: 'Recruiting & HR',
+        desc: 'Candidate outreach, interview scheduling, offer letters, and rejection templates.',
+        count: 15,
+        tier: 'pro',
+        url: null
+      },
+      {
+        id: 'ecommerce',
+        icon: '🛒',
+        name: 'E-commerce Support',
+        desc: 'Order tracking, returns, shipping updates, and product inquiries.',
+        count: 15,
+        tier: 'pro',
+        url: null
+      }
+    ];
+
+    let importedPacks = [];
+
+    async function init() {
+      const result = await chrome.storage.local.get(['importedPacks', 'settings']);
+      importedPacks = result.importedPacks || [];
+      const isPro = result.settings?.isPro || false;
+      renderPacks(isPro);
+    }
+
+    function renderPacks(isPro) {
+      const list = document.getElementById('pack-list');
+      list.innerHTML = PACKS.map(pack => {
+        const isImported = importedPacks.includes(pack.id);
+        const canImport = pack.tier === 'free' || isPro;
+
+        return `
+          <div class="pack-card ${isImported ? 'imported' : ''}">
+            <div class="pack-top">
+              <span class="pack-icon">${pack.icon}</span>
+              <span class="pack-badge ${pack.tier === 'free' ? 'badge-free' : 'badge-pro'}">
+                ${pack.tier === 'free' ? 'FREE' : 'PRO'}
+              </span>
+            </div>
+            <div class="pack-name">${pack.name}</div>
+            <div class="pack-desc">${pack.desc}</div>
+            <div class="pack-meta">${pack.count} snippets</div>
+            <div class="pack-actions">
+              ${isImported
+                ? '<button class="btn-import imported" disabled>✓ Imported</button>'
+                : canImport
+                  ? `<button class="btn-import" onclick="importPack('${pack.id}', '${pack.url}')">Import</button>`
+                  : `<button class="btn-import" onclick="window.location.href='activate.html'" style="background:#eef2ff;color:#4338ca">Unlock with Pro</button>`
+              }
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    async function importPack(packId, url) {
+      if (!url) return;
+
+      try {
+        const response = await fetch(url);
+        const snippets = await response.json();
+
+        const result = await chrome.storage.local.get(['snippets', 'settings', 'importedPacks']);
+        const existing = result.snippets || [];
+        const settings = result.settings || {};
+        const imported = result.importedPacks || [];
+
+        // Check free limit
+        if (!settings.isPro && existing.length + snippets.length > 10) {
+          showToast('Upgrade to Pro for unlimited snippets');
+          return;
+        }
+
+        const newSnippets = snippets.map(s => ({
+          ...s,
+          id: Date.now().toString(36) + Math.random().toString(36).substr(2, 9),
+          usageCount: 0,
+          createdAt: Date.now()
+        }));
+
+        await chrome.storage.local.set({
+          snippets: [...existing, ...newSnippets],
+          importedPacks: [...imported, packId]
+        });
+
+        importedPacks.push(packId);
+        showToast(`Imported ${snippets.length} snippets!`);
+        renderPacks(settings.isPro || false);
+      } catch (err) {
+        showToast('Failed to import. Check your connection.');
+      }
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    init();
+  </script>
+</body>
+</html>

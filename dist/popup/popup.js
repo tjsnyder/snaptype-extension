@@ -18,6 +18,8 @@ async function init() {
   updateLimitBanner();
 
   document.getElementById('btn-add').addEventListener('click', openNewEditor);
+  document.getElementById('btn-packs').addEventListener('click', () => { window.location.href = 'packs.html'; });
+  document.getElementById('btn-refer')?.addEventListener('click', () => { window.location.href = 'refer.html'; });
   document.getElementById('btn-settings').addEventListener('click', () => chrome.runtime.openOptionsPage());
   document.getElementById('search').addEventListener('input', handleSearch);
   document.getElementById('btn-close-editor').addEventListener('click', closeEditor);

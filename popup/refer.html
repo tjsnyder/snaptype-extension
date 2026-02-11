@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Refer a Friend — SnapType</title>
+  <link rel="stylesheet" href="popup.css">
+  <style>
+    body { width: 380px; min-height: auto; }
+    .refer-page { padding: 24px 20px; text-align: center; }
+    .refer-icon { font-size: 48px; margin-bottom: 12px; }
+    h2 { font-size: 20px; font-weight: 800; margin-bottom: 6px; }
+    .refer-sub { font-size: 14px; color: #6b7280; margin-bottom: 20px; }
+    .reward-box {
+      background: #eef2ff; border-radius: 10px; padding: 16px;
+      margin-bottom: 20px;
+    }
+    .reward-box .reward-num { font-size: 28px; font-weight: 800; color: #6366f1; }
+    .reward-box .reward-label { font-size: 13px; color: #4338ca; }
+    .progress-bar {
+      background: #e5e7eb; border-radius: 8px; height: 8px;
+      margin: 12px 0 6px; overflow: hidden;
+    }
+    .progress-fill { height: 100%; background: #6366f1; border-radius: 8px; transition: width 0.3s; }
+    .progress-text { font-size: 11px; color: #9ca3af; }
+    .share-section { margin-top: 20px; }
+    .share-label { font-size: 12px; font-weight: 600; color: #374151; margin-bottom: 8px; text-align: left; }
+    .share-link-row {
+      display: flex; gap: 6px; margin-bottom: 12px;
+    }
+    .share-link {
+      flex: 1; padding: 10px 12px; border: 1.5px solid #e5e7eb; border-radius: 8px;
+      font-size: 12px; font-family: 'SF Mono', monospace; color: #4f46e5;
+      background: #fafafa; outline: none;
+    }
+    .btn-copy {
+      padding: 10px 16px; background: #6366f1; color: white; border: none;
+      border-radius: 8px; font-size: 12px; font-weight: 600; cursor: pointer;
+      font-family: inherit;
+    }
+    .btn-copy:hover { background: #4f46e5; }
+    .btn-copy.copied { background: #10b981; }
+    .share-buttons { display: flex; gap: 8px; justify-content: center; }
+    .share-btn {
+      flex: 1; padding: 10px; border: 1.5px solid #e5e7eb; border-radius: 8px;
+      background: white; cursor: pointer; font-size: 13px; font-family: inherit;
+      font-weight: 500; color: #374151; transition: all 0.15s;
+    }
+    .share-btn:hover { background: #f3f4f6; border-color: #d1d5db; }
+    .milestones { margin-top: 20px; text-align: left; }
+    .milestone {
+      display: flex; align-items: center; gap: 10px; padding: 8px 0;
+      font-size: 13px;
+    }
+    .milestone-check { width: 20px; height: 20px; border-radius: 50%; border: 2px solid #e5e7eb; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; }
+    .milestone-check.done { background: #6366f1; border-color: #6366f1; color: white; }
+    .milestone-reward { margin-left: auto; font-size: 11px; font-weight: 600; color: #6366f1; }
+    .back-link { display: block; margin-top: 20px; font-size: 13px; color: #6366f1; text-decoration: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="refer-page">
+    <div class="refer-icon">🎁</div>
+    <h2>Give 5 snippets, get 5 free</h2>
+    <p class="refer-sub">Share SnapType and earn extra free snippets for every friend who installs.</p>
+
+    <div class="reward-box">
+      <div class="reward-num" id="bonus-count">0</div>
+      <div class="reward-label">bonus snippets earned</div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width: 0%"></div></div>
+      <div class="progress-text"><span id="referral-count">0</span> referrals — next reward at <span id="next-milestone">1</span></div>
+    </div>
+
+    <div class="share-section">
+      <div class="share-label">Your referral link</div>
+      <div class="share-link-row">
+        <input type="text" class="share-link" id="share-link" readonly>
+        <button class="btn-copy" id="btn-copy">Copy</button>
+      </div>
+      <div class="share-buttons">
+        <button class="share-btn" id="share-twitter">𝕏 Twitter</button>
+        <button class="share-btn" id="share-linkedin">in LinkedIn</button>
+        <button class="share-btn" id="share-email">✉ Email</button>
+      </div>
+    </div>
+
+    <div class="milestones">
+      <div class="share-label">Rewards</div>
+      <div class="milestone" data-count="1">
+        <div class="milestone-check" id="ms-1">✓</div>
+        <span>1 referral</span>
+        <span class="milestone-reward">+5 snippets</span>
+      </div>
+      <div class="milestone" data-count="3">
+        <div class="milestone-check" id="ms-3">✓</div>
+        <span>3 referrals</span>
+        <span class="milestone-reward">+10 snippets</span>
+      </div>
+      <div class="milestone" data-count="5">
+        <div class="milestone-check" id="ms-5">✓</div>
+        <span>5 referrals</span>
+        <span class="milestone-reward">+20 snippets</span>
+      </div>
+      <div class="milestone" data-count="10">
+        <div class="milestone-check" id="ms-10">✓</div>
+        <span>10 referrals</span>
+        <span class="milestone-reward">Unlimited (Free Pro!)</span>
+      </div>
+    </div>
+
+    <a class="back-link" onclick="window.location.href='popup.html'">← Back to snippets</a>
+  </div>
+
+  <script>
+    async function init() {
+      const result = await chrome.storage.local.get(['referral']);
+      const referral = result.referral || { code: generateCode(), count: 0, bonusSnippets: 0 };
+
+      if (!result.referral) {
+        await chrome.storage.local.set({ referral });
+      }
+
+      const siteUrl = 'https://tjsnyder.github.io/snaptype-extension';
+      const link = `${siteUrl}?ref=${referral.code}`;
+
+      document.getElementById('share-link').value = link;
+      document.getElementById('referral-count').textContent = referral.count;
+      document.getElementById('bonus-count').textContent = referral.bonusSnippets;
+
+      // Progress
+      const milestones = [1, 3, 5, 10];
+      let nextMs = milestones.find(m => m > referral.count) || 10;
+      let prevMs = milestones.filter(m => m <= referral.count).pop() || 0;
+      document.getElementById('next-milestone').textContent = nextMs;
+      const progress = Math.min(100, (referral.count / nextMs) * 100);
+      document.getElementById('progress-fill').style.width = progress + '%';
+
+      // Milestones
+      milestones.forEach(m => {
+        const el = document.getElementById('ms-' + m);
+        if (referral.count >= m) {
+          el.classList.add('done');
+        }
+      });
+
+      // Copy
+      document.getElementById('btn-copy').addEventListener('click', () => {
+        navigator.clipboard.writeText(link);
+        const btn = document.getElementById('btn-copy');
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1500);
+      });
+
+      // Share buttons
+      const shareText = 'I use SnapType to expand text shortcuts instantly. Type /hello + Tab and your greeting appears. Try it free:';
+      document.getElementById('share-twitter').addEventListener('click', () => {
+        chrome.tabs.create({ url: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText + ' ' + link)}` });
+      });
+      document.getElementById('share-linkedin').addEventListener('click', () => {
+        chrome.tabs.create({ url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(link)}` });
+      });
+      document.getElementById('share-email').addEventListener('click', () => {
+        chrome.tabs.create({ url: `mailto:?subject=${encodeURIComponent('Check out SnapType')}&body=${encodeURIComponent(shareText + '\n\n' + link)}` });
+      });
+    }
+
+    function generateCode() {
+      return 'st_' + Math.random().toString(36).substr(2, 8);
+    }
+
+    init();
+  </script>
+</body>
+</html>

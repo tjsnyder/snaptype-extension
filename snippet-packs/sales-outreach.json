@@ -1,0 +1,52 @@
+[
+  {
+    "shortcut": "/cold",
+    "content": "Hi {name},\n\nI came across {company} and was impressed by what you're building. I work with similar companies to help them [value prop].\n\nWould you be open to a quick 15-minute call this week to see if there's a fit?\n\nBest,\n{name}",
+    "folder": "Sales - Outreach"
+  },
+  {
+    "shortcut": "/followsale",
+    "content": "Hi {name},\n\nJust wanted to follow up on my note from last week. I know things get busy, so I wanted to make sure this didn't slip through the cracks.\n\nWould any of these times work for a quick chat?\n- [Time 1]\n- [Time 2]\n- [Time 3]\n\nLooking forward to connecting.",
+    "folder": "Sales - Follow-up"
+  },
+  {
+    "shortcut": "/breakup",
+    "content": "Hi {name},\n\nI've reached out a few times and haven't heard back, so I don't want to keep bothering you. If the timing isn't right, I completely understand.\n\nIf things change in the future, feel free to reach out anytime. Wishing you and the {company} team all the best!",
+    "folder": "Sales - Follow-up"
+  },
+  {
+    "shortcut": "/demo",
+    "content": "Hi {name},\n\nGreat chatting with you! As promised, here's the link to schedule a demo: [calendar link]\n\nIn the meantime, here are a few resources that might be helpful:\n- [Resource 1]\n- [Resource 2]\n\nLooking forward to showing you what we can do for {company}.",
+    "folder": "Sales - Meetings"
+  },
+  {
+    "shortcut": "/proposal",
+    "content": "Hi {name},\n\nThanks for the great conversation today. As discussed, I've put together a proposal based on {company}'s needs.\n\nKey highlights:\n- [Benefit 1]\n- [Benefit 2]\n- [Benefit 3]\n\nI've attached the full proposal for your review. Happy to walk through any questions — would [date] work for a follow-up call?",
+    "folder": "Sales - Meetings"
+  },
+  {
+    "shortcut": "/referral",
+    "content": "Hi {name},\n\nHope all is well! I was wondering if you know anyone who might benefit from [product/service]? If so, I'd really appreciate an introduction.\n\nOf course, no pressure at all — just thought I'd ask since you've been a great partner to work with.\n\nThanks!",
+    "folder": "Sales - Referral"
+  },
+  {
+    "shortcut": "/objprice",
+    "content": "I completely understand the budget concern, {name}. Let me share some context on the ROI our clients typically see:\n\n- [Client A] saw a [X]% improvement in [metric]\n- Average payback period is [timeframe]\n- We also offer flexible payment plans\n\nWould it help to see a custom ROI analysis for {company}?",
+    "folder": "Sales - Objections"
+  },
+  {
+    "shortcut": "/objtime",
+    "content": "Totally hear you on the timing, {name}. A few of our best clients started during similar periods and found that getting ahead of [season/quarter] actually gave them an advantage.\n\nWould it make sense to get things set up now so you're ready when the timing is better?",
+    "folder": "Sales - Objections"
+  },
+  {
+    "shortcut": "/thanksale",
+    "content": "Wonderful, {name}! Welcome aboard — we're excited to work with {company}.\n\nHere's what happens next:\n1. You'll receive a welcome email with onboarding details\n2. Your dedicated account manager will reach out within 24 hours\n3. We'll schedule a kickoff call to align on goals\n\nLooking forward to a great partnership!",
+    "folder": "Sales - Closing"
+  },
+  {
+    "shortcut": "/linkedin",
+    "content": "Hi {name}, I noticed we're both in the [industry] space and thought it would be great to connect. I work with companies like {company} to [value prop]. Would love to learn more about what you're working on!",
+    "folder": "Sales - Social"
+  }
+]

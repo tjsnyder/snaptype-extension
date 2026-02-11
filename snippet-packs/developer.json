@@ -1,0 +1,52 @@
+[
+  {
+    "shortcut": "/pr",
+    "content": "## Summary\n\n[Brief description of changes]\n\n## Changes\n\n- \n- \n- \n\n## Testing\n\n- [ ] Unit tests pass\n- [ ] Manual testing done\n- [ ] No regressions found\n\n## Screenshots\n\n[If applicable]",
+    "folder": "Dev - Git"
+  },
+  {
+    "shortcut": "/commit",
+    "content": "feat: [short description]\n\n[Detailed explanation of what changed and why]",
+    "folder": "Dev - Git"
+  },
+  {
+    "shortcut": "/bugfix",
+    "content": "fix: [short description]\n\nProblem: [What was happening]\nCause: [Root cause]\nSolution: [What was changed]",
+    "folder": "Dev - Git"
+  },
+  {
+    "shortcut": "/review",
+    "content": "## Code Review Notes\n\n**Overall:** [Good / Needs changes / Approved]\n\n### Positives\n- \n\n### Suggestions\n- \n\n### Questions\n- ",
+    "folder": "Dev - Review"
+  },
+  {
+    "shortcut": "/todo",
+    "content": "// TODO({name}, {date}): ",
+    "folder": "Dev - Code"
+  },
+  {
+    "shortcut": "/jsdoc",
+    "content": "/**\n * [Description]\n * @param {type} name - [Description]\n * @returns {type} [Description]\n */",
+    "folder": "Dev - Code"
+  },
+  {
+    "shortcut": "/tryc",
+    "content": "try {\n  \n} catch (error) {\n  console.error('Error:', error);\n  throw error;\n}",
+    "folder": "Dev - Code"
+  },
+  {
+    "shortcut": "/fetch",
+    "content": "const response = await fetch(url, {\n  method: 'POST',\n  headers: { 'Content-Type': 'application/json' },\n  body: JSON.stringify(data),\n});\nconst result = await response.json();",
+    "folder": "Dev - Code"
+  },
+  {
+    "shortcut": "/standup",
+    "content": "**Yesterday:** \n**Today:** \n**Blockers:** None",
+    "folder": "Dev - Communication"
+  },
+  {
+    "shortcut": "/incident",
+    "content": "## Incident Report — {date}\n\n**Severity:** [P1/P2/P3]\n**Status:** [Investigating / Mitigated / Resolved]\n**Impact:** [Description of user impact]\n\n### Timeline\n- {time}: [Event]\n\n### Root Cause\n[Analysis]\n\n### Resolution\n[What was done]\n\n### Action Items\n- [ ] \n- [ ] ",
+    "folder": "Dev - Communication"
+  }
+]

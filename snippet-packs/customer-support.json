@@ -1,0 +1,102 @@
+[
+  {
+    "shortcut": "/greet",
+    "content": "Hi {name}! Thanks for reaching out. I'd be happy to help you with that. Let me take a look and get back to you shortly.",
+    "folder": "Support - Greetings"
+  },
+  {
+    "shortcut": "/welcome",
+    "content": "Welcome aboard, {name}! We're excited to have you. If you have any questions as you get started, don't hesitate to ask — we're here to help.",
+    "folder": "Support - Greetings"
+  },
+  {
+    "shortcut": "/ack",
+    "content": "Thanks for reporting this, {name}. I can see how that would be frustrating. Let me look into this right away and I'll update you as soon as I have more information.",
+    "folder": "Support - Greetings"
+  },
+  {
+    "shortcut": "/details",
+    "content": "To help me troubleshoot this, could you share a few more details?\n\n1. What browser/device are you using?\n2. When did this first start happening?\n3. Can you share a screenshot if possible?\n\nThis will help me identify the issue more quickly.",
+    "folder": "Support - Troubleshooting"
+  },
+  {
+    "shortcut": "/cache",
+    "content": "This might be a caching issue. Could you try the following?\n\n1. Open Chrome Settings\n2. Go to Privacy and Security → Clear Browsing Data\n3. Select \"Cached images and files\"\n4. Click Clear Data\n5. Restart your browser and try again\n\nLet me know if that resolves it!",
+    "folder": "Support - Troubleshooting"
+  },
+  {
+    "shortcut": "/known",
+    "content": "Thanks for letting us know. This is a known issue that our team is actively working on. We expect a fix to be rolled out within the next few days. I'll make sure to notify you once it's resolved.",
+    "folder": "Support - Troubleshooting"
+  },
+  {
+    "shortcut": "/escalate",
+    "content": "I want to make sure this gets the attention it deserves. I'm going to escalate this to our senior team who have more tools to investigate. They'll be in touch within 24 hours. Thank you for your patience, {name}.",
+    "folder": "Support - Troubleshooting"
+  },
+  {
+    "shortcut": "/refund",
+    "content": "I've processed your refund. You should see the amount back in your account within 5-10 business days depending on your bank. If you don't see it after that time, please let us know and we'll follow up.",
+    "folder": "Support - Billing"
+  },
+  {
+    "shortcut": "/cancel",
+    "content": "I've cancelled your subscription as requested. You'll continue to have access until the end of your current billing period. If you change your mind, you can resubscribe at any time. We'd love to have you back!",
+    "folder": "Support - Billing"
+  },
+  {
+    "shortcut": "/invoice",
+    "content": "I've sent a copy of your invoice to your email address on file. If you need invoices in a different format or with specific details (like a VAT number), just let me know and I'll get that sorted.",
+    "folder": "Support - Billing"
+  },
+  {
+    "shortcut": "/followup",
+    "content": "Hi {name}, I wanted to follow up on your issue from our last conversation. Has everything been working well since then? If you're still experiencing any problems, please let me know and I'll be happy to help further.",
+    "folder": "Support - Follow-up"
+  },
+  {
+    "shortcut": "/resolved",
+    "content": "Glad we could get that sorted out! If you run into anything else, don't hesitate to reach out. Have a great rest of your {day}!",
+    "folder": "Support - Follow-up"
+  },
+  {
+    "shortcut": "/feedback",
+    "content": "Thanks for your patience while we worked through this. If you have a moment, we'd really appreciate your feedback on how we handled your request. It helps us improve for everyone. Have a wonderful day!",
+    "folder": "Support - Follow-up"
+  },
+  {
+    "shortcut": "/busy",
+    "content": "Thanks for reaching out! We're experiencing higher than usual volume right now, but I want you to know your message is important to us. I'll get back to you as soon as possible — typically within a few hours.",
+    "folder": "Support - Status"
+  },
+  {
+    "shortcut": "/hours",
+    "content": "Our support team is available Monday through Friday, 9 AM to 6 PM EST. I've noted your request and will respond first thing when we're back. For urgent issues, please check our help center for self-service options.",
+    "folder": "Support - Status"
+  },
+  {
+    "shortcut": "/feature",
+    "content": "That's a great suggestion! I've added it to our feature request list. While I can't guarantee a timeline, our product team reviews all suggestions regularly. We'll make sure to notify you if this gets implemented.",
+    "folder": "Support - Feedback"
+  },
+  {
+    "shortcut": "/bug",
+    "content": "Thank you for reporting this bug. I've logged it with our development team including the details you provided. We'll prioritize the fix and keep you updated on the progress.",
+    "folder": "Support - Feedback"
+  },
+  {
+    "shortcut": "/review",
+    "content": "We're so glad you've had a positive experience! If you have a moment, leaving us a review would really help other people discover us. Here's the link: [review link]. Thank you for your support!",
+    "folder": "Support - Feedback"
+  },
+  {
+    "shortcut": "/reset",
+    "content": "I can help you reset your password. Here's how:\n\n1. Go to the login page\n2. Click \"Forgot Password\"\n3. Enter your email address\n4. Check your inbox for the reset link\n5. Click the link and set a new password\n\nThe link expires in 24 hours. Let me know if you run into any issues!",
+    "folder": "Support - Account"
+  },
+  {
+    "shortcut": "/close",
+    "content": "Is there anything else I can help you with today? If not, I'll go ahead and close this ticket. You can always reopen it or start a new conversation if something comes up. Thanks for reaching out, {name}!",
+    "folder": "Support - Follow-up"
+  }
+]
