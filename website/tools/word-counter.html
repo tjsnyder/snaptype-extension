@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Word &amp; Character Counter — Count Words, Sentences, Paragraphs | SnapType</title>
+  <meta name="description" content="Free online word counter and character counter tool. Count words, characters, sentences, paragraphs, and estimate reading time instantly. No signup required.">
+  <meta name="keywords" content="word counter, character counter, word count tool, character count, letter counter, online word counter, free word counter, text counter">
+  <link rel="canonical" href="https://tjsnyder.github.io/snaptype-extension/tools/word-counter.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Free Word & Character Counter — Count Words, Sentences, Paragraphs | SnapType">
+  <meta property="og:description" content="Free online word counter and character counter tool. Count words, characters, sentences, paragraphs, and estimate reading time instantly.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tjsnyder.github.io/snaptype-extension/tools/word-counter.html">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Word & Character Counter — Count Words, Sentences, Paragraphs | SnapType">
+  <meta name="twitter:description" content="Free online word counter and character counter tool. Count words, characters, sentences, paragraphs, and estimate reading time instantly.">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Word & Character Counter",
+    "description": "Count words, characters, sentences, paragraphs, and estimate reading and speaking time. Free online word counter tool — no signup required.",
+    "url": "https://tjsnyder.github.io/snaptype-extension/tools/word-counter.html",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "SnapType"
+    }
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --purple: #6366f1;
+      --purple-dark: #4f46e5;
+      --purple-light: #eef2ff;
+      --dark: #1e1b4b;
+      --gray: #6b7280;
+      --light: #f9fafb;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      background: var(--light);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    nav {
+      padding: 16px 0;
+      border-bottom: 1px solid #f3f4f6;
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+    nav .container { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-size: 20px; font-weight: 800; color: var(--dark); text-decoration: none; }
+    .nav-logo span { color: var(--purple); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--gray); }
+    .nav-links a:hover { color: var(--dark); }
+    .nav-cta {
+      background: var(--purple); color: white !important; padding: 8px 20px;
+      border-radius: 8px; font-weight: 600 !important; transition: background 0.15s;
+    }
+    .nav-cta:hover { background: var(--purple-dark); color: white !important; }
+
+    /* Hero */
+    .hero { padding: 48px 0 32px; text-align: center; }
+    .hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.5px; }
+    .hero h1 em { color: var(--purple); font-style: normal; }
+    .hero p { font-size: 16px; color: var(--gray); max-width: 560px; margin: 0 auto; }
+
+    /* Tool Card */
+    .tool-card {
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+
+    /* Textarea */
+    .text-area-wrap {
+      position: relative;
+      margin-bottom: 16px;
+    }
+    .text-area-wrap textarea {
+      width: 100%;
+      min-height: 200px;
+      padding: 20px;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--dark);
+      background: var(--light);
+      resize: vertical;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .text-area-wrap textarea:focus {
+      border-color: var(--purple);
+      background: var(--white);
+    }
+    .text-area-wrap textarea::placeholder {
+      color: #9ca3af;
+    }
+
+    /* Action Buttons Row */
+    .action-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.15s;
+    }
+    .action-btn svg {
+      flex-shrink: 0;
+    }
+    .btn-clear {
+      background: var(--white);
+      color: var(--gray);
+      border-color: #e5e7eb;
+    }
+    .btn-clear:hover {
+      border-color: #d1d5db;
+      color: var(--dark);
+    }
+    .btn-copy {
+      background: var(--purple);
+      color: var(--white);
+    }
+    .btn-copy:hover {
+      background: var(--purple-dark);
+      transform: translateY(-1px);
+    }
+    .btn-copy.copied {
+      background: #22c55e;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .stat-card {
+      background: var(--light);
+      border: 1.5px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .stat-card:hover {
+      border-color: #c7d2fe;
+      transform: translateY(-2px);
+    }
+    .stat-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+    .stat-value {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.1;
+      transition: transform 0.15s ease;
+    }
+    .stat-value.pulse {
+      transform: scale(1.08);
+    }
+    .stat-sub {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 4px;
+    }
+    .stat-card.highlight {
+      background: linear-gradient(135deg, #1e1b4b, #312e81);
+      border-color: transparent;
+    }
+    .stat-card.highlight .stat-label { color: rgba(255,255,255,0.7); }
+    .stat-card.highlight .stat-value { color: var(--white); }
+    .stat-card.highlight .stat-sub { color: rgba(255,255,255,0.5); }
+
+    /* Keyword Density Section */
+    .keyword-section {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 2px solid var(--purple-light);
+    }
+    .keyword-section h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--dark);
+    }
+    .keyword-empty {
+      font-size: 14px;
+      color: #9ca3af;
+      text-align: center;
+      padding: 16px 0;
+    }
+    .keyword-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .keyword-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+    }
+    .keyword-rank {
+      font-size: 11px;
+      font-weight: 700;
+      color: #9ca3af;
+      min-width: 20px;
+      text-align: right;
+    }
+    .keyword-word {
+      font-weight: 600;
+      color: var(--dark);
+      min-width: 100px;
+    }
+    .keyword-bar-wrap {
+      flex: 1;
+      height: 8px;
+      background: #e5e7eb;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .keyword-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--purple), #818cf8);
+      border-radius: 4px;
+      transition: width 0.3s ease;
+    }
+    .keyword-count {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray);
+      min-width: 28px;
+      text-align: right;
+    }
+    .keyword-pct {
+      font-size: 12px;
+      color: #9ca3af;
+      min-width: 42px;
+      text-align: right;
+    }
+
+    /* Info Sections */
+    .info-section {
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+    .info-section h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .info-section p {
+      color: var(--gray);
+      font-size: 14px;
+      margin-bottom: 12px;
+      line-height: 1.7;
+    }
+    .info-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0;
+    }
+    .info-section li {
+      padding: 8px 0 8px 24px;
+      position: relative;
+      font-size: 14px;
+      color: #374151;
+      line-height: 1.6;
+    }
+    .info-section li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--purple);
+    }
+
+    /* Limits Table */
+    .limits-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+    .limits-table thead th {
+      text-align: left;
+      padding: 12px 16px;
+      background: var(--purple-light);
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--dark);
+      border-bottom: 2px solid #c7d2fe;
+    }
+    .limits-table thead th:last-child {
+      text-align: right;
+    }
+    .limits-table tbody td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #f3f4f6;
+      color: #374151;
+    }
+    .limits-table tbody td:last-child {
+      text-align: right;
+      font-weight: 700;
+      color: var(--dark);
+      font-variant-numeric: tabular-nums;
+    }
+    .limits-table tbody tr:hover {
+      background: var(--purple-light);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, #1e1b4b, #312e81);
+      border-radius: 16px;
+      padding: 48px 32px;
+      text-align: center;
+      margin-bottom: 48px;
+      color: var(--white);
+    }
+    .cta-section h2 {
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .cta-section p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 24px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--white);
+      color: var(--purple-dark);
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+    .cta-features {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .cta-features span {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* Footer */
+    footer {
+      padding: 32px 0;
+      border-top: 1px solid #f3f4f6;
+      text-align: center;
+      background: var(--white);
+    }
+    footer p { font-size: 13px; color: var(--gray); }
+    footer a { color: var(--purple); text-decoration: none; }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .hero h1 { font-size: 26px; }
+      .stat-value { font-size: 22px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .cta-features { flex-direction: column; gap: 8px; }
+      .tool-card { padding: 24px; }
+      .text-area-wrap textarea { padding: 16px; font-size: 14px; }
+      .keyword-row { font-size: 13px; }
+      .keyword-word { min-width: 80px; }
+      .limits-table { font-size: 13px; }
+      .limits-table thead th,
+      .limits-table tbody td { padding: 10px 12px; }
+    }
+    @media (max-width: 480px) {
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .action-row { flex-direction: column; }
+      .action-btn { justify-content: center; }
+      .keyword-pct { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="/snaptype-extension/" class="nav-logo"><span>Snap</span>Type</a>
+      <div class="nav-links">
+        <a href="/snaptype-extension/blog/">Blog</a>
+        <a href="/snaptype-extension/tools/email-generator.html">Tools</a>
+        <a href="/snaptype-extension/templates.html">Templates</a>
+        <a href="/snaptype-extension/" class="nav-cta">Install Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="hero">
+      <h1>Word &amp; Character <em>Counter</em></h1>
+      <p>Paste or type your text below to instantly count words, characters, sentences, paragraphs, and estimate reading time.</p>
+    </div>
+
+    <!-- Tool Card -->
+    <div class="tool-card">
+      <div class="text-area-wrap">
+        <textarea id="text-input" rows="8" placeholder="Start typing or paste your text here..."></textarea>
+      </div>
+
+      <div class="action-row">
+        <button class="action-btn btn-clear" id="btn-clear" onclick="clearText()">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          Clear
+        </button>
+        <button class="action-btn btn-copy" id="btn-copy" onclick="copyText()">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          Copy Text
+        </button>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card highlight">
+          <div class="stat-label">Words</div>
+          <div class="stat-value" id="stat-words">0</div>
+          <div class="stat-sub">total words</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Characters</div>
+          <div class="stat-value" id="stat-chars">0</div>
+          <div class="stat-sub">with spaces</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Characters</div>
+          <div class="stat-value" id="stat-chars-no-space">0</div>
+          <div class="stat-sub">without spaces</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Sentences</div>
+          <div class="stat-value" id="stat-sentences">0</div>
+          <div class="stat-sub">detected</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Paragraphs</div>
+          <div class="stat-value" id="stat-paragraphs">0</div>
+          <div class="stat-sub">blocks of text</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Reading Time</div>
+          <div class="stat-value" id="stat-reading">0s</div>
+          <div class="stat-sub">at 200 wpm</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Speaking Time</div>
+          <div class="stat-value" id="stat-speaking">0s</div>
+          <div class="stat-sub">at 130 wpm</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Avg. Word</div>
+          <div class="stat-value" id="stat-avg-word">0</div>
+          <div class="stat-sub">letters per word</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Avg. Sentence</div>
+          <div class="stat-value" id="stat-avg-sentence">0</div>
+          <div class="stat-sub">words per sentence</div>
+        </div>
+      </div>
+
+      <!-- Keyword Density -->
+      <div class="keyword-section">
+        <h3>Keyword Density</h3>
+        <div id="keyword-container">
+          <div class="keyword-empty">Start typing to see your most-used words</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why Use Section -->
+    <div class="info-section">
+      <h2>Why Use a Word Counter?</h2>
+      <p>Whether you are writing a tweet, an essay, or a blog post, knowing your word and character count matters. This free tool gives you instant feedback so you can write with confidence.</p>
+      <ul>
+        <li><strong>Social media character limits</strong> &mdash; Stay within Twitter/X's 280-character cap, Instagram's 2,200-character caption limit, or LinkedIn's 3,000-character post limit without guessing.</li>
+        <li><strong>Academic and professional writing</strong> &mdash; Meet essay word count requirements, keep cover letters concise, and hit target lengths for articles and reports.</li>
+        <li><strong>SEO content optimization</strong> &mdash; Track your content length to hit recommended ranges for blog posts (1,500 to 2,500 words) and meta descriptions (under 160 characters).</li>
+        <li><strong>Presentation prep</strong> &mdash; Use the speaking time estimate to plan presentations and speeches so you stay within your allotted time slot.</li>
+        <li><strong>Keyword density</strong> &mdash; Check which words appear most frequently in your text to ensure you are hitting your target keywords without over-stuffing.</li>
+      </ul>
+    </div>
+
+    <!-- Character Limits Table -->
+    <div class="info-section">
+      <h2>Popular Character Limits</h2>
+      <p>Quick reference for common character and word limits across platforms and formats.</p>
+      <table class="limits-table">
+        <thead>
+          <tr>
+            <th>Platform / Format</th>
+            <th>Limit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Twitter / X post</td>
+            <td>280 characters</td>
+          </tr>
+          <tr>
+            <td>Instagram caption</td>
+            <td>2,200 characters</td>
+          </tr>
+          <tr>
+            <td>LinkedIn post</td>
+            <td>3,000 characters</td>
+          </tr>
+          <tr>
+            <td>Meta description (SEO)</td>
+            <td>160 characters</td>
+          </tr>
+          <tr>
+            <td>Email subject line</td>
+            <td>60 characters</td>
+          </tr>
+          <tr>
+            <td>SMS message</td>
+            <td>160 characters</td>
+          </tr>
+          <tr>
+            <td>Facebook post</td>
+            <td>63,206 characters</td>
+          </tr>
+          <tr>
+            <td>YouTube title</td>
+            <td>100 characters</td>
+          </tr>
+          <tr>
+            <td>Pinterest description</td>
+            <td>500 characters</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+      <h2>Type Less, Count More</h2>
+      <p>SnapType expands your text shortcuts on any website. Stop retyping the same phrases and let SnapType handle the repetition.</p>
+      <a href="/snaptype-extension/" class="cta-btn">Install SnapType Free</a>
+      <div class="cta-features">
+        <span>Free forever plan</span>
+        <span>Works on every website</span>
+        <span>Set up in seconds</span>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 SnapType. <a href="/snaptype-extension/">Home</a> &middot; <a href="/snaptype-extension/blog/">Blog</a> &middot; <a href="/snaptype-extension/templates.html">Templates</a> &middot; <a href="/snaptype-extension/compare.html">Compare</a> &middot; <a href="/snaptype-extension/tools/email-generator.html">Email Generator</a> &middot; <a href="/snaptype-extension/tools/subject-line-generator.html">Subject Lines</a> &middot; <a href="/snaptype-extension/tools/roi-calculator.html">ROI Calculator</a> &middot; <a href="/snaptype-extension/tools/typing-test.html">Typing Test</a> &middot; <a href="/snaptype-extension/privacy.html">Privacy</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // ==========================================
+    // STOP WORDS (excluded from keyword density)
+    // ==========================================
+    const STOP_WORDS = new Set([
+      'the','be','to','of','and','a','in','that','have','i','it','for','not','on','with','he',
+      'as','you','do','at','this','but','his','by','from','they','we','say','her','she','or',
+      'an','will','my','one','all','would','there','their','what','so','up','out','if','about',
+      'who','get','which','go','me','when','make','can','like','time','no','just','him','know',
+      'take','people','into','year','your','good','some','could','them','see','other','than',
+      'then','now','look','only','come','its','over','think','also','back','after','use','two',
+      'how','our','work','first','well','way','even','new','want','because','any','these','give',
+      'day','most','us','is','are','was','were','been','being','has','had','having','does','did',
+      'doing','am','very','just','don','t','s','re','ve','ll','d','m','own','same','each',
+      'than','too','more','such','here','those','both','few','much','many','may','might',
+      'should','must','shall','need','let','still','while','where','when','why','how','been',
+      'before','after','above','below','between','through','during','under','again','further',
+      'once','it','its','itself','he','him','his','himself','she','her','hers','herself',
+      'we','us','our','ours','ourselves','you','your','yours','yourself','yourselves',
+      'they','them','their','theirs','themselves','what','which','who','whom','whose',
+      'this','that','these','those','not','nor','but','or','yet','so','if','then',
+      'else','each','every','all','both','few','more','most','other','some','such','no',
+      'only','own','same','too','very','can','will','just','don','should','now'
+    ]);
+
+    // ==========================================
+    // DOM ELEMENTS
+    // ==========================================
+    const textInput = document.getElementById('text-input');
+    const statWords = document.getElementById('stat-words');
+    const statChars = document.getElementById('stat-chars');
+    const statCharsNoSpace = document.getElementById('stat-chars-no-space');
+    const statSentences = document.getElementById('stat-sentences');
+    const statParagraphs = document.getElementById('stat-paragraphs');
+    const statReading = document.getElementById('stat-reading');
+    const statSpeaking = document.getElementById('stat-speaking');
+    const statAvgWord = document.getElementById('stat-avg-word');
+    const statAvgSentence = document.getElementById('stat-avg-sentence');
+    const keywordContainer = document.getElementById('keyword-container');
+
+    // ==========================================
+    // COUNTING LOGIC
+    // ==========================================
+    function countText(text) {
+      const trimmed = text.trim();
+
+      // Characters
+      const chars = text.length;
+      const charsNoSpace = text.replace(/\s/g, '').length;
+
+      // Words
+      const words = trimmed === '' ? [] : trimmed.split(/\s+/);
+      const wordCount = words.length;
+
+      // Sentences - split on . ! ? followed by space or end of string
+      const sentences = trimmed === '' ? 0 : (trimmed.match(/[^.!?]*[.!?]+/g) || []).length || (trimmed.length > 0 ? 1 : 0);
+
+      // Paragraphs - blocks of text separated by newlines
+      const paragraphs = trimmed === '' ? 0 : trimmed.split(/\n\s*\n/).filter(p => p.trim().length > 0).length || (trimmed.length > 0 ? 1 : 0);
+
+      // Reading time (200 wpm)
+      const readingMinutes = wordCount / 200;
+
+      // Speaking time (130 wpm)
+      const speakingMinutes = wordCount / 130;
+
+      // Average word length
+      const avgWordLength = wordCount > 0
+        ? (words.reduce((sum, w) => sum + w.replace(/[^a-zA-Z0-9]/g, '').length, 0) / wordCount).toFixed(1)
+        : 0;
+
+      // Average sentence length
+      const avgSentenceLength = sentences > 0 ? Math.round(wordCount / sentences) : 0;
+
+      return {
+        chars,
+        charsNoSpace,
+        wordCount,
+        sentences,
+        paragraphs,
+        readingMinutes,
+        speakingMinutes,
+        avgWordLength,
+        avgSentenceLength,
+        words
+      };
+    }
+
+    function formatTime(minutes) {
+      if (minutes < 1/60) return '0s';
+      if (minutes < 1) return Math.round(minutes * 60) + 's';
+      const m = Math.floor(minutes);
+      const s = Math.round((minutes - m) * 60);
+      if (m === 0) return s + 's';
+      if (s === 0) return m + 'm';
+      return m + 'm ' + s + 's';
+    }
+
+    // ==========================================
+    // KEYWORD DENSITY
+    // ==========================================
+    function getKeywordDensity(words) {
+      if (words.length === 0) return [];
+
+      const freq = {};
+      let totalCountable = 0;
+
+      words.forEach(w => {
+        const cleaned = w.toLowerCase().replace(/[^a-z0-9'-]/g, '').replace(/^['"-]+|['"-]+$/g, '');
+        if (cleaned.length < 2) return;
+        if (STOP_WORDS.has(cleaned)) return;
+        freq[cleaned] = (freq[cleaned] || 0) + 1;
+        totalCountable++;
+      });
+
+      const sorted = Object.entries(freq)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 10);
+
+      const maxCount = sorted.length > 0 ? sorted[0][1] : 0;
+
+      return sorted.map(([word, count]) => ({
+        word,
+        count,
+        percentage: totalCountable > 0 ? ((count / words.length) * 100).toFixed(1) : '0.0',
+        barWidth: maxCount > 0 ? Math.round((count / maxCount) * 100) : 0
+      }));
+    }
+
+    // ==========================================
+    // UI UPDATE
+    // ==========================================
+    let prevValues = {};
+
+    function pulseIfChanged(el, newVal) {
+      const key = el.id;
+      if (prevValues[key] !== newVal) {
+        prevValues[key] = newVal;
+        el.classList.add('pulse');
+        setTimeout(() => el.classList.remove('pulse'), 150);
+      }
+    }
+
+    function updateStats() {
+      const text = textInput.value;
+      const stats = countText(text);
+
+      // Update stat values with pulse animation
+      updateStat(statWords, stats.wordCount);
+      updateStat(statChars, stats.chars);
+      updateStat(statCharsNoSpace, stats.charsNoSpace);
+      updateStat(statSentences, stats.sentences);
+      updateStat(statParagraphs, stats.paragraphs);
+      updateStatText(statReading, formatTime(stats.readingMinutes));
+      updateStatText(statSpeaking, formatTime(stats.speakingMinutes));
+      updateStatText(statAvgWord, stats.avgWordLength);
+      updateStatText(statAvgSentence, stats.avgSentenceLength);
+
+      // Keyword density
+      const keywords = getKeywordDensity(stats.words);
+      renderKeywords(keywords);
+    }
+
+    function updateStat(el, value) {
+      const str = String(value);
+      if (el.textContent !== str) {
+        el.textContent = str;
+        el.classList.add('pulse');
+        setTimeout(() => el.classList.remove('pulse'), 150);
+      }
+    }
+
+    function updateStatText(el, value) {
+      const str = String(value);
+      if (el.textContent !== str) {
+        el.textContent = str;
+        el.classList.add('pulse');
+        setTimeout(() => el.classList.remove('pulse'), 150);
+      }
+    }
+
+    function renderKeywords(keywords) {
+      if (keywords.length === 0) {
+        keywordContainer.innerHTML = '<div class="keyword-empty">Start typing to see your most-used words</div>';
+        return;
+      }
+
+      let html = '<div class="keyword-list">';
+      keywords.forEach((kw, i) => {
+        html += '<div class="keyword-row">'
+          + '<span class="keyword-rank">' + (i + 1) + '</span>'
+          + '<span class="keyword-word">' + escapeHtml(kw.word) + '</span>'
+          + '<div class="keyword-bar-wrap"><div class="keyword-bar" style="width:' + kw.barWidth + '%"></div></div>'
+          + '<span class="keyword-count">' + kw.count + '</span>'
+          + '<span class="keyword-pct">' + kw.percentage + '%</span>'
+          + '</div>';
+      });
+      html += '</div>';
+      keywordContainer.innerHTML = html;
+    }
+
+    function escapeHtml(str) {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    // ==========================================
+    // ACTIONS
+    // ==========================================
+    function clearText() {
+      textInput.value = '';
+      textInput.focus();
+      updateStats();
+    }
+
+    function copyText() {
+      const text = textInput.value;
+      if (!text) return;
+
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('btn-copy');
+        btn.classList.add('copied');
+        btn.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Copied!';
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy Text';
+        }, 2000);
+      });
+    }
+
+    // ==========================================
+    // EVENT LISTENERS
+    // ==========================================
+    textInput.addEventListener('input', updateStats);
+    textInput.addEventListener('paste', function() {
+      // Slight delay to get pasted content
+      setTimeout(updateStats, 10);
+    });
+
+    // Initialize
+    updateStats();
+  </script>
+</body>
+</html>

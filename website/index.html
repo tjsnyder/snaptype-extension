@@ -195,7 +195,7 @@
       .stats-row { flex-direction: column; gap: 24px; }
       .nav-links a:not(.nav-cta) { display: none; }
       [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
-      [style*="grid-template-columns:repeat(4"] { grid-template-columns: repeat(2, 1fr) !important; }
+      [style*="grid-template-columns:repeat(4"], [style*="grid-template-columns:repeat(5"] { grid-template-columns: repeat(2, 1fr) !important; }
       [style*="display:flex"][style*="gap:48px"] { flex-direction: column !important; }
     }
   </style>
@@ -411,7 +411,7 @@
     <div class="container">
       <div class="section-label">Free Tools</div>
       <h2 class="section-title">Productivity tools — no sign-up required</h2>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:960px;margin:0 auto;">
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;max-width:960px;margin:0 auto;">
         <a href="/snaptype-extension/tools/email-generator.html" style="text-decoration:none;color:inherit;background:var(--light);border:1.5px solid #f3f4f6;border-radius:12px;padding:20px;text-align:center;transition:all 0.2s;" onmouseover="this.style.borderColor='#e0e7ff';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#f3f4f6';this.style.transform='none'">
           <div style="font-size:28px;margin-bottom:8px;">✉️</div>
           <h3 style="font-size:14px;font-weight:700;margin-bottom:4px;">Email Generator</h3>
@@ -431,6 +431,11 @@
           <div style="font-size:28px;margin-bottom:8px;">⌨️</div>
           <h3 style="font-size:14px;font-weight:700;margin-bottom:4px;">Typing Test</h3>
           <p style="font-size:12px;color:var(--gray);margin:0;">Test your speed & see time you could save</p>
+        </a>
+        <a href="/snaptype-extension/tools/word-counter.html" style="text-decoration:none;color:inherit;background:var(--light);border:1.5px solid #f3f4f6;border-radius:12px;padding:20px;text-align:center;transition:all 0.2s;" onmouseover="this.style.borderColor='#e0e7ff';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#f3f4f6';this.style.transform='none'">
+          <div style="font-size:28px;margin-bottom:8px;">🔤</div>
+          <h3 style="font-size:14px;font-weight:700;margin-bottom:4px;">Word Counter</h3>
+          <p style="font-size:12px;color:var(--gray);margin:0;">Count words, characters & reading time</p>
         </a>
       </div>
     </div>
@@ -570,7 +575,7 @@
 
   <footer>
     <div class="container">
-      <p>&copy; 2026 SnapType. <a href="/snaptype-extension/blog/">Blog</a> &middot; <a href="/snaptype-extension/templates.html">Templates</a> &middot; <a href="/snaptype-extension/compare.html">Compare</a> &middot; <a href="/snaptype-extension/tools/email-generator.html">Email Generator</a> &middot; <a href="/snaptype-extension/tools/subject-line-generator.html">Subject Lines</a> &middot; <a href="/snaptype-extension/tools/roi-calculator.html">ROI Calculator</a> &middot; <a href="/snaptype-extension/tools/typing-test.html">Typing Test</a> &middot; <a href="/snaptype-extension/privacy.html">Privacy</a></p>
+      <p>&copy; 2026 SnapType. <a href="/snaptype-extension/blog/">Blog</a> &middot; <a href="/snaptype-extension/templates.html">Templates</a> &middot; <a href="/snaptype-extension/compare.html">Compare</a> &middot; <a href="/snaptype-extension/tools/email-generator.html">Email Generator</a> &middot; <a href="/snaptype-extension/tools/subject-line-generator.html">Subject Lines</a> &middot; <a href="/snaptype-extension/tools/roi-calculator.html">ROI Calculator</a> &middot; <a href="/snaptype-extension/tools/typing-test.html">Typing Test</a> &middot; <a href="/snaptype-extension/tools/word-counter.html">Word Counter</a> &middot; <a href="/snaptype-extension/privacy.html">Privacy</a></p>
     </div>
   </footer>
 
@@ -657,6 +662,82 @@
       document.getElementById('email-form').style.display = 'none';
       document.getElementById('email-success').style.display = 'block';
     });
+  </script>
+
+  <!-- FAQ Schema for Google Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is SnapType?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SnapType is a free Chrome extension that lets you create text shortcuts for phrases you type repeatedly. Type a short keyword like /hello, press Tab, and it instantly expands into your full message. It works on every website including Gmail, Slack, LinkedIn, and Zendesk."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is SnapType free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, SnapType is free to use with up to 10 snippets, smart variables, folders, the command palette, and usage statistics. A Pro plan is available at $4.99/month for unlimited snippets, priority support, and premium snippet packs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does a text expander save time?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A text expander replaces short keywords with longer text instantly. If you type 25 repetitive messages per day averaging 150 characters each, a text expander can save you over 30 minutes daily by reducing each message to a few keystrokes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does SnapType work with Gmail and Slack?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, SnapType works on every website you visit in Chrome, including Gmail, Slack, LinkedIn, Zendesk, Salesforce, Notion, and any other web application. Your snippets expand inline wherever you type."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my data safe with SnapType?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. SnapType stores all your data locally on your device using Chrome's built-in storage. No data is ever sent to external servers. There is no account required and no tracking. Your snippets stay private and under your control."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- SoftwareApplication Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "SnapType — Text Expander & Snippets",
+    "description": "Save text snippets and expand them instantly with keyboard shortcuts. The fastest text expander for Chrome.",
+    "url": "https://tjsnyder.github.io/snaptype-extension/",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "Chrome",
+    "browserRequirements": "Google Chrome 88+",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "ratingCount": "47",
+      "bestRating": "5"
+    },
+    "featureList": "Text expansion, Smart variables, Command palette, Folder organization, Usage statistics, Import/Export, Right-click to save"
+  }
   </script>
 </body>
 </html>

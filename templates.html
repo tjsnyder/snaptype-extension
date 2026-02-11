@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Free Text Templates for Business — Browse & Copy | SnapType</title>
-  <meta name="description" content="Browse free text templates, email templates, canned responses, and text snippets for customer support, sales, recruiting, e-commerce, healthcare, and development. Copy any template instantly or use it in SnapType.">
-  <meta name="keywords" content="text templates, email templates, canned responses, text snippets, business templates, customer support templates, sales templates, recruiting templates">
+  <meta name="description" content="Browse free text templates, email templates, canned responses, and text snippets for customer support, sales, recruiting, e-commerce, healthcare, real estate, and development. Copy any template instantly or use it in SnapType.">
+  <meta name="keywords" content="text templates, email templates, canned responses, text snippets, business templates, customer support templates, sales templates, recruiting templates, real estate templates, healthcare templates">
   <meta property="og:title" content="Free Text Templates for Business — Browse & Copy | SnapType">
   <meta property="og:description" content="Browse and copy free text templates for customer support, sales, recruiting, e-commerce, and more. Use them standalone or with SnapType.">
   <meta property="og:type" content="website">
@@ -812,6 +812,32 @@
       {
         id: 48, shortcut: "/hipaa", category: "Healthcare", tone: "Professional",
         content: "CONFIDENTIALITY NOTICE: This message and any attachments are intended solely for the individual or entity to whom they are addressed. This communication may contain protected health information (PHI) governed by the Health Insurance Portability and Accountability Act (HIPAA). If you are not the intended recipient, you are hereby notified that any disclosure, copying, distribution, or action taken in reliance on the contents of this message is strictly prohibited. Please notify the sender immediately and delete this message."
+      },
+
+      // --- Real Estate (6) ---
+      {
+        id: 49, shortcut: "/re-inquiry", category: "Real Estate", tone: "Friendly",
+        content: "Hi {name}! Thank you for your interest in the property at {address}. I'd love to tell you more about it. Are you available for a quick call or would you prefer I send over the full listing details by email? I'm here to answer any questions you have."
+      },
+      {
+        id: 50, shortcut: "/re-showing", category: "Real Estate", tone: "Professional",
+        content: "Hi {name}, this is a confirmation for your property showing:\n\nProperty: {address}\nDate: {date}\nTime: {time}\n\nPlease arrive a few minutes early so we can make the most of our time together. If you need to reschedule, just let me know as soon as possible. I look forward to showing you the home!"
+      },
+      {
+        id: 51, shortcut: "/re-newlisting", category: "Real Estate", tone: "Friendly",
+        content: "Exciting news — I just listed a beautiful property that I think you'll want to see!\n\nAddress: {address}\nBedrooms: {beds} | Bathrooms: {baths}\nPrice: {price}\n\nBased on what you've told me you're looking for, this one could be a great match. Would you like to schedule a private showing before it gets too much attention? Let me know and I'll set it up."
+      },
+      {
+        id: 52, shortcut: "/re-followup", category: "Real Estate", tone: "Friendly",
+        content: "Hi {name}, I wanted to follow up after our recent showing at {address}. I'd love to hear your thoughts on the property. Did it check the right boxes for you, or would you like me to line up some other options that might be a better fit? I'm here to make sure we find the perfect home for you."
+      },
+      {
+        id: 53, shortcut: "/re-congrats", category: "Real Estate", tone: "Friendly",
+        content: "Congratulations, {name}! The closing on {address} is officially complete — the keys are yours! It has been an absolute pleasure working with you through this process. I hope this home brings you and your family years of happiness. Please don't hesitate to reach out if you ever need anything. I'm always here for you."
+      },
+      {
+        id: 54, shortcut: "/re-market", category: "Real Estate", tone: "Professional",
+        content: "Hi {name}, here's a quick snapshot of the local real estate market:\n\nMedian sale price: {median_price}\nAverage days on market: {avg_days}\nInventory trend: {trend}\n\nWhether you're thinking about buying, selling, or just staying informed, I'm happy to dive deeper into what these numbers mean for you. Feel free to reach out anytime."
       }
     ];
 
@@ -824,7 +850,8 @@
       { key: "E-commerce", label: "E-commerce" },
       { key: "Project Management", label: "Project Management" },
       { key: "Developer", label: "Developer" },
-      { key: "Healthcare", label: "Healthcare" }
+      { key: "Healthcare", label: "Healthcare" },
+      { key: "Real Estate", label: "Real Estate" }
     ];
 
     const tones = [
@@ -1065,7 +1092,8 @@
       "ecommerce": "E-commerce",
       "pm": "Project Management",
       "developer": "Developer",
-      "healthcare": "Healthcare"
+      "healthcare": "Healthcare",
+      "realestate": "Real Estate"
     };
     const reverseHashMap = {};
     Object.keys(hashMap).forEach(k => { reverseHashMap[hashMap[k]] = k; });
@@ -1105,7 +1133,7 @@
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": "Free Text Template Library",
-    "description": "Browse free text templates for customer support, sales, recruiting, e-commerce, healthcare, project management, and development.",
+    "description": "Browse free text templates for customer support, sales, recruiting, e-commerce, healthcare, real estate, project management, and development.",
     "url": "https://snaptype.app/templates.html",
     "isPartOf": {
       "@type": "WebSite",
