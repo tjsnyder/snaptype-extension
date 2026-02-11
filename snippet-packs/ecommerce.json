@@ -1,0 +1,162 @@
+[
+  {
+    "id": "ecom_001",
+    "shortcut": "/ecom-confirm",
+    "content": "Hi {name},\n\nGreat news — your order has been confirmed! Here's a quick summary:\n\nOrder Number: [order number]\nItems: [item list]\nTotal: [amount]\nEstimated Delivery: {date}\n\nYou'll receive a shipping confirmation with tracking details once your order is on its way. If you have any questions in the meantime, just reply to this message.\n\nThank you for shopping with {company}!",
+    "folder": "E-commerce",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "ecom_002",
+    "shortcut": "/ecom-ship",
+    "content": "Hi {name},\n\nYour order is on its way! Here are your shipping details:\n\nOrder Number: [order number]\nCarrier: [carrier name]\nTracking Number: [tracking number]\nEstimated Delivery: {date}\n\nYou can track your package here: [tracking link]\n\nIf you have any questions about your delivery, don't hesitate to reach out. We hope you love your purchase!\n\nBest,\n{company}",
+    "folder": "E-commerce",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "ecom_003",
+    "shortcut": "/ecom-delivered",
+    "content": "Hi {name},\n\nYour order has been delivered! We hope everything arrived in perfect condition.\n\nOrder Number: [order number]\nDelivered: {date}\n\nIf anything isn't quite right or you have questions about your items, please let us know within [return window] days and we'll make it right.\n\nEnjoy your purchase!\n\n{company}",
+    "folder": "E-commerce",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "ecom_004",
+    "shortcut": "/ecom-return",
+    "content": "Hi {name},\n\nWe've received your return request for order [order number] and I'm happy to help.\n\nHere's how to send your item back:\n\n1. Pack the item securely in its original packaging if possible\n2. Print the prepaid return label attached to this message\n3. Drop off the package at your nearest [carrier] location\n\nOnce we receive and inspect the item, your refund will be processed within 5-7 business days.\n\nIf you have any questions about the process, just let me know.\n\nBest,\n{company}",
+    "folder": "E-commerce",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "ecom_005",
+    "shortcut": "/ecom-refund",
+    "content": "Hi {name},\n\nYour refund has been processed! Here are the details:\n\nOrder Number: [order number]\nRefund Amount: [amount]\nRefund Method: [original payment method]\n\nPlease allow 5-10 business days for the credit to appear on your statement, depending on your bank or payment provider.\n\nWe're sorry this purchase didn't work out. If there's anything we can do better, we'd love to hear your feedback.\n\nBest,\n{company}",
+    "folder": "E-commerce",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "ecom_006",
+    "shortcut": "/ecom-exchange",
+    "content": "Hi {name},\n\nWe'd be happy to exchange your item. Here's what I need from you:\n\n- Order Number: [order number]\n- Item to exchange: [item name]\n- Preferred replacement: [size/color/variant]\n\nOnce confirmed, we'll send your replacement right away and include a prepaid return label for the original item. There's no additional charge for the exchange.\n\nJust reply with those details and I'll get it set up for you!\n\n{company}",
+    "folder": "E-commerce",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "ecom_007",
+    "shortcut": "/ecom-inquiry",
+    "content": "Hi {name},\n\nThanks for your interest in [product name]! Here's what I can tell you:\n\n{cursor}\n\nIf you'd like more details or have specific questions about sizing, materials, compatibility, or anything else, I'm happy to help.\n\nYou can view the full product page here: [product link]\n\nBest,\n{company}",
+    "folder": "E-commerce",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "ecom_008",
+    "shortcut": "/ecom-size",
+    "content": "Hi {name},\n\nGreat question about sizing! Here are our recommendations for [product name]:\n\n- Refer to our size guide here: [size guide link]\n- This item tends to run [true to size / slightly small / slightly large]\n- If you're between sizes, we recommend going [up/down]\n\nYour measurements compared to our chart suggest a [size] would be the best fit. If it doesn't work out, our free exchange policy makes it easy to swap for a different size.\n\nHope that helps!\n\n{company}",
+    "folder": "E-commerce",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "ecom_009",
+    "shortcut": "/ecom-oos",
+    "content": "Hi {name},\n\nThank you for your interest in [product name]. Unfortunately, this item is currently out of stock.\n\nHere's what I can do:\n\n- Add you to our restock notification list so you'll be the first to know when it's back\n- Suggest a similar alternative: [alternative product link]\n- Place a backorder if available (estimated restock: {date})\n\nWould any of these options work for you? Just let me know and I'll set it up.\n\nBest,\n{company}",
+    "folder": "E-commerce",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "ecom_010",
+    "shortcut": "/ecom-restock",
+    "content": "Hi {name},\n\nGood news — [product name] is back in stock! We know you were waiting for this one, so we wanted to give you a heads-up before it sells out again.\n\nGrab yours here: [product link]\n\nAs a thank you for your patience, use code [discount code] for [X]% off your purchase.\n\nHappy shopping!\n\n{company}",
+    "folder": "E-commerce",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "ecom_011",
+    "shortcut": "/ecom-discount",
+    "content": "Hi {name},\n\nWe've got something special for you! For a limited time, enjoy [X]% off your next order at {company}.\n\nUse code: [discount code]\nValid through: {date}\n\nThis applies to [all items / selected categories / orders over $X]. Browse our latest collection here: [shop link]\n\nDon't miss out — the offer expires soon!\n\nHappy shopping,\n{company}",
+    "folder": "E-commerce",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "ecom_012",
+    "shortcut": "/ecom-sale",
+    "content": "Hi {name},\n\nOur biggest sale of the season is here! Enjoy up to [X]% off across [categories/entire store].\n\nSale runs: {date} through [end date]\nShop now: [sale link]\n\nHere are some top picks we think you'll love:\n- [Product 1]\n- [Product 2]\n- [Product 3]\n\nFree shipping on all orders over $[amount]. Don't wait — popular items sell out fast!\n\nBest,\n{company}",
+    "folder": "E-commerce",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "ecom_013",
+    "shortcut": "/ecom-review",
+    "content": "Hi {name},\n\nWe hope you're enjoying your recent purchase from {company}! It's been a couple of weeks since your order arrived, and we'd love to hear what you think.\n\nLeaving a review only takes a minute and helps other shoppers make informed decisions:\n\n[Review link]\n\nAs a thank you, you'll receive [reward/discount] for every review you submit.\n\nThank you for being a valued customer!\n\n{company}",
+    "folder": "E-commerce",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "ecom_014",
+    "shortcut": "/ecom-review-reply",
+    "content": "Hi {name},\n\nThank you so much for taking the time to leave a review! {cursor}\n\nYour feedback means the world to us and helps other customers find the right products. We're thrilled to hear you're happy with your purchase.\n\nIf you ever need anything, we're always here to help.\n\nWarm regards,\n{company}",
+    "folder": "E-commerce",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "ecom_015",
+    "shortcut": "/ecom-cart",
+    "content": "Hi {name},\n\nWe noticed you left some great items in your cart! Just wanted to make sure you didn't forget about them:\n\n[Cart items summary]\n\nYour cart is saved and ready when you are: [cart link]\n\nNeed help deciding? Reply to this message and we'll answer any questions you have about the products. Or if something went wrong during checkout, we're here to help.\n\nSee you soon,\n{company}",
+    "folder": "E-commerce",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "ecom_016",
+    "shortcut": "/ecom-cart-offer",
+    "content": "Hi {name},\n\nStill thinking about those items in your cart? We get it — sometimes you need a little nudge.\n\nHere's one: use code [discount code] for [X]% off your order if you complete your purchase in the next 48 hours.\n\nYour cart: [cart link]\n\nThis offer is exclusive to you and expires on {date}. Don't let your favorites slip away!\n\n{company}",
+    "folder": "E-commerce",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "ecom_017",
+    "shortcut": "/ecom-loyalty",
+    "content": "Hi {name},\n\nThanks for being a loyal {company} customer! Here's an update on your rewards:\n\nCurrent Points: [points balance]\nRewards Tier: [tier name]\nPoints to Next Reward: [points needed]\n\nYou can redeem your points at checkout or save up for bigger rewards. Check your full rewards dashboard here: [rewards link]\n\nKeep shopping to unlock even more perks!\n\nBest,\n{company}",
+    "folder": "E-commerce",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "ecom_018",
+    "shortcut": "/ecom-vip",
+    "content": "Hi {name},\n\nCongratulations — you've reached [tier name] status in our loyalty program! As a VIP member, you now enjoy:\n\n- [Perk 1, e.g., free shipping on all orders]\n- [Perk 2, e.g., early access to new arrivals]\n- [Perk 3, e.g., exclusive member-only discounts]\n- [Perk 4, e.g., priority customer support]\n\nThank you for choosing {company}. We're excited to give you the best shopping experience possible.\n\nWelcome to the inner circle!\n\n{company}",
+    "folder": "E-commerce",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "ecom_019",
+    "shortcut": "/ecom-recommend",
+    "content": "Hi {name},\n\nBased on your recent purchase of [previous product], we thought you might also like these:\n\n1. [Product recommendation 1] — [brief reason]\n2. [Product recommendation 2] — [brief reason]\n3. [Product recommendation 3] — [brief reason]\n\nShop these picks: [recommendations link]\n\nAll of these pair perfectly with what you already own. Plus, enjoy free shipping on orders over $[amount].\n\nHappy browsing!\n\n{company}",
+    "folder": "E-commerce",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  },
+  {
+    "id": "ecom_020",
+    "shortcut": "/ecom-delay",
+    "content": "Hi {name},\n\nWe wanted to give you an update on your order [order number]. Unfortunately, there's been an unexpected delay, and your new estimated delivery date is {date}.\n\nWe sincerely apologize for the inconvenience. Here's what happened: {cursor}\n\nTo make it up to you, we'd like to offer [compensation — e.g., free expedited shipping, discount on next order]. Your updated tracking information is available here: [tracking link]\n\nIf you'd prefer to cancel for a full refund, just let us know and we'll process it right away.\n\nThank you for your patience and understanding.\n\n{company}",
+    "folder": "E-commerce",
+    "usageCount": 0,
+    "createdAt": 1707580800000
+  }
+]
