@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Activate SnapType Pro</title>
+  <link rel="stylesheet" href="popup.css">
+  <style>
+    body { width: 380px; min-height: auto; padding: 24px; }
+    .activate-content { text-align: center; }
+    .activate-content h2 { font-size: 18px; margin-bottom: 8px; }
+    .activate-content p { font-size: 13px; color: #6b7280; margin-bottom: 20px; }
+    .license-input {
+      width: 100%; padding: 10px 14px; border: 2px solid #e5e7eb; border-radius: 8px;
+      font-size: 14px; font-family: 'SF Mono', monospace; text-align: center;
+      letter-spacing: 1px; outline: none; margin-bottom: 12px;
+    }
+    .license-input:focus { border-color: #6366f1; }
+    .license-input.error { border-color: #ef4444; }
+    .license-input.success { border-color: #10b981; }
+    .btn-block { width: 100%; justify-content: center; display: flex; margin-bottom: 8px; }
+    .error-msg { color: #ef4444; font-size: 12px; margin-bottom: 8px; }
+    .success-msg { color: #10b981; font-size: 13px; font-weight: 600; }
+    .divider { display: flex; align-items: center; gap: 12px; margin: 16px 0; color: #d1d5db; font-size: 12px; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: #e5e7eb; }
+    .link-btn { background: none; border: none; color: #6366f1; font-size: 13px; cursor: pointer; font-family: inherit; }
+    .link-btn:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="activate-content">
+    <h2>Activate SnapType Pro</h2>
+    <p>Enter your license key to unlock unlimited snippets and all Pro features.</p>
+
+    <input type="text" id="license-key" class="license-input" placeholder="XXXXX-XXXXX-XXXXX-XXXXX" autocomplete="off">
+    <div id="error-msg" class="error-msg" style="display:none"></div>
+    <div id="success-msg" class="success-msg" style="display:none"></div>
+
+    <button id="btn-activate" class="btn btn-primary btn-block">Activate License</button>
+
+    <div class="divider">or</div>
+
+    <button id="btn-buy" class="btn btn-accent btn-block">Buy SnapType Pro — $4.99/mo</button>
+
+    <p style="margin-top: 16px;">
+      <button id="btn-back" class="link-btn">← Back to SnapType</button>
+    </p>
+  </div>
+
+  <script src="../license.js"></script>
+  <script>
+    const licenseManager = new LicenseManager();
+
+    document.getElementById('btn-activate').addEventListener('click', async () => {
+      const key = document.getElementById('license-key').value.trim();
+      const input = document.getElementById('license-key');
+      const errorEl = document.getElementById('error-msg');
+      const successEl = document.getElementById('success-msg');
+
+      errorEl.style.display = 'none';
+      successEl.style.display = 'none';
+      input.classList.remove('error', 'success');
+
+      if (!key) {
+        input.classList.add('error');
+        errorEl.textContent = 'Please enter a license key';
+        errorEl.style.display = 'block';
+        return;
+      }
+
+      const btn = document.getElementById('btn-activate');
+      btn.textContent = 'Activating...';
+      btn.disabled = true;
+
+      const result = await licenseManager.activate(key);
+
+      if (result.success) {
+        input.classList.add('success');
+        successEl.textContent = 'Pro activated! Enjoy unlimited snippets.';
+        successEl.style.display = 'block';
+        setTimeout(() => window.close(), 1500);
+      } else {
+        input.classList.add('error');
+        errorEl.textContent = result.error;
+        errorEl.style.display = 'block';
+      }
+
+      btn.textContent = 'Activate License';
+      btn.disabled = false;
+    });
+
+    document.getElementById('btn-buy').addEventListener('click', () => {
+      chrome.tabs.create({ url: licenseManager.getCheckoutUrl() });
+    });
+
+    document.getElementById('btn-back').addEventListener('click', () => {
+      window.location.href = 'popup.html';
+    });
+  </script>
+</body>
+</html>

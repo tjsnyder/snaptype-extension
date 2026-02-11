@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SnapType Settings</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f9fafb;
+      color: #1e1b4b;
+      padding: 40px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    h1 { font-size: 24px; margin-bottom: 8px; }
+    .subtitle { color: #6b7280; font-size: 14px; margin-bottom: 32px; }
+    .section { background: white; border-radius: 12px; padding: 24px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+    .section h2 { font-size: 16px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid #f3f4f6; }
+    .field { margin-bottom: 16px; }
+    .field label { display: block; font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 4px; }
+    .field .desc { font-size: 12px; color: #9ca3af; margin-bottom: 6px; }
+    .field select, .field input[type="text"] {
+      padding: 8px 12px; border: 1.5px solid #e5e7eb; border-radius: 6px;
+      font-size: 13px; font-family: inherit; outline: none; min-width: 200px;
+    }
+    .field select:focus, .field input[type="text"]:focus { border-color: #6366f1; }
+    .toggle-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; }
+    .toggle-row .label-group { flex: 1; }
+    .toggle-row .label-group .name { font-size: 13px; font-weight: 600; }
+    .toggle-row .label-group .desc { font-size: 12px; color: #9ca3af; }
+    .toggle { position: relative; width: 44px; height: 24px; }
+    .toggle input { opacity: 0; width: 0; height: 0; }
+    .toggle .slider {
+      position: absolute; inset: 0; background: #d1d5db; border-radius: 12px;
+      cursor: pointer; transition: 0.2s;
+    }
+    .toggle .slider::before {
+      content: ''; position: absolute; height: 18px; width: 18px; left: 3px; bottom: 3px;
+      background: white; border-radius: 50%; transition: 0.2s;
+    }
+    .toggle input:checked + .slider { background: #6366f1; }
+    .toggle input:checked + .slider::before { transform: translateX(20px); }
+    .var-grid { display: grid; grid-template-columns: 140px 1fr; gap: 8px; align-items: center; }
+    .var-grid .var-name { font-size: 12px; font-weight: 600; font-family: 'SF Mono', monospace; color: #6366f1; }
+    .var-grid input { padding: 6px 10px; border: 1.5px solid #e5e7eb; border-radius: 6px; font-size: 13px; width: 100%; }
+    .actions { display: flex; gap: 8px; margin-top: 20px; }
+    .btn {
+      padding: 8px 20px; border: none; border-radius: 6px; font-size: 13px;
+      font-weight: 500; cursor: pointer; font-family: inherit;
+    }
+    .btn-primary { background: #6366f1; color: white; }
+    .btn-primary:hover { background: #4f46e5; }
+    .btn-ghost { background: #f3f4f6; color: #374151; }
+    .btn-ghost:hover { background: #e5e7eb; }
+    .btn-export { background: #eef2ff; color: #4338ca; }
+    .saved-toast {
+      position: fixed; bottom: 24px; right: 24px; background: #1e1b4b; color: white;
+      padding: 10px 20px; border-radius: 8px; font-size: 13px;
+      opacity: 0; transition: opacity 0.2s;
+    }
+    .saved-toast.show { opacity: 1; }
+  </style>
+</head>
+<body>
+  <h1>⚡ SnapType Settings</h1>
+  <p class="subtitle">Configure your text expansion preferences</p>
+
+  <div class="section">
+    <h2>General</h2>
+    <div class="toggle-row">
+      <div class="label-group">
+        <div class="name">Enable text expansion</div>
+        <div class="desc">Expand shortcuts as you type on any webpage</div>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="opt-enabled" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="field">
+      <label for="opt-trigger">Trigger key</label>
+      <div class="desc">Press this key after typing a shortcut to expand it</div>
+      <select id="opt-trigger">
+        <option value="Tab">Tab</option>
+        <option value="Space">Space</option>
+        <option value="Enter">Enter</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Custom Variables</h2>
+    <p class="desc" style="margin-bottom: 12px;">Define custom variables to use in your snippets with {variableName} syntax</p>
+    <div class="var-grid" id="var-grid">
+      <span class="var-name">{name}</span>
+      <input type="text" data-var="name" placeholder="Your name">
+      <span class="var-name">{email}</span>
+      <input type="text" data-var="email" placeholder="your@email.com">
+      <span class="var-name">{company}</span>
+      <input type="text" data-var="company" placeholder="Company name">
+      <span class="var-name">{phone}</span>
+      <input type="text" data-var="phone" placeholder="Phone number">
+      <span class="var-name">{title}</span>
+      <input type="text" data-var="title" placeholder="Job title">
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Data</h2>
+    <div class="actions">
+      <button id="btn-export" class="btn btn-export">Export Snippets</button>
+      <button id="btn-import" class="btn btn-ghost">Import Snippets</button>
+    </div>
+    <input type="file" id="import-file" accept=".json" style="display:none">
+  </div>
+
+  <div class="actions">
+    <button id="btn-save" class="btn btn-primary">Save Settings</button>
+  </div>
+
+  <div id="toast" class="saved-toast">Settings saved!</div>
+
+  <script>
+    let settings = {};
+
+    async function init() {
+      const result = await chrome.storage.local.get(['settings']);
+      settings = result.settings || {};
+
+      document.getElementById('opt-enabled').checked = settings.expansionEnabled !== false;
+      document.getElementById('opt-trigger').value = settings.triggerKey || 'Tab';
+
+      if (settings.customVars) {
+        for (const [key, value] of Object.entries(settings.customVars)) {
+          const input = document.querySelector(`[data-var="${key}"]`);
+          if (input) input.value = value;
+        }
+      }
+    }
+
+    document.getElementById('btn-save').addEventListener('click', async () => {
+      settings.expansionEnabled = document.getElementById('opt-enabled').checked;
+      settings.triggerKey = document.getElementById('opt-trigger').value;
+
+      const customVars = {};
+      document.querySelectorAll('[data-var]').forEach(input => {
+        if (input.value.trim()) customVars[input.dataset.var] = input.value.trim();
+      });
+      settings.customVars = customVars;
+
+      await chrome.storage.local.set({ settings });
+
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2000);
+    });
+
+    document.getElementById('btn-export').addEventListener('click', async () => {
+      const result = await chrome.storage.local.get(['snippets']);
+      const blob = new Blob([JSON.stringify(result.snippets || [], null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'snaptype-snippets.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    document.getElementById('btn-import').addEventListener('click', () => {
+      document.getElementById('import-file').click();
+    });
+
+    document.getElementById('import-file').addEventListener('change', async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const text = await file.text();
+      try {
+        const imported = JSON.parse(text);
+        if (!Array.isArray(imported)) throw new Error('Invalid format');
+        const result = await chrome.storage.local.get(['snippets']);
+        const existing = result.snippets || [];
+        const merged = [...existing, ...imported.map(s => ({
+          ...s,
+          id: Date.now().toString(36) + Math.random().toString(36).substr(2, 9)
+        }))];
+        await chrome.storage.local.set({ snippets: merged });
+        const toast = document.getElementById('toast');
+        toast.textContent = `Imported ${imported.length} snippets!`;
+        toast.classList.add('show');
+        setTimeout(() => { toast.classList.remove('show'); toast.textContent = 'Settings saved!'; }, 2000);
+      } catch (err) {
+        alert('Invalid file format. Please use a SnapType export file.');
+      }
+    });
+
+    init();
+  </script>
+</body>
+</html>

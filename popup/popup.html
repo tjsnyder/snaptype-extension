@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SnapType</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header-left">
+        <h1 class="logo">⚡ SnapType</h1>
+      </div>
+      <div class="header-right">
+        <button id="btn-add" class="btn btn-primary btn-sm">+ New</button>
+        <button id="btn-settings" class="btn btn-ghost btn-sm" title="Settings">⚙</button>
+      </div>
+    </header>
+
+    <div class="search-bar">
+      <input type="text" id="search" placeholder="Search snippets..." autocomplete="off">
+    </div>
+
+    <div class="stats-bar" id="stats-bar">
+      <span id="stat-expansions">0 expansions</span>
+      <span class="stat-sep">·</span>
+      <span id="stat-keystrokes">0 keystrokes saved</span>
+    </div>
+
+    <div id="snippet-list" class="snippet-list"></div>
+
+    <div id="empty-state" class="empty-state" style="display:none">
+      <p class="empty-icon">📝</p>
+      <p class="empty-text">No snippets yet</p>
+      <p class="empty-sub">Click <strong>+ New</strong> to create your first snippet</p>
+    </div>
+
+    <div id="limit-banner" class="limit-banner" style="display:none">
+      <span>Free plan: <strong id="snippet-count">0</strong>/10 snippets</span>
+      <button id="btn-upgrade" class="btn btn-accent btn-sm">Upgrade to Pro</button>
+    </div>
+
+    <!-- Editor Modal -->
+    <div id="editor-modal" class="modal" style="display:none">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="editor-title">New Snippet</h2>
+          <button id="btn-close-editor" class="btn btn-ghost btn-sm">✕</button>
+        </div>
+        <div class="form-group">
+          <label for="edit-shortcut">Shortcut</label>
+          <input type="text" id="edit-shortcut" placeholder="/shortcut" autocomplete="off">
+          <span class="hint">Type this + Tab to expand</span>
+        </div>
+        <div class="form-group">
+          <label for="edit-content">Content</label>
+          <textarea id="edit-content" rows="5" placeholder="The text that will be inserted..."></textarea>
+        </div>
+        <div class="form-group">
+          <label for="edit-folder">Folder</label>
+          <input type="text" id="edit-folder" placeholder="Default" autocomplete="off">
+        </div>
+        <div class="variable-hints">
+          <span class="hint-label">Variables:</span>
+          <code>{date}</code> <code>{time}</code> <code>{day}</code> <code>{name}</code> <code>{email}</code>
+        </div>
+        <div class="modal-actions">
+          <button id="btn-delete-snippet" class="btn btn-danger btn-sm" style="display:none">Delete</button>
+          <div class="spacer"></div>
+          <button id="btn-cancel-editor" class="btn btn-ghost">Cancel</button>
+          <button id="btn-save-snippet" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Upgrade Modal -->
+    <div id="upgrade-modal" class="modal" style="display:none">
+      <div class="modal-content upgrade-content">
+        <h2>⚡ SnapType Pro</h2>
+        <p class="upgrade-price">$4.99<span>/month</span></p>
+        <ul class="upgrade-features">
+          <li>✓ Unlimited snippets</li>
+          <li>✓ Custom variables</li>
+          <li>✓ Folders & organization</li>
+          <li>✓ Import & export</li>
+          <li>✓ Priority support</li>
+        </ul>
+        <button id="btn-buy-pro" class="btn btn-accent btn-lg">Upgrade Now</button>
+        <button id="btn-close-upgrade" class="btn btn-ghost">Maybe later</button>
+      </div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
