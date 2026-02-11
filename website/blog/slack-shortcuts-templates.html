@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>15 Slack Message Templates for Faster Team Communication | SnapType Blog</title>
+  <meta name="description" content="15 ready-to-use Slack message templates and shortcuts for standups, handoffs, meeting notes, feedback, and more. Learn 3 ways to use Slack canned responses and save hours every week.">
+  <meta name="keywords" content="Slack message templates, Slack shortcuts, Slack canned responses, Slack text expander, Slack snippets, Slack productivity, team communication templates">
+  <link rel="canonical" href="https://tjsnyder.github.io/snaptype-extension/blog/slack-shortcuts-templates.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="15 Slack Message Templates for Faster Team Communication">
+  <meta property="og:description" content="Ready-to-use Slack message templates for standups, handoffs, meeting notes, and more. Plus 3 methods to automate them as shortcuts.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tjsnyder.github.io/snaptype-extension/blog/slack-shortcuts-templates.html">
+  <meta property="og:site_name" content="SnapType">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="15 Slack Message Templates for Faster Team Communication">
+  <meta name="twitter:description" content="Ready-to-use Slack message templates for standups, handoffs, meeting notes, and more. Plus 3 methods to automate them as shortcuts.">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "15 Slack Message Templates for Faster Team Communication",
+    "description": "15 ready-to-use Slack message templates and shortcuts for standups, handoffs, meeting notes, feedback, and more. Learn 3 ways to use Slack canned responses and save hours every week.",
+    "author": {
+      "@type": "Organization",
+      "name": "SnapType"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SnapType",
+      "url": "https://snaptype.app"
+    },
+    "datePublished": "2026-02-10",
+    "dateModified": "2026-02-10",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://tjsnyder.github.io/snaptype-extension/blog/slack-shortcuts-templates.html"
+    },
+    "keywords": ["Slack message templates", "Slack shortcuts", "Slack canned responses", "Slack text expander", "team communication", "Slack productivity"]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      color: #1e1b4b; line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Nav */
+    nav { padding: 16px 0; border-bottom: 1px solid #f3f4f6; position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); z-index: 100; }
+    .nav-inner { max-width: 1080px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-size: 20px; font-weight: 800; color: #1e1b4b; text-decoration: none; }
+    .nav-logo span { color: #6366f1; }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: #374151; text-decoration: none; }
+    .nav-links a:hover { color: #6366f1; }
+    .nav-cta { background: #6366f1; color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; font-size: 14px; text-decoration: none; }
+
+    /* Layout */
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    article { padding: 60px 0 80px; }
+    .breadcrumb { font-size: 13px; color: #9ca3af; margin-bottom: 24px; }
+    .breadcrumb a { color: #6366f1; text-decoration: none; }
+
+    /* Typography */
+    h1 { font-size: 34px; font-weight: 800; line-height: 1.2; letter-spacing: -0.5px; margin-bottom: 12px; }
+    .meta { font-size: 14px; color: #9ca3af; margin-bottom: 32px; }
+    h2 { font-size: 24px; font-weight: 700; margin: 40px 0 14px; }
+    h3 { font-size: 18px; font-weight: 700; margin: 28px 0 8px; }
+    p { margin-bottom: 16px; color: #374151; }
+    ul, ol { margin-bottom: 16px; padding-left: 24px; color: #374151; }
+    li { margin-bottom: 6px; }
+    strong { color: #1e1b4b; }
+    a { color: #6366f1; }
+    code { background: #f3f4f6; padding: 2px 6px; border-radius: 4px; font-size: 14px; font-family: 'SF Mono', 'Fira Code', monospace; }
+
+    /* Table of Contents */
+    .toc {
+      background: #f9fafb; border: 1px solid #f3f4f6; border-radius: 10px;
+      padding: 24px 28px; margin-bottom: 32px;
+    }
+    .toc h3 { margin: 0 0 12px; font-size: 15px; font-weight: 700; color: #1e1b4b; }
+    .toc ol { margin: 0; padding-left: 20px; }
+    .toc li { margin-bottom: 4px; font-size: 14px; }
+    .toc a { color: #6366f1; text-decoration: none; font-weight: 500; }
+    .toc a:hover { text-decoration: underline; }
+
+    /* Template Cards */
+    .template-card {
+      background: #f9fafb; border: 1px solid #f3f4f6; border-radius: 10px;
+      padding: 18px 20px; margin-bottom: 14px; position: relative;
+    }
+    .template-card .label {
+      display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;
+    }
+    .template-card .label strong { font-size: 14px; color: #1e1b4b; }
+    .template-card .shortcut {
+      background: #eef2ff; color: #4f46e5; padding: 2px 8px; border-radius: 4px;
+      font-size: 12px; font-weight: 600; font-family: 'SF Mono', 'Fira Code', monospace;
+    }
+    .template-card .text {
+      font-size: 13px; color: #6b7280; line-height: 1.6; white-space: pre-line;
+    }
+    .template-card .badge {
+      display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px;
+      border-radius: 4px; margin-left: 8px; vertical-align: middle;
+    }
+    .badge-status { background: #dbeafe; color: #1e40af; }
+    .badge-coordination { background: #fce7f3; color: #9d174d; }
+    .badge-meeting { background: #fef3c7; color: #92400e; }
+    .badge-feedback { background: #d1fae5; color: #065f46; }
+    .badge-general { background: #f3e8ff; color: #6b21a8; }
+
+    /* Tip / Highlight boxes */
+    .tip-box {
+      background: #f0fdf4; border-left: 4px solid #22c55e;
+      padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 24px 0;
+      font-size: 14px; color: #166534;
+    }
+    .highlight-box {
+      background: #eef2ff; border-left: 4px solid #6366f1;
+      padding: 16px 20px; border-radius: 0 8px 8px 0;
+      margin: 24px 0; font-size: 15px;
+    }
+    .stat-box {
+      background: #fef3c7; border-left: 4px solid #f59e0b;
+      padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 24px 0;
+      font-size: 14px; color: #92400e;
+    }
+    .warning-box {
+      background: #fef2f2; border-left: 4px solid #ef4444;
+      padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 24px 0;
+      font-size: 14px; color: #991b1b;
+    }
+
+    /* CTA Box */
+    .cta-box {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white; border-radius: 12px; padding: 32px; text-align: center; margin: 40px 0;
+    }
+    .cta-box h3 { color: white; font-size: 20px; margin-bottom: 8px; margin-top: 0; }
+    .cta-box p { color: rgba(255,255,255,0.85); margin-bottom: 16px; }
+    .cta-box .btn {
+      display: inline-block; background: white; color: #6366f1;
+      padding: 12px 28px; border-radius: 8px; font-weight: 700;
+      text-decoration: none; font-size: 15px;
+    }
+    .cta-box .btn:hover { background: #f3f4f6; }
+    .cta-box .btn + .btn { margin-left: 12px; background: transparent; color: white; border: 2px solid rgba(255,255,255,0.5); }
+    .cta-box .btn + .btn:hover { border-color: white; }
+
+    /* Steps */
+    .steps { counter-reset: step; list-style: none; padding-left: 0; }
+    .steps li {
+      counter-increment: step; position: relative; padding-left: 40px; margin-bottom: 16px;
+    }
+    .steps li::before {
+      content: counter(step);
+      position: absolute; left: 0; top: 2px;
+      width: 26px; height: 26px; border-radius: 50%;
+      background: #eef2ff; color: #4f46e5; font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* Comparison Table */
+    .comparison-table {
+      width: 100%; border-collapse: collapse; margin: 24px 0 32px;
+      font-size: 14px;
+    }
+    .comparison-table th {
+      background: #f9fafb; padding: 12px 14px; text-align: left;
+      font-weight: 700; font-size: 13px; color: #1e1b4b;
+      border-bottom: 2px solid #e5e7eb;
+    }
+    .comparison-table td {
+      padding: 10px 14px; border-bottom: 1px solid #f3f4f6; color: #374151;
+    }
+    .comparison-table tr:hover td { background: #fafaff; }
+    .comparison-table .check { color: #22c55e; font-weight: 700; }
+    .comparison-table .cross { color: #ef4444; font-weight: 700; }
+    .comparison-table .winner { background: #eef2ff; }
+    .comparison-table .winner td { font-weight: 600; }
+
+    /* Footer */
+    footer { padding: 32px 0; border-top: 1px solid #f3f4f6; text-align: center; font-size: 13px; color: #9ca3af; }
+    footer a { color: #6366f1; text-decoration: none; }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 26px; }
+      .nav-links { gap: 14px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .cta-box .btn + .btn { margin-left: 0; margin-top: 10px; display: block; }
+      .comparison-table { font-size: 12px; }
+      .comparison-table th, .comparison-table td { padding: 8px 6px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="/snaptype-extension/" class="nav-logo"><span>Snap</span>Type</a>
+      <div class="nav-links">
+        <a href="/snaptype-extension/blog/">Blog</a>
+        <a href="/snaptype-extension/tools/email-generator.html">Tools</a>
+        <a href="/snaptype-extension/templates.html">Templates</a>
+        <a href="/snaptype-extension/" class="nav-cta">Install Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <article>
+    <div class="container">
+      <div class="breadcrumb"><a href="/snaptype-extension/">Home</a> / <a href="/snaptype-extension/blog/">Blog</a> / Slack Message Templates</div>
+
+      <h1>15 Slack Message Templates for Faster Team Communication</h1>
+      <div class="meta">February 2026 &middot; 16 min read</div>
+
+      <p>Slack has become the central nervous system of modern teams. It is where decisions happen, updates flow, and questions get answered in real time. But that constant stream of communication comes at a cost. Without structure, Slack turns into a wall of noise where important messages get buried, updates lack consistency, and people spend more time composing messages than doing actual work.</p>
+
+      <p><strong>Slack message templates</strong> solve this problem. By creating reusable, structured messages for the situations that come up every day, standups, handoffs, meeting notes, feedback, and announcements, you eliminate the mental overhead of figuring out what to say and how to format it every single time. Your team communicates faster, more clearly, and with less effort.</p>
+
+      <p>This guide gives you 15 ready-to-use <strong>Slack shortcuts</strong> organized by category, three methods for turning them into one-keystroke automations, and pro tips for getting the most out of Slack without drowning in messages.</p>
+
+      <div class="stat-box">
+        <strong>By the numbers:</strong> The average knowledge worker checks Slack every 6 minutes during the workday and spends roughly 90 minutes per day reading and writing messages. Teams that use structured templates and <strong>Slack canned responses</strong> report saving 30 to 45 minutes per person per day by reducing the time spent composing routine updates.
+      </div>
+
+      <!-- Table of Contents -->
+      <div class="toc">
+        <h3>Table of Contents</h3>
+        <ol>
+          <li><a href="#why-templates-matter">Why Slack Message Templates Matter</a></li>
+          <li><a href="#status-updates">Status Update Templates (3)</a></li>
+          <li><a href="#team-coordination">Team Coordination Templates (3)</a></li>
+          <li><a href="#meeting-related">Meeting Related Templates (3)</a></li>
+          <li><a href="#feedback-recognition">Feedback &amp; Recognition Templates (3)</a></li>
+          <li><a href="#general-templates">General Templates (3)</a></li>
+          <li><a href="#how-to-use">How to Use Templates in Slack (3 Methods)</a></li>
+          <li><a href="#pro-tips">Pro Tips for Slack Productivity</a></li>
+          <li><a href="#get-started">Get Started Today</a></li>
+        </ol>
+      </div>
+
+      <!-- Section 1: Why Templates Matter -->
+      <h2 id="why-templates-matter">1. Why Slack Message Templates Matter</h2>
+
+      <p>Slack is deceptively time-consuming. Unlike email, where you compose a message and move on, Slack creates an expectation of real-time responsiveness. Every channel, thread, and direct message competes for your attention. And because Slack messages are informal, people tend to write them without structure, which means recipients have to work harder to extract the important information.</p>
+
+      <p>This creates three problems that <strong>Slack message templates</strong> directly address:</p>
+
+      <h3>Message fatigue is real</h3>
+
+      <p>When every standup update is formatted differently, when handoff notes vary wildly in detail, and when meeting recaps are sometimes thorough and sometimes a single sentence, people stop reading carefully. They skim. They miss things. Consistent templates train your team to know exactly where to look for the information they need, which means messages actually get read and acted on.</p>
+
+      <h3>Composing routine messages wastes time</h3>
+
+      <p>Think about how many times per week you type a standup update, an end-of-day summary, or a request for code review. Each one takes two to five minutes to compose from scratch. Multiply that across your team and across every recurring message type, and you are looking at hours of collective time spent on messages that follow the same pattern every time. A library of <strong>Slack shortcuts</strong> turns those two-to-five-minute tasks into ten-second expansions.</p>
+
+      <h3>Inconsistency creates confusion</h3>
+
+      <p>When one person's standup mentions blockers and another person's does not, the team lead cannot tell whether there are no blockers or whether someone just forgot to mention them. Templates enforce a shared structure so that everyone covers the same ground. Nothing gets skipped, and managers can scan updates quickly without chasing down missing details.</p>
+
+      <div class="highlight-box">
+        <strong>The bottom line:</strong> Slack templates are not about being robotic. They are about removing the friction from routine communication so your team can spend their creative energy on the messages that actually require original thought.
+      </div>
+
+      <div class="cta-box">
+        <h3>Skip the setup. Start typing shortcuts now.</h3>
+        <p>SnapType lets you create Slack message templates that expand instantly when you type a shortcut and press Tab. No Slack admin access needed.</p>
+        <a href="/snaptype-extension/" class="btn">Install SnapType Free</a>
+        <a href="/snaptype-extension/templates.html" class="btn">Browse Templates</a>
+      </div>
+
+      <!-- Section 2: Status Update Templates -->
+      <h2 id="status-updates">2. Status Update Templates</h2>
+
+      <p>Status updates are the most frequently typed messages in Slack. Every team has some version of a daily standup, end-of-day recap, or out-of-office notice. These three <strong>Slack canned responses</strong> cover the essentials.</p>
+
+      <div class="template-card">
+        <div class="label">
+          <strong>1. Daily Standup <span class="badge badge-status">Status</span></strong>
+          <span class="shortcut">/standup</span>
+        </div>
+        <div class="text">Daily Standup - {date}
+
+Yesterday:
+- {completed_task_1}
+- {completed_task_2}
+
+Today:
+- {planned_task_1}
+- {planned_task_2}
+
+Blockers:
+- {blocker_or_none}
+
+Focus level: {high/medium/low}
+Available for sync: {yes_after_time / no}</div>
+      </div>
+
+      <p>The standup template works because it covers the three questions every standup should answer: what did you finish, what are you working on next, and is anything blocking you. The focus level and availability fields are optional additions that help teammates know whether to interrupt you with a quick question or wait until later.</p>
+
+      <div class="template-card">
+        <div class="label">
+          <strong>2. End of Day Summary <span class="badge badge-status">Status</span></strong>
+          <span class="shortcut">/eod</span>
+        </div>
+        <div class="text">EOD Update - {date}
+
+Completed:
+- {task_1}
+- {task_2}
+- {task_3}
+
+In Progress (carrying over):
+- {wip_task} - {percent_complete}% done
+
+Notes:
+- {anything_the_team_should_know}
+
+Offline at {time}. Back online {tomorrow / date}.</div>
+      </div>
+
+      <p>End-of-day summaries are especially valuable for distributed teams across time zones. When your colleague in a different region starts their day, they can read your EOD update and know exactly where things stand without waiting hours for you to come back online.</p>
+
+      <div class="template-card">
+        <div class="label">
+          <strong>3. Out of Office <span class="badge badge-status">Status</span></strong>
+          <span class="shortcut">/ooo</span>
+        </div>
+        <div class="text">Out of Office Notice
+
+I will be out of office from {start_date} through {end_date}.
+
+Reason: {PTO / sick day / conference / personal}
+
+While I am away:
+- {responsibility_1} - contact {backup_person_1}
+- {responsibility_2} - contact {backup_person_2}
+
+Urgent issues: reach out to {escalation_contact}
+
+I will catch up on messages when I return on {return_date}. Thanks for your understanding.</div>
+      </div>
+
+      <div class="tip-box">
+        <strong>Pro tip:</strong> Post your <code>/ooo</code> template in every active channel you participate in, not just your team channel. This prevents people from tagging you in threads and wondering why you are not responding. Also set your Slack status to match so the out-of-office notice appears next to your name.
+      </div>
+
+      <!-- Section 3: Team Coordination Templates -->
+      <h2 id="team-coordination">3. Team Coordination Templates</h2>
+
+      <p>Coordination messages are where most miscommunication happens. A vague handoff leads to dropped balls. An unclear blocker description leads to delays. A review request without context leads to slow turnarounds. These <strong>Slack message templates</strong> bring structure to the moments where clarity matters most.</p>
+
+      <div class="template-card">
+        <div class="label">
+          <strong>4. Task Handoff <span class="badge badge-coordination">Coordination</span></strong>
+          <span class="shortcut">/handoff</span>
+        </div>
+        <div class="text">Task Handoff to @{recipient}
+
+Task: {task_name}
+Context: {brief_description_of_what_this_is_about}
+
+What is done:
+- {completed_item_1}
+- {completed_item_2}
+
+What is left:
+- {remaining_item_1}
+- {remaining_item_2}
+
+Key files/links:
+- {link_1}
+- {link_2}
+
+Deadline: {date}
+Priority: {high / medium / low}
+
+Notes: {anything_tricky_or_important_to_know}
+
+Let me know if you have any questions. Happy to do a quick sync if that would help.</div>
+      </div>
+
+      <p>The handoff template is one of the highest-value <strong>Slack shortcuts</strong> you can create. Clean handoffs prevent the situation where someone inherits a task and spends the first hour just figuring out what has already been done and what still needs to happen.</p>
+
+      <div class="template-card">
+        <div class="label">
+          <strong>5. Blocker Report <span class="badge badge-coordination">Coordination</span></strong>
+          <span class="shortcut">/blocker</span>
+        </div>
+        <div class="text">Blocker Alert
+
+Blocked on: {task_or_project_name}
+Blocked since: {date_or_time}
+
+What I need: {specific_action_or_decision_needed}
+Who can unblock: @{person_or_team}
+
+Impact if not resolved:
+- {consequence_1}
+- {consequence_2}
+
+Deadline to resolve: {date}
+Workaround available: {yes_describe / no}
+
+I have already tried:
+- {attempt_1}
+- {attempt_2}</div>
+      </div>
+
+      <p>A well-structured blocker report does two things. First, it makes the urgency and impact clear so the right person prioritizes unblocking you. Second, it shows that you have already tried to solve the problem yourself, which builds credibility and avoids back-and-forth questions about what you have already attempted.</p>
+
+      <div class="template-card">
+        <div class="label">
+          <strong>6. Code Review Request <span class="badge badge-coordination">Coordination</span></strong>
+          <span class="shortcut">/review-request</span>
+        </div>
+        <div class="text">Code Review Request
+
+PR: {link_to_pull_request}
+Branch: {branch_name}
+Size: {small / medium / large} (~{number} files changed)
+
+What this does:
+{one_to_two_sentence_summary}
+
+Key areas to review:
+- {file_or_area_1}: {what_to_look_for}
+- {file_or_area_2}: {what_to_look_for}
+
+Testing:
+- {how_it_was_tested}
+- {any_edge_cases_to_verify}
+
+Deadline: {date_or_asap}
+cc: @{reviewer_1} @{reviewer_2}</div>
+      </div>
+
+      <div class="tip-box">
+        <strong>Pro tip:</strong> Including the PR size and key review areas in your <code>/review-request</code> message dramatically speeds up review turnaround. Reviewers can estimate how long the review will take and know exactly where to focus their attention instead of reading every line of a large diff.
+      </div>
+
+      <!-- Section 4: Meeting Related Templates -->
+      <h2 id="meeting-related">4. Meeting Related Templates</h2>
+
+      <p>Meetings generate some of the most important information in a team's workflow, but that information is useless if it stays trapped in people's heads. These <strong>Slack message templates</strong> ensure that agendas are shared beforehand, notes are captured consistently, and action items are tracked where everyone can see them.</p>
+
+      <div class="template-card">
+        <div class="label">
+          <strong>7. Meeting Agenda <span class="badge badge-meeting">Meeting</span></strong>
+          <span class="shortcut">/agenda</span>
+        </div>
+        <div class="text">Meeting Agenda: {meeting_name}
+Date: {date} | Time: {time} | Duration: {duration}
+
+Attendees: @{person_1} @{person_2} @{person_3}
+
+Agenda:
+1. {topic_1} ({time_estimate}) - led by @{person}
+2. {topic_2} ({time_estimate}) - led by @{person}
+3. {topic_3} ({time_estimate}) - led by @{person}
+
+Pre-read (if any):
+- {link_or_document}
+
+Goal for this meeting: {what_we_need_to_decide_or_accomplish}
+
+Please add any additional topics in the thread before {time}.</div>
+      </div>
+
+      <div class="template-card">
+        <div class="label">
+          <strong>8. Meeting Notes <span class="badge badge-meeting">Meeting</span></strong>
+          <span class="shortcut">/meeting-notes</span>
+        </div>
+        <div class="text">Meeting Notes: {meeting_name}
+Date: {date} | Attendees: {attendee_list}
+
+Key Decisions:
+- {decision_1}
+- {decision_2}
+
+Discussion Summary:
+- {topic_1}: {key_points_and_outcome}
+- {topic_2}: {key_points_and_outcome}
+
+Action Items:
+- [ ] {action_1} - @{owner} - due {date}
+- [ ] {action_2} - @{owner} - due {date}
+- [ ] {action_3} - @{owner} - due {date}
+
+Next Meeting: {date_and_time}
+Open Questions: {anything_unresolved}</div>
+      </div>
+
+      <div class="template-card">
+        <div class="label">
+          <strong>9. Action Items Recap <span class="badge badge-meeting">Meeting</span></strong>
+          <span class="shortcut">/action-items</span>
+        </div>
+        <div class="text">Action Items from {meeting_name} ({date})
+
+@{person_1}:
+- [ ] {task_1} - due {date}
+- [ ] {task_2} - due {date}
+
+@{person_2}:
+- [ ] {task_3} - due {date}
+
+@{person_3}:
+- [ ] {task_4} - due {date}
+
+Please react with a checkmark when your items are complete. I will follow up on {follow_up_date} for a status check.</div>
+      </div>
+
+      <p>The action items template is intentionally separate from the full meeting notes. Post the complete notes in one message and the action items as a follow-up reply. This way, people who were not in the meeting can read the notes for context, while the people responsible for action items have a clean, scannable list they can reference without scrolling through discussion summaries.</p>
+
+      <div class="cta-box">
+        <h3>All 15 templates, ready to use in seconds</h3>
+        <p>Import the Slack Essentials template pack into SnapType and start expanding these shortcuts immediately. No Slack admin permissions required.</p>
+        <a href="/snaptype-extension/" class="btn">Install SnapType Free</a>
+        <a href="/snaptype-extension/templates.html" class="btn">Browse All Templates</a>
+      </div>
+
+      <!-- Section 5: Feedback & Recognition Templates -->
+      <h2 id="feedback-recognition">5. Feedback &amp; Recognition Templates</h2>
+
+      <p>Feedback and recognition are the messages people put off the most because they feel like they need to be crafted carefully. Having a template removes that hesitation. When giving praise or constructive feedback is as easy as typing a shortcut, it happens more often, and more frequent feedback is better for everyone.</p>
+
+      <div class="template-card">
+        <div class="label">
+          <strong>10. Kudos / Shoutout <span class="badge badge-feedback">Feedback</span></strong>
+          <span class="shortcut">/kudos</span>
+        </div>
+        <div class="text">Shoutout to @{person}
+
+What they did: {specific_action_or_achievement}
+
+Why it matters: {impact_on_team_project_or_company}
+
+This is a great example of {value_or_behavior}, and I wanted to make sure the team knows about it. Thanks for going above and beyond, @{person}.</div>
+      </div>
+
+      <p>Public recognition in Slack is one of the most underused tools for team morale. A well-structured kudos message posted in a team channel does more for engagement than most formal recognition programs. The key is specificity: naming the exact action and explaining why it mattered makes the praise feel genuine rather than generic.</p>
+
+      <div class="template-card">
+        <div class="label">
+          <strong>11. Constructive Feedback <span class="badge badge-feedback">Feedback</span></strong>
+          <span class="shortcut">/feedback</span>
+        </div>
+        <div class="text">Feedback on {topic_or_deliverable}
+
+What went well:
+- {positive_1}
+- {positive_2}
+
+Suggestions for improvement:
+- {suggestion_1}: {explanation_and_alternative}
+- {suggestion_2}: {explanation_and_alternative}
+
+Overall: {summary_of_feedback}
+
+Happy to discuss any of this in more detail. Let me know if a quick call would be helpful.</div>
+      </div>
+
+      <div class="template-card">
+        <div class="label">
+          <strong>12. One-on-One Prep <span class="badge badge-feedback">Feedback</span></strong>
+          <span class="shortcut">/1on1</span>
+        </div>
+        <div class="text">1:1 Prep - {date}
+
+Wins since last 1:1:
+- {win_1}
+- {win_2}
+
+Challenges:
+- {challenge_1}
+- {challenge_2}
+
+Topics I want to discuss:
+- {topic_1}
+- {topic_2}
+
+Feedback for you (manager/report):
+- {feedback_item}
+
+Goals check-in:
+- {goal_1}: {on_track / needs_attention / completed}
+- {goal_2}: {on_track / needs_attention / completed}
+
+Anything else: {open_item}</div>
+      </div>
+
+      <div class="tip-box">
+        <strong>Pro tip:</strong> Send your <code>/1on1</code> template to your manager or direct report 24 hours before the meeting. This gives both parties time to prepare their talking points, which makes the actual conversation more productive and focused instead of spending the first 10 minutes figuring out what to discuss.
+      </div>
+
+      <!-- Section 6: General Templates -->
+      <h2 id="general-templates">6. General Templates</h2>
+
+      <p>These three templates cover the remaining high-frequency situations that come up across every team: introducing yourself to a new channel, escalating an issue, and making an announcement. Solid <strong>Slack canned responses</strong> for these scenarios ensure professionalism and completeness every time.</p>
+
+      <div class="template-card">
+        <div class="label">
+          <strong>13. Team Introduction <span class="badge badge-general">General</span></strong>
+          <span class="shortcut">/intro</span>
+        </div>
+        <div class="text">Hi everyone! Quick intro:
+
+Name: {your_name}
+Role: {your_role}
+Team: {your_team}
+Location / Timezone: {location} ({timezone})
+
+What I work on: {brief_description_of_responsibilities}
+
+Fun fact: {something_personal_or_interesting}
+
+Excited to be here. Feel free to reach out if you need anything related to {your_area}. Looking forward to working with everyone.</div>
+      </div>
+
+      <div class="template-card">
+        <div class="label">
+          <strong>14. Issue Escalation <span class="badge badge-general">General</span></strong>
+          <span class="shortcut">/escalate</span>
+        </div>
+        <div class="text">Escalation: {issue_title}
+Severity: {critical / high / medium}
+
+Issue: {clear_description_of_the_problem}
+
+Impact:
+- {who_or_what_is_affected}
+- {business_impact_if_not_resolved}
+
+Timeline:
+- First reported: {date_time}
+- Escalated now because: {reason_for_escalation}
+
+What has been done:
+- {action_taken_1}
+- {action_taken_2}
+
+What is needed: {specific_ask}
+Decision needed by: {deadline}
+cc: @{manager} @{stakeholder}</div>
+      </div>
+
+      <p>Escalation messages are high-stakes communications. A vague escalation wastes everyone's time because the recipient has to ask clarifying questions before they can act. This template forces you to include the severity, the impact, what you have already tried, and exactly what you need, which means the person receiving the escalation can make a decision or take action immediately.</p>
+
+      <div class="template-card">
+        <div class="label">
+          <strong>15. Team Announcement <span class="badge badge-general">General</span></strong>
+          <span class="shortcut">/announcement</span>
+        </div>
+        <div class="text">Announcement: {title}
+
+Hi team,
+
+{one_to_two_sentence_summary_of_the_news}
+
+Details:
+- {detail_1}
+- {detail_2}
+- {detail_3}
+
+What this means for you:
+- {impact_or_action_required}
+
+Timeline: {when_this_takes_effect}
+
+Questions? Drop them in this thread and I will answer them there.
+
+Thanks,
+{your_name}</div>
+      </div>
+
+      <div class="warning-box">
+        <strong>Common mistake:</strong> Do not bury the key takeaway at the bottom of a long announcement. Lead with the most important information in the summary line, then provide supporting details below. People in Slack tend to read the first two lines of a message and decide whether to keep reading based on relevance.
+      </div>
+
+      <!-- Section 7: How to Use Templates in Slack -->
+      <h2 id="how-to-use">7. How to Use Templates in Slack (3 Methods)</h2>
+
+      <p>Having great <strong>Slack message templates</strong> is only half the equation. You also need a fast, reliable way to insert them. Here are three methods for turning templates into <strong>Slack shortcuts</strong>, ranked from most limited to most flexible.</p>
+
+      <h3>Method 1: Slack Workflow Builder (Limited)</h3>
+
+      <p>Slack's built-in Workflow Builder lets you create automated workflows that can post pre-written messages to channels on a schedule or in response to triggers. It is the native way to automate repetitive Slack messages.</p>
+
+      <ul>
+        <li><strong>How it works:</strong> You build a workflow in Slack that posts a templated message when triggered, for example posting a standup reminder every morning at 9 AM, or sending an onboarding checklist when someone joins a channel.</li>
+        <li><strong>Best for:</strong> Scheduled, channel-wide messages that happen at the same time every day.</li>
+      </ul>
+
+      <p><strong>Limitations:</strong></p>
+
+      <ul>
+        <li>Requires Slack admin permissions to set up in most workspaces.</li>
+        <li>Workflows are tied to specific channels and triggers. You cannot fire a workflow from any conversation or DM on demand.</li>
+        <li>Limited variable support. You can collect form inputs, but you cannot dynamically insert things like today's date, clipboard content, or custom placeholders the way a text expander can.</li>
+        <li>Paid Slack plans only. Workflow Builder is not available on the free Slack tier.</li>
+        <li>Only works inside Slack. Your templates do not carry over to email, Notion, Jira, or other tools where you also type repetitive messages.</li>
+      </ul>
+
+      <h3>Method 2: Custom Slack Slash Commands (Requires Setup)</h3>
+
+      <p>If your team has developer resources, you can build custom slash commands that insert template text. For example, typing <code>/standup</code> in Slack could open a modal where you fill in your tasks and blockers, and the command formats and posts the message for you.</p>
+
+      <ul>
+        <li><strong>How it works:</strong> A developer creates a Slack app, registers slash commands, and writes server-side code that handles the command, collects input, and posts the formatted message.</li>
+        <li><strong>Best for:</strong> Engineering teams that want deeply integrated Slack automation with custom logic.</li>
+      </ul>
+
+      <p><strong>Limitations:</strong></p>
+
+      <ul>
+        <li>Requires a developer to build and maintain the integration.</li>
+        <li>Needs a server or cloud function running to handle the slash command requests.</li>
+        <li>Must be installed as a Slack app by a workspace admin.</li>
+        <li>Every new template requires code changes, deployment, and testing.</li>
+        <li>Only works inside Slack. Adding templates for other platforms means building separate integrations.</li>
+      </ul>
+
+      <h3>Method 3: Text Expander Extension like SnapType (Recommended)</h3>
+
+      <p>A text expander Chrome extension like <a href="/snaptype-extension/">SnapType</a> takes a different approach. Instead of integrating with Slack's API, it works at the browser level. You type a shortcut like <code>/standup</code> in any Slack message box, press Tab, and the full template expands inline. No Slack admin permissions needed. No developer required. No server to maintain.</p>
+
+      <ul>
+        <li><strong>How it works:</strong> Install the extension, create your snippets with shortcuts and variables, and use them in Slack's web app or any other website. Type the trigger, press Tab, and the template appears instantly.</li>
+        <li><strong>Best for:</strong> Anyone who wants <strong>Slack shortcuts</strong> that work immediately without IT involvement, and that also work in every other web app.</li>
+      </ul>
+
+      <p><strong>Why this method wins:</strong></p>
+
+      <ul>
+        <li><strong>Zero admin overhead.</strong> Any team member can install the extension and start using templates in under a minute.</li>
+        <li><strong>Dynamic variables.</strong> Include placeholders like <code>{date}</code>, <code>{name}</code>, and <code>{project}</code> that prompt you to fill them in at expansion time, or auto-fill with values like today's date.</li>
+        <li><strong>Works everywhere.</strong> The same shortcuts that work in Slack also work in Gmail, Notion, Jira, Linear, Google Docs, and every other website. One template library covers all your tools.</li>
+        <li><strong>Instant updates.</strong> Adding or editing a template takes seconds. No code deployments. No admin approval cycles.</li>
+        <li><strong>Team sharing.</strong> Create a snippet pack with all 15 templates from this guide and share it with your team via a link. Everyone imports the same library in one click.</li>
+      </ul>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Workflow Builder</th>
+            <th>Slash Commands</th>
+            <th>Text Expander (SnapType)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Setup difficulty</strong></td>
+            <td>Medium</td>
+            <td class="cross">Hard (needs dev)</td>
+            <td class="check">Easy (1 minute)</td>
+          </tr>
+          <tr>
+            <td><strong>Needs Slack admin</strong></td>
+            <td class="cross">Yes</td>
+            <td class="cross">Yes</td>
+            <td class="check">No</td>
+          </tr>
+          <tr>
+            <td><strong>Dynamic variables</strong></td>
+            <td>Limited</td>
+            <td class="check">Yes (custom code)</td>
+            <td class="check">Yes (built-in)</td>
+          </tr>
+          <tr>
+            <td><strong>Works in DMs</strong></td>
+            <td class="cross">No (channels only)</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+          </tr>
+          <tr>
+            <td><strong>Works outside Slack</strong></td>
+            <td class="cross">No</td>
+            <td class="cross">No</td>
+            <td class="check">Yes (all websites)</td>
+          </tr>
+          <tr>
+            <td><strong>Free tier available</strong></td>
+            <td class="cross">Paid Slack only</td>
+            <td class="cross">Needs infrastructure</td>
+            <td class="check">Yes (10 free snippets)</td>
+          </tr>
+          <tr>
+            <td><strong>Team sharing</strong></td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes (shareable packs)</td>
+          </tr>
+          <tr>
+            <td><strong>Maintenance</strong></td>
+            <td>Low</td>
+            <td class="cross">High (code + server)</td>
+            <td class="check">None</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="highlight-box">
+        <strong>Verdict:</strong> Slack Workflow Builder is useful for scheduled, channel-specific automations. Custom slash commands offer deep integration but require developer resources. A text expander like SnapType gives you the broadest coverage with the least effort: instant setup, works in every Slack conversation and every other web app, and anyone on the team can start using it without waiting for IT.
+      </div>
+
+      <p>Already using text expanders for email? See our guide on <a href="/snaptype-extension/blog/text-shortcuts-gmail.html">text shortcuts in Gmail</a> to set up a unified shortcut library that covers both Slack and email from the same extension.</p>
+
+      <!-- Section 8: Pro Tips -->
+      <h2 id="pro-tips">8. Pro Tips for Slack Productivity</h2>
+
+      <p>Templates are the foundation, but these additional habits will help you get even more out of Slack without burning out on message overload.</p>
+
+      <h3>Use emoji reactions as acknowledgments</h3>
+
+      <p>Not every message needs a typed reply. Train your team to use emoji reactions as lightweight acknowledgments. A simple checkmark reaction on a standup update means "I read it." Eyes mean "looking into it." A thumbs-up means "approved." This dramatically reduces the number of "Got it" and "Thanks" messages that clutter channels while still confirming that messages were received.</p>
+
+      <p>Define a team-wide emoji vocabulary and pin it in your main channel:</p>
+
+      <ul>
+        <li><strong>Checkmark:</strong> Acknowledged / task complete</li>
+        <li><strong>Eyes:</strong> Reviewing / looking into it</li>
+        <li><strong>Thumbs up:</strong> Approved / agree</li>
+        <li><strong>Hourglass:</strong> Working on it / in progress</li>
+        <li><strong>Red circle:</strong> Blocked / needs attention</li>
+      </ul>
+
+      <h3>Thread everything, no exceptions</h3>
+
+      <p>The single most impactful Slack habit is using threads for every reply. When people reply in threads instead of in the main channel, the channel becomes a clean feed of top-level updates that anyone can scan quickly. Conversations still happen, but they happen inside threads where they do not push other important messages off the screen.</p>
+
+      <p>Combine threading with templates: post your <code>/standup</code> as a top-level message, and if someone has a question about one of your tasks, they reply in a thread on that message. The channel stays clean, and the context stays attached to the right update.</p>
+
+      <h3>Customize templates for your team's voice</h3>
+
+      <p>The 15 templates in this guide are starting points. Every team has its own communication style, terminology, and norms. After using the templates for a week, review them with your team and make adjustments:</p>
+
+      <ul>
+        <li><strong>Add or remove fields.</strong> If your team never has blockers worth reporting, remove that section from the standup template. If you always need to mention a Jira ticket number, add a field for it.</li>
+        <li><strong>Match your tone.</strong> Some teams are formal, others are casual. Adjust the wording to match how your team actually talks so the templates feel natural rather than forced.</li>
+        <li><strong>Add team-specific variables.</strong> If every message references a project name, a sprint number, or a specific tool, add those as <code>{variables}</code> so they get filled in consistently.</li>
+      </ul>
+
+      <h3>Set up a dedicated templates channel</h3>
+
+      <p>Create a <code>#team-templates</code> channel where you store and discuss your team's template library. Pin the current versions of your most-used templates so anyone can grab them. When someone suggests an improvement, discuss it in the channel and update the template. This keeps your <strong>Slack canned responses</strong> evolving as your team's needs change.</p>
+
+      <div class="tip-box">
+        <strong>Pro tip:</strong> Schedule a monthly five-minute "template review" where your team looks at usage patterns. Which templates get used daily? Which ones never get touched? Retire the unused ones and add new templates for any message patterns that have emerged since the last review.
+      </div>
+
+      <h3>Batch your Slack time</h3>
+
+      <p>Templates help you communicate faster, but the biggest productivity gain comes from being intentional about when you check Slack. Instead of monitoring it continuously, batch your Slack time into three or four sessions per day. Use your templates to quickly post updates and respond to messages during those windows, then close Slack and focus on deep work. The templates make your batched sessions more efficient because composing messages takes seconds instead of minutes.</p>
+
+      <p>For more strategies on reclaiming time from repetitive typing, read our guide on <a href="/snaptype-extension/blog/save-time-typing-shortcuts.html">saving time with typing shortcuts</a>.</p>
+
+      <!-- Section 9: Get Started -->
+      <h2 id="get-started">9. Get Started Today</h2>
+
+      <p>You do not need to implement all 15 templates at once. Start with the two or three that match your most frequent Slack messages and build from there.</p>
+
+      <p>Here is a quick start plan:</p>
+
+      <ul>
+        <li><strong>Day 1:</strong> Install <a href="/snaptype-extension/">SnapType</a> and create your top three shortcuts: <code>/standup</code>, <code>/eod</code>, and <code>/handoff</code>. These cover the most common daily messages.</li>
+        <li><strong>Day 2-3:</strong> Add the meeting templates: <code>/agenda</code>, <code>/meeting-notes</code>, and <code>/action-items</code>. Use them in your next meeting cycle.</li>
+        <li><strong>Week 1:</strong> Fill in the rest of the library with coordination and feedback templates. Share your snippet pack with teammates so everyone is using the same formats.</li>
+        <li><strong>Week 2 and beyond:</strong> Customize templates based on what works. Remove fields your team does not use, add new ones, and expand your library to cover messages in other tools like <a href="/snaptype-extension/blog/text-shortcuts-gmail.html">Gmail</a>, your CRM, or project management software.</li>
+      </ul>
+
+      <p>The teams that get the most value from <strong>Slack message templates</strong> are the ones that treat them as living documents. Review, refine, and expand your library regularly. Within a month, routine Slack communication will feel effortless, and your team's messages will be clearer and more consistent than ever.</p>
+
+      <p>Need templates for other use cases? Browse our <a href="/snaptype-extension/templates.html">full template library</a> for ready-made snippets covering <a href="/snaptype-extension/blog/customer-support-templates.html">customer support</a>, <a href="/snaptype-extension/blog/sales-email-templates.html">sales outreach</a>, and <a href="/snaptype-extension/blog/canned-responses-guide.html">canned responses</a> across every platform.</p>
+
+      <div class="cta-box">
+        <h3>Type less. Communicate better.</h3>
+        <p>SnapType is free to install and works instantly in Slack, Gmail, and every other website. Set up your first Slack shortcut in under 60 seconds.</p>
+        <a href="/snaptype-extension/" class="btn">Install SnapType Free</a>
+        <a href="/snaptype-extension/templates.html" class="btn">Browse Templates</a>
+      </div>
+    </div>
+  </article>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 SnapType. <a href="/snaptype-extension/">Home</a> &middot; <a href="/snaptype-extension/blog/">Blog</a> &middot; <a href="/snaptype-extension/templates.html">Templates</a> &middot; <a href="/snaptype-extension/compare.html">Compare</a> &middot; <a href="/snaptype-extension/tools/email-generator.html">Email Generator</a> &middot; <a href="/snaptype-extension/privacy.html">Privacy</a></p>
+    </div>
+  </footer>
+</body>
+</html>

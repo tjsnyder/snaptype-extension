@@ -1,0 +1,87 @@
+[
+  {
+    "shortcut": "/inquiry",
+    "content": "Hi {name}! Thank you for your interest in the property at {address}. I'd love to tell you more about it. Are you available for a quick call or would you prefer I send over the full listing details by email? I'm here to answer any questions you have.",
+    "folder": "Real Estate - Inquiries"
+  },
+  {
+    "shortcut": "/showing",
+    "content": "Hi {name}, this is a confirmation for your property showing:\n\nProperty: {address}\nDate: {date}\nTime: {time}\n\nPlease arrive a few minutes early so we can make the most of our time together. If you need to reschedule, just let me know as soon as possible. I look forward to showing you the home!",
+    "folder": "Real Estate - Showings"
+  },
+  {
+    "shortcut": "/openhouse",
+    "content": "You're invited to an open house!\n\nProperty: {address}\nDate: {date}\nTime: {time}\n\nThis is a wonderful opportunity to tour the home in person and explore the neighborhood. Feel free to bring along family or friends. No appointment needed — just stop by! Let me know if you have any questions beforehand.",
+    "folder": "Real Estate - Showings"
+  },
+  {
+    "shortcut": "/offer",
+    "content": "Great news, {name}! We've received an offer on your property at {address}. I'd like to walk you through the details and discuss our options. Are you available for a call today? The sooner we review it together, the better positioned we'll be to respond.",
+    "folder": "Real Estate - Offers"
+  },
+  {
+    "shortcut": "/counter",
+    "content": "Hi {name}, after reviewing the offer on {address}, we've prepared a counter-offer that I believe positions us well. I've outlined the key terms and adjustments for your review. Please take a look and let me know your thoughts. I'm happy to walk through each point with you whenever you're ready.",
+    "folder": "Real Estate - Offers"
+  },
+  {
+    "shortcut": "/buyerfollowup",
+    "content": "Hi {name}, I wanted to follow up after our recent showing at {address}. I'd love to hear your thoughts on the property. Did it check the right boxes for you, or would you like me to line up some other options that might be a better fit? I'm here to make sure we find the perfect home for you.",
+    "folder": "Real Estate - Follow-ups"
+  },
+  {
+    "shortcut": "/sellerupdate",
+    "content": "Hi {name}, here's a quick update on your listing at {address}:\n\nDays on market: {days}\nShowings this week: {showings}\nOnline views: {views}\n\nI'm continuing to actively market the property and will keep you informed of any developments. Please don't hesitate to reach out if you have questions or want to discuss strategy.",
+    "folder": "Real Estate - Follow-ups"
+  },
+  {
+    "shortcut": "/newlisting",
+    "content": "Exciting news — I just listed a beautiful property that I think you'll want to see!\n\nAddress: {address}\nBedrooms: {beds} | Bathrooms: {baths}\nPrice: {price}\n\nBased on what you've told me you're looking for, this one could be a great match. Would you like to schedule a private showing before it gets too much attention? Let me know and I'll set it up.",
+    "folder": "Real Estate - Listings"
+  },
+  {
+    "shortcut": "/pricedrop",
+    "content": "Hi {name}, I wanted to let you know that the property at {address} has just had a price reduction to {price}. If this home caught your eye before, now might be the right time to take another look. Would you like to schedule a showing? I'd love to help you explore this opportunity.",
+    "folder": "Real Estate - Listings"
+  },
+  {
+    "shortcut": "/congrats",
+    "content": "Congratulations, {name}! The closing on {address} is officially complete — the keys are yours! It has been an absolute pleasure working with you through this process. I hope this home brings you and your family years of happiness. Please don't hesitate to reach out if you ever need anything. I'm always here for you.",
+    "folder": "Real Estate - Closing"
+  },
+  {
+    "shortcut": "/preapproval",
+    "content": "Hi {name}, a quick reminder that getting pre-approved for a mortgage is one of the most important steps in your home-buying journey. It gives us a clear picture of your budget and shows sellers that you're a serious buyer. Would you like me to connect you with a trusted lender I work with? Happy to help get the ball rolling.",
+    "folder": "Real Estate - Financing"
+  },
+  {
+    "shortcut": "/inspection",
+    "content": "Hi {name}, the home inspection for {address} has been completed. I've reviewed the report and would like to go over the findings with you. Some items are routine, and a few may warrant further discussion as we move forward. When is a good time to connect? I want to make sure you feel confident about the next steps.",
+    "folder": "Real Estate - Closing"
+  },
+  {
+    "shortcut": "/market",
+    "content": "Hi {name}, here's a quick snapshot of the local real estate market:\n\nMedian sale price: {median_price}\nAverage days on market: {avg_days}\nInventory trend: {trend}\n\nWhether you're thinking about buying, selling, or just staying informed, I'm happy to dive deeper into what these numbers mean for you. Feel free to reach out anytime.",
+    "folder": "Real Estate - Market Updates"
+  },
+  {
+    "shortcut": "/refthanks",
+    "content": "Hi {name}, I just wanted to say a heartfelt thank you for referring {referral_name} to me. Referrals are the greatest compliment I can receive, and I truly appreciate your trust in my work. I'll make sure to take excellent care of them. Thank you again for thinking of me!",
+    "folder": "Real Estate - Referrals"
+  },
+  {
+    "shortcut": "/renewal",
+    "content": "Hi {name}, I hope you've been enjoying your time at {address}. Your lease is coming up for renewal on {date}, and I'd love to discuss your plans. If you'd like to stay, I can walk you through the renewal terms. If your needs have changed, I'm happy to help you explore other options as well. Please let me know how you'd like to proceed.",
+    "folder": "Real Estate - Property Management"
+  },
+  {
+    "shortcut": "/appraisal",
+    "content": "Hi {name}, the appraisal for {address} has been completed, and I have the results to share with you. I'd like to go over the valuation and discuss how it fits into our overall plan. Are you available for a call? This is an important milestone and I want to make sure we're aligned on next steps.",
+    "folder": "Real Estate - Closing"
+  },
+  {
+    "shortcut": "/testimonial",
+    "content": "Hi {name}, congratulations again on your new home! Now that you've had a chance to settle in, I was wondering if you'd be open to sharing a brief testimonial about your experience working with me. A few sentences would mean the world and really helps other buyers and sellers feel confident reaching out. No pressure at all — just let me know!",
+    "folder": "Real Estate - Referrals"
+  }
+]
